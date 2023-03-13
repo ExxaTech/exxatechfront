@@ -40,7 +40,7 @@ interface IMenuLateralrData {
 export const MenuLateral: React.FC<IMenuLateralrData> = ({ children }) => {
   const theme = useTheme();
   const smDown = useMediaQuery(theme.breakpoints.down('sm'));
-  const { isDrawerOpen, toggleDrawerOpen } = useDrawerContext();
+  const { isDrawerOpen, toggleDrawerOpen, drawerOptions } = useDrawerContext();
 
   return (
     <>
@@ -54,16 +54,15 @@ export const MenuLateral: React.FC<IMenuLateralrData> = ({ children }) => {
           <Divider />
           <Box flex={1}>
             <List component="nav">
-              <ListItemLink icon='home'
-                to='/pagina-inicial'
-                label='Pagina inicial'
-                onClick={smDown ? toggleDrawerOpen : undefined}
-              />
-              <ListItemLink icon='chat'
-                to='/wpp'
-                label='WhatsApp'
-                onClick={smDown ? toggleDrawerOpen : undefined}
-              />
+              {drawerOptions.map(drawerOptions => (
+                <ListItemLink
+                  key={drawerOptions.path}
+                  icon={drawerOptions.icon}
+                  to={drawerOptions.path}
+                  label={drawerOptions.label}
+                  onClick={smDown ? toggleDrawerOpen : undefined}
+                />
+              ))}
             </List>
           </Box>
         </Box>
