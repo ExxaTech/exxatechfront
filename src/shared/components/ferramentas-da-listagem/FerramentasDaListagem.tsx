@@ -1,7 +1,7 @@
 import { Box, Button, Icon, Paper, TextField, useTheme } from '@mui/material';
 
 
-interface IBarraFeFerramentasProps {
+interface IFerramentasDaListagemProps {
   textoDaBusca?: string;
   mostrarInputBusca?: boolean;
   aoMudarTextoDaBusca?: (novoText: string) => void;
@@ -10,7 +10,7 @@ interface IBarraFeFerramentasProps {
   aoClicarEmNovo?: () => void;
 }
 
-export const BarraDeFerramentas: React.FC<IBarraFeFerramentasProps> = ({
+export const FerramentasDaListagem: React.FC<IFerramentasDaListagemProps> = ({
   textoDaBusca = '',
   mostrarInputBusca = false,
   aoMudarTextoDaBusca,

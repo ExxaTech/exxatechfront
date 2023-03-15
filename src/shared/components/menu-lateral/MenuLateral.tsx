@@ -74,6 +74,12 @@ export const MenuLateral: React.FC<IMenuLateralrData> = ({ children }) => {
                 </ListItemIcon>
                 <ListItemText />
               </ListItemButton>
+              <ListItemButton>
+                <ListItemIcon>
+                  <Icon>logout</Icon>
+                </ListItemIcon>
+                <ListItemText />
+              </ListItemButton>
             </List>
           </Box>
         </Box>
