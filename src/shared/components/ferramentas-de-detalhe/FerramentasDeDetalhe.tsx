@@ -1,4 +1,4 @@
-import { Box, Button, Divider, Icon, Paper, Skeleton, useTheme } from '@mui/material';
+import { Box, Button, Divider, Icon, Paper, Skeleton, Theme, Typography, useMediaQuery, useTheme } from '@mui/material';
 
 interface IFerramentasDeDetalheProps {
   textoBotaoNovo?: string;
@@ -44,7 +44,10 @@ export const FerramentasDeDetalhe: React.FC<IFerramentasDeDetalheProps> = ({
   aoClicarEmSavarEFechar,
 
 }) => {
+  const smDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
+  const mdDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('md'));
   const theme = useTheme();
+
 
   return (
     <Box
@@ -54,7 +57,7 @@ export const FerramentasDeDetalhe: React.FC<IFerramentasDeDetalheProps> = ({
       paddingX={2}
       display="flex"
       gap={1}
-      alignItems='cefnter'
+      alignItems='center'
       component={Paper}
     >
       {(mostrarBotaoSalvar && !mostrarBotaoSalvarCarregando)
@@ -64,7 +67,12 @@ export const FerramentasDeDetalhe: React.FC<IFerramentasDeDetalheProps> = ({
           variant='contained'
           startIcon={<Icon>save</Icon>}
           onClick={aoClicarEmSalvar}
-        >Salvar</Button>)}
+        >
+          <Typography variant='button' whiteSpace='nowrap' overflow='hidden' textOverflow='ellipsis'>
+            Salvar
+          </Typography>
+
+        </Button>)}
 
       {mostrarBotaoSalvarCarregando && (
         <Skeleton width={110} height={60} />
@@ -77,53 +85,83 @@ export const FerramentasDeDetalhe: React.FC<IFerramentasDeDetalheProps> = ({
           variant='outlined'
           startIcon={<Icon>save</Icon>}
           onClick={aoClicarEmSavarEFechar}
-        >Salvar e voltar</Button>)}
+        >
+          <Typography variant='button' whiteSpace='nowrap' overflow='hidden' textOverflow='ellipsis'>
+            Salvar e voltar
+          </Typography>
+        </Button>)
+      }
 
-      {mostrarBotaoSalvarEFecharCarregando && (
-        <Skeleton width={180} height={60} />
-      )}
+      {
+        mostrarBotaoSalvarEFecharCarregando && (
+          <Skeleton width={180} height={60} />
+        )
+      }
 
-      {(mostrarBotaoApagar && !mostrarBotaoApagarCarregando)
+      {
+        (mostrarBotaoApagar && !mostrarBotaoApagarCarregando)
         && (<Button
           color='primary'
           disableElevation
           variant='outlined'
           startIcon={<Icon>delete</Icon>}
           onClick={aoClicarEmApagar}
-        >Apagar</Button>)}
+        >
+          <Typography variant='button' whiteSpace='nowrap' overflow='hidden' textOverflow='ellipsis'>
+            Apagar
+          </Typography>
+        </Button>)
+      }
 
-      {mostrarBotaoApagarCarregando && (
-        <Skeleton width={110} height={60} />
-      )}
+      {
+        mostrarBotaoApagarCarregando && (
+          <Skeleton width={110} height={60} />
+        )
+      }
 
-      {(mostrarBotaoNovo && !mostrarBotaoNovoCarregando)
+      {
+        (mostrarBotaoNovo && !mostrarBotaoNovoCarregando)
         && (<Button
           color='primary'
           disableElevation
           variant='outlined'
           startIcon={<Icon>add</Icon>}
           onClick={aoClicarEmNovo}
-        >{textoBotaoNovo}</Button>)}
+        >
+          <Typography variant='button' whiteSpace='nowrap' overflow='hidden' textOverflow='ellipsis'>
+            {textoBotaoNovo}
+          </Typography>
+        </Button>)
+      }
 
-      {mostrarBotaoNovoCarregando && (
-        <Skeleton width={110} height={60} />
-      )}
+      {
+        mostrarBotaoNovoCarregando && (
+          <Skeleton width={110} height={60} />
+        )
+      }
 
       <Divider variant='middle' orientation='vertical' />
 
-      {(mostrarBotaoVoltar && !mostrarBotaoVoltarCarregando)
+      {
+        (mostrarBotaoVoltar && !mostrarBotaoVoltarCarregando)
         && (<Button
           color='primary'
           disableElevation
           variant='outlined'
           startIcon={<Icon>arrow_back</Icon>}
           onClick={aoClicarEmVoltar}
-        >Voltar</Button>)}
+        >
+          <Typography variant='button' whiteSpace='nowrap' overflow='hidden' textOverflow='ellipsis'>
+            Voltar
+          </Typography>
+        </Button>)
+      }
 
-      {mostrarBotaoVoltarCarregando && (
-        <Skeleton width={110} height={60} />
-      )}
-
-    </Box>
+      {
+        mostrarBotaoVoltarCarregando && (
+          <Skeleton width={110} height={60} />
+        )
+      }
+    </Box >
   );
 };
