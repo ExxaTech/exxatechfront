@@ -47,9 +47,9 @@ export const MenuLateral: React.FC<IMenuLateralrData> = ({ children }) => {
     <>
       <Drawer open={isDrawerOpen} variant={smDown ? 'temporary' : 'permanent'} onClose={toggleDrawerOpen}>
         <Box width={theme.spacing(28)} display="flex" flexDirection="column" height="100%">
-          <Box width="100%" height={theme.spacing(20)} display="flex" alignItems="center" justifyContent="center">
+          <Box width="100%" height={theme.spacing(15)} display="flex" alignItems="center" justifyContent="center">
             <Avatar alt="Remy Sharp"
-              sx={{ height: theme.spacing(12), width: theme.spacing(12) }}
+              sx={{ height: theme.spacing(10), width: theme.spacing(10) }}
               src={window.location.origin + '/exxa.png'} />
           </Box>
           <Divider />
@@ -71,12 +71,6 @@ export const MenuLateral: React.FC<IMenuLateralrData> = ({ children }) => {
               <ListItemButton onClick={toggleTheme}>
                 <ListItemIcon>
                   <Icon> dark_mode </Icon>
-                </ListItemIcon>
-                <ListItemText />
-              </ListItemButton>
-              <ListItemButton>
-                <ListItemIcon>
-                  <Icon>logout</Icon>
                 </ListItemIcon>
                 <ListItemText />
               </ListItemButton>

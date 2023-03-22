@@ -1,7 +1,18 @@
+import { FerramentasDaListagem } from "../../shared/components";
+import { LayoutBaseDePagina } from "../../shared/layouts";
+
 export const Wppchat: React.FC = () => {
   return (
-    <div>
-      <h1>Chats</h1>
-    </div>
+    <LayoutBaseDePagina
+      titulo="Whatsapp"
+      barraDeFerramentas={
+        <FerramentasDaListagem
+          textoBotaoNovo="Novo"
+        />
+      }
+      caminho="/cep"
+      icone="location_city">
+
+    </LayoutBaseDePagina>
   );
 };

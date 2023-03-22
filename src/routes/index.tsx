@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { Dashboard, ListagemDeCidade, Wppchat } from '../pages';
+import { Dashboard, ListagemDeCep, Wppchat } from '../pages';
 import { useDrawerContext } from '../shared/contexts';
 
 export const AppRoutes = () => {
@@ -19,8 +19,8 @@ export const AppRoutes = () => {
         icon: 'chat',
       },
       {
-        label: 'Cidades',
-        path: '/cidades',
+        label: 'Endereços',
+        path: '/cep',
         icon: 'location_city',
       }
     ]);
@@ -31,10 +31,10 @@ export const AppRoutes = () => {
     <Routes>
       <Route path="/pagina-inicial" element={<Dashboard />} />
 
-      {/* Cidades */}
+      {/* Endereços */}
 
-      <Route path="/cidades" element={<ListagemDeCidade />} />
-      <Route path="/cidades/detahles/:id" element={<ListagemDeCidade />} />
+      <Route path="/cep" element={<ListagemDeCep />} />
+      <Route path="/cep/detahles/:id" element={<ListagemDeCep />} />
 
       {/* Whatsapp */}
       <Route path="/wppchat" element={<Wppchat />} />

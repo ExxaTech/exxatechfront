@@ -3,7 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { FerramentasDaListagem } from "../../shared/components";
 import { LayoutBaseDePagina } from "../../shared/layouts";
 
-export const ListagemDeCidade: React.FC = () => {
+export const ListagemDeCep: React.FC = () => {
 
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -13,15 +13,17 @@ export const ListagemDeCidade: React.FC = () => {
 
   return (
     <LayoutBaseDePagina
-      titulo="Listagem de Cidades"
+      titulo="Endereços"
       barraDeFerramentas={
         <FerramentasDaListagem
           mostrarInputBusca
-          textoBotaoNovo="Nova"
+          textoBotaoNovo="Novo"
           textoDaBusca={busca}
           aoMudarTextoDaBusca={texto => setSearchParams({ busca: texto }, { replace: true })}
         />
-      }>
+      }
+      caminho="/cep"
+      icone="location_city">
 
     </LayoutBaseDePagina>
   );
