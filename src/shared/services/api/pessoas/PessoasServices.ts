@@ -2,7 +2,7 @@ import { Environtment } from '../../../environment';
 import { Api } from '../axios-config';
 
 
-interface IDetalherPessoa {
+interface IDetalhePessoa {
   id: number;
   nomeCompleto: string;
   email: string;
@@ -42,13 +42,51 @@ const getAll = async (page = 1, filter = ''): Promise<IPessoasComTotalCount | Er
 
 };
 
-const getById = async (): Promise<any> => { };
+const getById = async (id: number): Promise<IDetalhePessoa | Error> => {
+  try {
+    const { data } = await Api.get(`/pessoas/${id}`);
 
-const create = async (): Promise<any> => { };
+    if (data) return data;
 
-const updateById = async (): Promise<any> => { };
+    return new Error('Nenhum registro encontrado para essa pesquisa');
+  } catch (error) {
+    console.log(error);
+    return new Error((error as { message: string }).message || 'Erro ao consultar registro de pessoas');
+  }
+}
 
-const deleteById = async (): Promise<any> => { };
+
+const create = async (dados: Omit<IDetalhePessoa, 'id'>): Promise<number | Error> => {
+  try {
+    const { data } = await Api.post<IDetalhePessoa>('/pessoas', dados);
+
+    if (data) return data.id;
+
+    return new Error('Erro ao criar o registro');
+  } catch (error) {
+    console.log(error);
+    return new Error((error as { message: string }).message || 'Erro ao criar o registro');
+  }
+
+};
+
+const updateById = async (id: number, dados: IDetalhePessoa): Promise<void | Error> => {
+  try {
+    await Api.put(`/pessoas/${id}`, dados);
+  } catch (error) {
+    console.log(error);
+    return new Error((error as { message: string }).message || 'Erro ao atualizar o registro');
+  }
+};
+
+const deleteById = async (id: number): Promise<void | Error> => {
+  try {
+    await Api.delete(`/pessoas/${id}`);
+  } catch (error) {
+    console.log(error);
+    return new Error((error as { message: string }).message || 'Erro ao deletar o registro');
+  }
+};
 
 export const PessoasServices = {
   getAll,

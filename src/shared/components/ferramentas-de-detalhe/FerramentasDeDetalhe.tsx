@@ -27,7 +27,7 @@ interface IFerramentasDeDetalheProps {
 
 export const FerramentasDeDetalhe: React.FC<IFerramentasDeDetalheProps> = ({
   textoBotaoNovo = 'Novo',
-  textoBotaoSalvarEFechar = 'Salvar e voltar',
+  textoBotaoSalvarEFechar = 'Salvar e fechar',
   mostrarBotaoNovo = true,
   mostrarBotaoVoltar = true,
   mostrarBotaoApagar = true,
@@ -50,7 +50,7 @@ export const FerramentasDeDetalhe: React.FC<IFerramentasDeDetalheProps> = ({
   const smDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
   const mdDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('md'));
   const theme = useTheme();
-  const options = ['Menu', 'Novo', 'Salvar e Voltar'];
+  const options = ['Menu', 'Novo', 'Salvar e fechar'];
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [open, setOpen] = useState(false);
   const anchorRef = useRef<HTMLDivElement>(null);
