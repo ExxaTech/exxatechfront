@@ -1,56 +1,42 @@
 import { ArrowDropDown } from '@mui/icons-material';
-import { Box, Button, ButtonGroup, ClickAwayListener, Divider, Grow, Icon, MenuItem, MenuList, Paper, Popper, Skeleton, Theme, Typography, useMediaQuery, useTheme } from '@mui/material';
+import { Box, Button, ButtonGroup, ClickAwayListener, Grow, Icon, MenuItem, MenuList, Paper, Popper, Skeleton, Theme, Typography, useMediaQuery, useTheme } from '@mui/material';
 import { useRef, useState } from 'react';
 
 interface IFerramentasDeDetalheProps {
   textoBotaoNovo?: string;
-  textoBotaoSalvarEFechar?: string;
 
   mostrarBotaoNovo?: boolean;
-  mostrarBotaoVoltar?: boolean;
   mostrarBotaoApagar?: boolean;
   mostrarBotaoSalvar?: boolean;
-  mostrarBotaoSalvarEFechar?: boolean;
 
   mostrarBotaoSalvarCarregando?: boolean;
   mostrarBotaoNovoCarregando?: boolean;
-  mostrarBotaoVoltarCarregando?: boolean;
   mostrarBotaoApagarCarregando?: boolean;
-  mostrarBotaoSalvarEFecharCarregando?: boolean;
 
   aoClicarEmNovo?: () => void;
-  aoClicarEmVoltar?: () => void;
   aoClicarEmApagar?: () => void;
   aoClicarEmSalvar?: () => void;
-  aoClicarEmSavarEFechar?: () => void;
 }
 
 export const FerramentasDeDetalhe: React.FC<IFerramentasDeDetalheProps> = ({
   textoBotaoNovo = 'Novo',
-  textoBotaoSalvarEFechar = 'Salvar e voltar',
-  mostrarBotaoNovo = true,
-  mostrarBotaoVoltar = true,
-  mostrarBotaoApagar = true,
-  mostrarBotaoSalvar = true,
-  mostrarBotaoSalvarEFechar = false,
+  mostrarBotaoNovo = false,
+  mostrarBotaoApagar = false,
+  mostrarBotaoSalvar = false,
 
-  mostrarBotaoSalvarEFecharCarregando = false,
   mostrarBotaoNovoCarregando = false,
-  mostrarBotaoVoltarCarregando = false,
   mostrarBotaoApagarCarregando = false,
   mostrarBotaoSalvarCarregando = false,
 
   aoClicarEmNovo,
-  aoClicarEmVoltar,
   aoClicarEmApagar,
   aoClicarEmSalvar,
-  aoClicarEmSavarEFechar,
 
 }) => {
   const smDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
   const mdDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('md'));
   const theme = useTheme();
-  const options = ['Menu', 'Novo', 'Salvar e Voltar'];
+  const options = ['Menu', 'Novo', 'Salvar'];
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [open, setOpen] = useState(false);
   const anchorRef = useRef<HTMLDivElement>(null);
@@ -115,26 +101,6 @@ export const FerramentasDeDetalhe: React.FC<IFerramentasDeDetalheProps> = ({
         <Skeleton width={110} height={60} />
       )}
 
-      {(mostrarBotaoSalvarEFechar && !mostrarBotaoSalvarEFecharCarregando && isWeb)
-        && (<Button
-          color='primary'
-          disableElevation
-          variant='outlined'
-          startIcon={<Icon>save</Icon>}
-          onClick={aoClicarEmSavarEFechar}
-        >
-          <Typography variant='button' whiteSpace='nowrap' overflow='hidden' textOverflow='ellipsis'>
-            {textoBotaoSalvarEFechar}
-          </Typography>
-        </Button>)
-      }
-
-      {
-        mostrarBotaoSalvarEFecharCarregando && isWeb && (
-          <Skeleton width={180} height={60} />
-        )
-      }
-
       {
         (mostrarBotaoApagar && !mostrarBotaoApagarCarregando && isWeb)
         && (<Button
@@ -173,29 +139,6 @@ export const FerramentasDeDetalhe: React.FC<IFerramentasDeDetalheProps> = ({
 
       {
         mostrarBotaoNovoCarregando && isWeb && (
-          <Skeleton width={110} height={60} />
-        )
-      }
-
-      {isWeb && (<Divider variant='middle' orientation='vertical' />)}
-
-      {
-        (mostrarBotaoVoltar && !mostrarBotaoVoltarCarregando && isWeb)
-        && (<Button
-          color='primary'
-          disableElevation
-          variant='outlined'
-          startIcon={<Icon>arrow_back</Icon>}
-          onClick={aoClicarEmVoltar}
-        >
-          <Typography variant='button' whiteSpace='nowrap' overflow='hidden' textOverflow='ellipsis'>
-            Voltar
-          </Typography>
-        </Button>)
-      }
-
-      {
-        mostrarBotaoVoltarCarregando && isWeb && (
           <Skeleton width={110} height={60} />
         )
       }
