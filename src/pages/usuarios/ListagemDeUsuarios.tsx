@@ -1,7 +1,8 @@
-import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
+import { LinearProgress, Paper, Table, TableBody, TableCell, TableContainer, TableFooter, TableHead, TableRow } from "@mui/material";
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { FerramentasDaListagem } from "../../shared/components";
+import { Environtment } from "../../shared/environment";
 import { useDebounce } from "../../shared/hooks";
 import { LayoutBaseDePagina } from "../../shared/layouts";
 import { IListagemUsuario, UsuariosServices } from "../../shared/services/api/usuario/UsuarioServices";
@@ -74,9 +75,22 @@ export const ListagemDeUsuarios: React.FC = () => {
             ))}
 
           </TableBody>
+
+          {totalCount === 0 && !isLoading && (
+            <caption>{Environtment.LISTAGEM_VAZIA}</caption>
+          )}
+
+          <TableFooter>
+            {isLoading && (
+              <TableRow>
+                <TableCell colSpan={3}>
+                  <LinearProgress variant="indeterminate" />
+                </TableCell>
+              </TableRow>
+            )}
+          </TableFooter>
         </Table>
       </TableContainer>
-
     </LayoutBaseDePagina>
   );
 };
