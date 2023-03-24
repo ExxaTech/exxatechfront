@@ -2,29 +2,29 @@ import { Environtment } from '../../../environment';
 import { Api } from '../axios-config';
 
 
-interface IDetalhePessoa {
+interface IDetalheUsuario {
   id: number;
   nomeCompleto: string;
   email: string;
-  cepId: number;
+  enderecoId: number;
 }
 
 
-interface IListagemPessoa {
+interface IListagemUsuario {
   id: number;
   nomeCompleto: string;
   email: string;
-  cepId: number;
+  enderecoId: number;
 }
 
-type IPessoasComTotalCount = {
-  data: IListagemPessoa[];
+type IUsuariosComTotalCount = {
+  data: IListagemUsuario[];
   totalCount: number;
 }
 
-const getAll = async (page = 1, filter = ''): Promise<IPessoasComTotalCount | Error> => {
+const getAll = async (page = 1, filter = ''): Promise<IUsuariosComTotalCount | Error> => {
   try {
-    const urlRelativa = `/pessoas?_page=${page}& _limit=${Environtment.LIMITE_DE_LINHAS}&nomeCompleto=${filter}`;
+    const urlRelativa = `/usuarios?_page=${page}&_limit=${Environtment.LIMITE_DE_LINHAS}&nomeCompleto_like=${filter}`;
 
     const { data, headers } = await Api.get(urlRelativa);
 
@@ -37,28 +37,28 @@ const getAll = async (page = 1, filter = ''): Promise<IPessoasComTotalCount | Er
     return new Error('Nenhum registro encontrado para essa pesquisa');
   } catch (error) {
     console.log(error);
-    return new Error((error as { message: string }).message || 'Erro ao listar registros de pessoas');
+    return new Error((error as { message: string }).message || 'Erro ao listar registros de Usuarios');
   }
 
 };
 
-const getById = async (id: number): Promise<IDetalhePessoa | Error> => {
+const getById = async (id: number): Promise<IDetalheUsuario | Error> => {
   try {
-    const { data } = await Api.get(`/pessoas/${id}`);
+    const { data } = await Api.get(`/usuarios/${id}`);
 
     if (data) return data;
 
     return new Error('Nenhum registro encontrado para essa pesquisa');
   } catch (error) {
     console.log(error);
-    return new Error((error as { message: string }).message || 'Erro ao consultar registro de pessoas');
+    return new Error((error as { message: string }).message || 'Erro ao consultar registro de Usuarios');
   }
 }
 
 
-const create = async (dados: Omit<IDetalhePessoa, 'id'>): Promise<number | Error> => {
+const create = async (dados: Omit<IDetalheUsuario, 'id'>): Promise<number | Error> => {
   try {
-    const { data } = await Api.post<IDetalhePessoa>('/pessoas', dados);
+    const { data } = await Api.post<IDetalheUsuario>('/usuarios', dados);
 
     if (data) return data.id;
 
@@ -70,9 +70,9 @@ const create = async (dados: Omit<IDetalhePessoa, 'id'>): Promise<number | Error
 
 };
 
-const updateById = async (id: number, dados: IDetalhePessoa): Promise<void | Error> => {
+const updateById = async (id: number, dados: IDetalheUsuario): Promise<void | Error> => {
   try {
-    await Api.put(`/pessoas/${id}`, dados);
+    await Api.put(`/usuarios/${id}`, dados);
   } catch (error) {
     console.log(error);
     return new Error((error as { message: string }).message || 'Erro ao atualizar o registro');
@@ -81,14 +81,14 @@ const updateById = async (id: number, dados: IDetalhePessoa): Promise<void | Err
 
 const deleteById = async (id: number): Promise<void | Error> => {
   try {
-    await Api.delete(`/pessoas/${id}`);
+    await Api.delete(`/usuarios/${id}`);
   } catch (error) {
     console.log(error);
     return new Error((error as { message: string }).message || 'Erro ao deletar o registro');
   }
 };
 
-export const PessoasServices = {
+export const UsuariosServices = {
   getAll,
   getById,
   create,

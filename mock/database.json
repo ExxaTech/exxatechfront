@@ -1,9 +1,10 @@
 {
-  "pessoas": [
+  "usuarios": [
     {
       "id": 1,
-      "nome": "Milton",
-      "sobrenome": "Reis"
+      "nomeCompleto": "Milton Reis",
+      "email": "wmr049@gmail.com",
+      "enderecoId": 1
     }
   ]
 }
