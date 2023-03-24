@@ -10,8 +10,8 @@ export const Wppchat: React.FC = () => {
           textoBotaoNovo="Novo"
         />
       }
-      caminho="/cep"
-      icone="location_city">
+      caminho="/wppchat"
+      icone="chat">
 
     </LayoutBaseDePagina>
   );
