@@ -1,24 +1,6 @@
 {
   "usuarios": [
     {
-      "id": 1,
-      "nomeCompleto": "Milton Reis",
-      "email": "wmr049@gmail.com",
-      "enderecoId": 1
-    },
-    {
-      "id": 2,
-      "nomeCompleto": "Marcia Lira",
-      "email": "papreiscps@gmail.com",
-      "enderecoId": 12
-    },
-    {
-      "id": 3,
-      "nomeCompleto": "Heraldo Reis",
-      "email": "hreis049@gmail.com",
-      "enderecoId": 11
-    },
-    {
       "id": 4,
       "nomeCompleto": "Glaucia Reis",
       "email": "docinho@gmail.com",
@@ -64,6 +46,12 @@
       "id": 11,
       "nomeCompleto": "Louis Ponde",
       "email": "pp@gmail.com",
+      "enderecoId": 11
+    },
+    {
+      "id": 12,
+      "nomeCompleto": "Tatiana",
+      "email": "tati@gmail.com",
       "enderecoId": 11
     }
   ]
