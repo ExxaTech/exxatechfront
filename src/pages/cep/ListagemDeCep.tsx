@@ -23,7 +23,7 @@ export const ListagemDeCep: React.FC = () => {
         />
       }
       caminho="/cep"
-      icone="location_city">
+    >
 
     </LayoutBaseDePagina>
   );

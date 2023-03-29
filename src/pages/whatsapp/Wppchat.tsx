@@ -11,7 +11,7 @@ export const Wppchat: React.FC = () => {
         />
       }
       caminho="/wppchat"
-      icone="chat">
+    >
 
     </LayoutBaseDePagina>
   );

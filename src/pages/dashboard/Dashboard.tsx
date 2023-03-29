@@ -9,7 +9,7 @@ export const Dashboard = () => {
       )}
       caminho='/'
       titulo=''
-      icone=''
+
     >
     </LayoutBaseDePagina>
   );
