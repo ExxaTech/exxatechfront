@@ -46,6 +46,7 @@ export const AppRoutes = () => {
 
       {/* Usuários */}
       <Route path="/user" element={<ListagemDeUsuarios />} />
+      <Route path="/user/detahles/:id" element={<p>Detalhes do usuário</p>} />
 
       <Route path="*" element={<Navigate to="/pagina-inicial" />} />
     </Routes >

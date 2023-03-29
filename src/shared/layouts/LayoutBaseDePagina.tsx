@@ -31,9 +31,13 @@ export const LayoutBaseDePagina: React.FC<ILayoutBaseDePaginaProps> = ({ childre
             <Icon>menu</Icon>
           </IconButton>)}
         <Box display="flex" height={theme.spacing(2)}>
-          <Breadcrumbs separator={<NavigateNextIcon />}>
-            <Link onClick={() => navigate(`/`)} > Inicio</Link>
-            <Link onClick={() => navigate(`${caminho}`)}> {titulo} </Link>
+          <Breadcrumbs separator={<NavigateNextIcon />} >
+            <Link component="button"
+              variant="body2"
+              onClick={() => navigate(`/`)} > Inicio</Link>
+            <Link component="button"
+              variant="body2"
+              onClick={() => navigate(`${caminho}`)}> {titulo} </Link>
           </Breadcrumbs>
         </Box>
       </Box>

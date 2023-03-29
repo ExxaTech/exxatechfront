@@ -37,6 +37,7 @@ export const FerramentasDaListagem: React.FC<IFerramentasDaListagemProps> = ({
         value={textoDaBusca}
         onChange={(e) => aoMudarTextoDaBusca?.(e.target.value)}
         placeholder={Environtment.INPUT_DE_BUSCA} />)}
+
       <Box flex={1} display='flex' justifyContent='end' alignItems='center'>
         {mostrarBotaoNovo && (<Button
           color='primary'
