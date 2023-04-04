@@ -13,7 +13,9 @@ export const ListagemDeCep: React.FC = () => {
 
   return (
     <LayoutBaseDePagina
-      titulo="Endereços"
+      navegacao={[
+        { descricao: "Inicio", caminho: "/" },
+        { descricao: "Endereços", caminho: "/cep" }]}
       barraDeFerramentas={
         <FerramentasDaListagem
           mostrarInputBusca
@@ -22,7 +24,6 @@ export const ListagemDeCep: React.FC = () => {
           aoMudarTextoDaBusca={texto => setSearchParams({ busca: texto }, { replace: true })}
         />
       }
-      caminho="/cep"
     >
 
     </LayoutBaseDePagina>

@@ -84,25 +84,27 @@ export const ListagemDeUsuarios: React.FC = () => {
 
   return (
     <LayoutBaseDePagina
-      titulo="Usuários"
+      navegacao={[
+        { descricao: "Inicio", caminho: "/" },
+        { descricao: "Usuários", caminho: "/user" }]}
       barraDeFerramentas={
         <FerramentasDaListagem
           mostrarInputBusca
           textoBotaoNovo="Novo"
           textoDaBusca={busca}
+          aoClicarEmNovo={() => navigate('/user/detalhes/nova')}
           aoMudarTextoDaBusca={texto => setSearchParams({ busca: texto, pagina: '1' }, { replace: true })}
         />
       }
-      caminho="/user"
     >
 
       <TableContainer component={Paper} variant="outlined" sx={{ m: 1, width: 'auto' }}>
         <Table size="small" aria-label="a dense table">
           <TableHead>
             <TableRow>
-              <TableCell align="right">Ações</TableCell>
-              <TableCell align="right">Nome</TableCell>
-              <TableCell align="right">Email</TableCell>
+              <TableCell align="left">Ações</TableCell>
+              <TableCell align="left">Nome</TableCell>
+              <TableCell align="left">Email</TableCell>
               <TableCell align="center" width={10}></TableCell>
             </TableRow>
           </TableHead>
@@ -110,17 +112,17 @@ export const ListagemDeUsuarios: React.FC = () => {
 
             {rows.map((row) => (
               <TableRow key={row.id}>
-                <TableCell align="right">
-                  <IconButton size="small" onClick={() => navigate(`/user/detahles/${row.id}`)}>
+                <TableCell align="left">
+                  <IconButton size="small" onClick={() => navigate(`/user/detalhes/${row.id}`)}>
                     <Icon>edit</Icon>
                   </IconButton>
                   <IconButton size="small" onClick={() => handleDelete(row.id)}>
                     <Icon>delete</Icon>
                   </IconButton>
                 </TableCell>
-                <TableCell align="right">{row.nomeCompleto}</TableCell>
-                <TableCell align="right">{row.email}</TableCell>
-                <TableCell align="right">
+                <TableCell align="left">{row.nomeCompleto}</TableCell>
+                <TableCell align="left">{row.email}</TableCell>
+                <TableCell align="left">
                   <IconButton
                     aria-label="more"
                     aria-controls={open ? 'long-menu' : undefined}

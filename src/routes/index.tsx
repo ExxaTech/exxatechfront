@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { Dashboard, ListagemDeCep, ListagemDeUsuarios, Wppchat } from '../pages';
+import { Dashboard, DetalheDeUsuarios, ListagemDeCep, ListagemDeUsuarios, Wppchat } from '../pages';
 import { useDrawerContext } from '../shared/contexts';
 
 export const AppRoutes = () => {
@@ -29,7 +29,7 @@ export const AppRoutes = () => {
         icon: 'person',
       }
     ]);
-  });
+  }, []);
 
 
   return (
@@ -46,7 +46,7 @@ export const AppRoutes = () => {
 
       {/* Usuários */}
       <Route path="/user" element={<ListagemDeUsuarios />} />
-      <Route path="/user/detahles/:id" element={<p>Detalhes do usuário</p>} />
+      <Route path="/user/detalhes/:id" element={<DetalheDeUsuarios />} />
 
       <Route path="*" element={<Navigate to="/pagina-inicial" />} />
     </Routes >

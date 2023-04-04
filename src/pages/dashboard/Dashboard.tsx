@@ -4,11 +4,12 @@ import { LayoutBaseDePagina } from '../../shared/layouts';
 export const Dashboard = () => {
   return (
     <LayoutBaseDePagina
+      navegacao={[
+        { descricao: "Inicio", caminho: "/" }]}
       barraDeFerramentas={(
         <FerramentasDeDetalhe />
       )}
-      caminho='/'
-      titulo=''
+
 
     >
     </LayoutBaseDePagina>
