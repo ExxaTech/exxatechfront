@@ -2,7 +2,7 @@
   "usuarios": [
     {
       "id": 3,
-      "nomeCompleto": "Pedro Paulo Diniz 3",
+      "nomeCompleto": "Pedro Paulo Diniz 30",
       "email": "ppd3@gmail.com",
       "enderecoId": 1
     },
@@ -135,6 +135,38 @@
       "nomeCompleto": "",
       "email": "",
       "id": 25
+    }
+  ],
+  "enderecos": [
+    {
+      "id": 1,
+      "cep": "01001000",
+      "logradouro": "Praça da Sé",
+      "complemento": "lado ímpar",
+      "bairro": "Sé",
+      "localidade": "São Paulo",
+      "uf": "SP",
+      "numero": "10"
+    },
+    {
+      "id": 2,
+      "cep": "13050022",
+      "logradouro": "Rua Nazareno Mingoni",
+      "complemento": "",
+      "bairro": "Jardim do Lago",
+      "localidade": "Campinas",
+      "uf": "SP",
+      "numero": "20"
+    },
+    {
+      "cep": "13145-888",
+      "logradouro": "Rua Reinaldo Zanqui",
+      "numero": "188",
+      "complemento": "(Res Campos do Conde II)",
+      "bairro": "João Aranha",
+      "localidade": "Paulínia",
+      "uf": "SP",
+      "id": 3
     }
   ]
 }

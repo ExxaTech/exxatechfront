@@ -24,4 +24,10 @@ export const Environtment = {
   *Url base de API
   */
   URL_BASE: process.env.URL_BASE || 'http://localhost:3333',
+
+
+  /**
+  *Url base de API
+  */
+  URL_VIA_CEP: process.env.URL_VIA_CEP || 'https://viacep.com.br/ws/',
 };

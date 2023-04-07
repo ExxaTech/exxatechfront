@@ -6,9 +6,13 @@ const Api = axios.create({
   baseURL: Environtment.URL_BASE,
 });
 
+const ApiViaCep = axios.create({
+  baseURL: Environtment.URL_VIA_CEP
+})
+
 Api.interceptors.response.use(
   (response) => responseInterceptor(response),
   (error) => errorInterceptor(error),
 );
 
-export { Api };
+export { Api, ApiViaCep };

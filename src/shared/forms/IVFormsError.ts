@@ -1,0 +1,1 @@
+export interface IVFormsError { [key: string]: string }

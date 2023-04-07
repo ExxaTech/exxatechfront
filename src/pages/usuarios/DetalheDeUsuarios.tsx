@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import * as yup from 'yup';
 import { FerramentasDeDetalhe } from "../../shared/components";
-import { useVForm, VForm, VTextField } from "../../shared/forms";
+import { IVFormsError, useVForm, VForm, VTextField } from "../../shared/forms";
 import { LayoutBaseDePagina } from "../../shared/layouts";
 import { UsuariosServices } from "../../shared/services/api/usuario/UsuarioServices";
 
@@ -40,6 +40,7 @@ export const DetalheDeUsuarios: React.FC = () => {
             alert(result.message);
             navigate('/user');
           } else {
+            console.log(result)
             setNome(result.nomeCompleto)
             formRef.current?.setData(result);
           }
@@ -94,8 +95,7 @@ export const DetalheDeUsuarios: React.FC = () => {
         }
       })
       .catch((errors: yup.ValidationError) => {
-        // const validationErrors: IVFormErrors = {};
-        const validationErrors: { [key: string]: string } = {};
+        const validationErrors: IVFormsError = {};
 
         errors.inner.forEach(error => {
           console.log(error.path)
