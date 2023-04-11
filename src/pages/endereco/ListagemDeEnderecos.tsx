@@ -42,7 +42,6 @@ export const ListagemDeEnderecos: React.FC = () => {
   useEffect(() => {
     setIsLoading(true);
     debounce(() => {
-      console.log('debounce')
       EnderecoServices.getAll(pagina, busca)
         .then((result) => {
           setIsLoading(false);

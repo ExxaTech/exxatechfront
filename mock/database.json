@@ -1,140 +1,90 @@
 {
+  "auth": {
+    "accesToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ik1pbHRvbiBSZWlzIiwiaWF0IjoxNTE2MjM5MDIyLCJhdXRob3JpemF0aW9uIjoiYWxsIn0.fp_WO7c-bA5zT698XBiihCjQK1ugvOhi_dbK9-JbCTg"
+  },
   "usuarios": [
     {
-      "id": 3,
-      "nomeCompleto": "Pedro Paulo Diniz 30",
+      "id": 1,
+      "nomeCompleto": "Pedro Paulo Diniz 1",
       "email": "ppd3@gmail.com",
-      "enderecoId": 1
+      "enderecoId": 5
+    },
+    {
+      "id": 2,
+      "nomeCompleto": "Pedro Paulo Diniz 2",
+      "email": "ppd@gmail.com",
+      "enderecoId": 1,
+      "tenantId": 1
+    },
+    {
+      "id": 3,
+      "nomeCompleto": "Pedro Paulo Diniz tres",
+      "email": "ppd@gmail.com",
+      "enderecoId": 1,
+      "tenantId": 1
     },
     {
       "id": 4,
       "nomeCompleto": "Pedro Paulo Diniz 4",
-      "email": "ppd@gmail.com",
-      "enderecoId": 1
+      "email": "mf@gmail.com",
+      "enderecoId": 1,
+      "tenantId": 1
     },
     {
       "id": 5,
-      "nomeCompleto": "Pedro Paulo Diniz cinco",
-      "email": "ppd@gmail.com",
-      "enderecoId": 1
+      "nomeCompleto": "Pedro Paulo Diniz 5",
+      "email": "ppd5@gmail.com",
+      "enderecoId": 1,
+      "tenantId": 1
     },
     {
       "id": 6,
       "nomeCompleto": "Pedro Paulo Diniz 6",
-      "email": "js@gmail.com",
-      "enderecoId": 100
+      "email": "ppd6@gmail.com",
+      "enderecoId": 1,
+      "tenantId": 1
     },
     {
       "id": 7,
       "nomeCompleto": "Pedro Paulo Diniz 7",
-      "email": "mf@gmail.com",
-      "enderecoId": 1
+      "email": "ppd7@gmail.com",
+      "enderecoId": 1,
+      "tenantId": 1
     },
     {
       "id": 8,
       "nomeCompleto": "Pedro Paulo Diniz 8",
-      "email": "fp@gmail.com",
-      "enderecoId": 4
+      "email": "ppd8@gmail.com",
+      "enderecoId": 1,
+      "tenantId": 1
     },
     {
       "id": 9,
       "nomeCompleto": "Pedro Paulo Diniz 9",
-      "email": "mc@gmail.com",
-      "enderecoId": 145
+      "email": "ppd9@gmail.com",
+      "enderecoId": 1,
+      "tenantId": 1
     },
     {
       "id": 10,
       "nomeCompleto": "Pedro Paulo Diniz 10",
-      "email": "lk@gmail.com",
-      "enderecoId": 109
+      "email": "ppd10@gmail.com",
+      "enderecoId": 1,
+      "tenantId": 1
     },
     {
       "id": 11,
       "nomeCompleto": "Pedro Paulo Diniz 11",
-      "email": "pp@gmail.com",
-      "enderecoId": 11
+      "email": "ppd11@gmail.com",
+      "enderecoId": 1,
+      "tenantId": 1
     },
     {
       "id": 12,
       "nomeCompleto": "Pedro Paulo Diniz 12",
-      "email": "tati@gmail.com",
-      "enderecoId": 11
-    },
-    {
-      "id": 13,
-      "nomeCompleto": "Pedro Paulo Diniz 13",
-      "email": "tati@gmail.com",
-      "enderecoId": 11
-    },
-    {
-      "id": 14,
-      "nomeCompleto": "Pedro Paulo Diniz 14",
-      "email": "tati@gmail.com",
-      "enderecoId": 11
-    },
-    {
-      "id": 15,
-      "nomeCompleto": "Pedro Paulo Diniz 15",
-      "email": "tati@gmail.com",
-      "enderecoId": 11
-    },
-    {
-      "id": 16,
-      "nomeCompleto": "Fabiana Ribeiro 16",
-      "email": "tati@gmail.com",
-      "enderecoId": 11
-    },
-    {
-      "id": 17,
-      "nomeCompleto": "Marcia Lira 17",
-      "email": "tati@gmail.com",
-      "enderecoId": 11
-    },
-    {
-      "id": 18,
-      "nomeCompleto": "Milton Reis 18",
-      "email": "tati@gmail.com",
-      "enderecoId": 11
-    },
-    {
-      "nomeCompleto": "Jose Ap Silva",
-      "email": "wmr049@testto.com.br",
-      "enderecoId": "10",
-      "id": 19
-    },
-    {
-      "nomeCompleto": "Aparecidinha",
-      "email": "ap@ap.com",
-      "enderecoId": "120",
-      "id": 20
-    },
-    {
-      "nomeCompleto": "",
-      "email": "",
-      "id": 21
-    },
-    {
-      "id": 22,
-      "nomeCompleto": "Jose pereira",
-      "email": "sdksdk@dkfdkj",
-      "enderecoId": "12"
-    },
-    {
-      "nomeCompleto": "Maria Jose",
-      "email": "mj@mj.com",
-      "enderecoId": "2212",
-      "id": 23
-    },
-    {
-      "nomeCompleto": "teste",
-      "email": "teste",
-      "enderecoId": "122",
-      "id": 24
-    },
-    {
-      "nomeCompleto": "",
-      "email": "",
-      "id": 25
+      "email": "ppd12@gmail.com",
+      "enderecoId": 1,
+      "tenantId": 1
     }
   ],
   "enderecos": [
@@ -146,17 +96,8 @@
       "bairro": "Sé",
       "localidade": "São Paulo",
       "uf": "SP",
-      "numero": "10"
-    },
-    {
-      "id": 2,
-      "cep": "13050022",
-      "logradouro": "Rua Nazareno Mingoni",
-      "complemento": "",
-      "bairro": "Jardim do Lago",
-      "localidade": "Campinas",
-      "uf": "SP",
-      "numero": "20"
+      "numero": "10",
+      "tenantId": 1
     },
     {
       "cep": "13145-888",
@@ -166,7 +107,162 @@
       "bairro": "João Aranha",
       "localidade": "Paulínia",
       "uf": "SP",
-      "id": 3
+      "id": 3,
+      "tenantId": 1
+    },
+    {
+      "cep": "13050-022",
+      "logradouro": "Rua Nazareno Mingoni",
+      "numero": "110",
+      "complemento": "apto 101D",
+      "bairro": "Jardim do Lago",
+      "localidade": "Campinas",
+      "uf": "SP",
+      "id": 5
+    },
+    {
+      "cep": "13050-000",
+      "logradouro": "Avenida Adão Focesi",
+      "numero": "10",
+      "complemento": "padaria",
+      "bairro": "Jardim do Lago",
+      "localidade": "Campinas",
+      "uf": "SP",
+      "id": 6
+    },
+    {
+      "cep": "13145-889",
+      "logradouro": "Rua Maria Lanza Grigoletto",
+      "numero": "1",
+      "complemento": "(Res Campos do Conde II)",
+      "bairro": "João Aranha",
+      "localidade": "Paulínia",
+      "uf": "SP",
+      "id": 7
+    },
+    {
+      "cep": "13050-031",
+      "logradouro": "Rua Augusto Faelli",
+      "numero": "1",
+      "complemento": "1",
+      "bairro": "Jardim do Lago",
+      "localidade": "Campinas",
+      "uf": "SP",
+      "id": 8
+    }
+  ],
+  "chats": [
+    {
+      "id": 1,
+      "chatMessageId": 1,
+      "timeStamp": "2023-04-10 10:10:05",
+      "usuarioId": 1,
+      "message": "Bom dia gostaria de saber mais informações sobre a loja",
+      "tenantId": 1
+    },
+    {
+      "id": 2,
+      "chatMessageId": 1,
+      "timeStamp": "2023-04-10 10:10:10",
+      "usuarioId": 2,
+      "message": "A loja esta pronta a vender produtos e serviços de material escolar",
+      "tenantId": 1
+    },
+    {
+      "id": 3,
+      "chatMessageId": 1,
+      "timeStamp": "2023-04-10 10:10:15",
+      "usuarioId": 2,
+      "message": "Bom dia gostaria de saber mais informações sobre a loja",
+      "tenantId": 1
+    },
+    {
+      "id": 4,
+      "chatMessageId": 1,
+      "timeStamp": "2023-04-10 10:10:20",
+      "usuarioId": 2,
+      "message": "A loja esta pronta a vender produtos e serviços de material escolar",
+      "tenantId": 1
+    },
+    {
+      "id": 5,
+      "chatMessageId": 2,
+      "timeStamp": "2023-04-10 10:10:25",
+      "usuarioId": 10,
+      "message": "Bom dia gostaria de saber mais informações sobre a loja",
+      "tenantId": 1
+    },
+    {
+      "id": 6,
+      "chatMessageId": 2,
+      "timeStamp": "2023-04-10 10:10:30",
+      "usuarioId": 12,
+      "message": "A loja esta pronta a vender produtos e serviços de material escolar",
+      "tenantId": 1
+    },
+    {
+      "id": 7,
+      "chatMessageId": 2,
+      "timeStamp": "2023-04-10 10:10:35",
+      "usuarioId": 3,
+      "message": "Bom dia gostaria de saber mais informações sobre a loja",
+      "tenantId": 1
+    },
+    {
+      "id": 8,
+      "chatMessageId": 3,
+      "timeStamp": "2023-04-10 10:10:10",
+      "usuarioId": 4,
+      "message": "A loja esta pronta a vender produtos e serviços de material escolar",
+      "tenantId": 1
+    },
+    {
+      "id": 9,
+      "chatMessageId": 3,
+      "timeStamp": "2023-04-10 10:10:05",
+      "usuarioId": 8,
+      "message": "Bom dia gostaria de saber mais informações sobre a loja",
+      "tenantId": 1
+    },
+    {
+      "id": 10,
+      "chatMessageId": 3,
+      "timeStamp": "2023-04-10 10:10:10",
+      "usuarioId": 8,
+      "message": "A loja esta pronta a vender produtos e serviços de material escolar",
+      "tenantId": 1
+    },
+    {
+      "id": 11,
+      "chatMessageId": 4,
+      "timeStamp": "2023-04-10 10:10:05",
+      "usuarioId": 9,
+      "message": "Bom dia gostaria de saber mais informações sobre a loja",
+      "tenantId": 1
+    },
+    {
+      "id": 12,
+      "chatMessageId": 4,
+      "timeStamp": "2023-04-10 10:10:10",
+      "usuarioId": 9,
+      "message": "A loja esta pronta a vender produtos e serviços de material escolar",
+      "tenantId": 1
+    },
+    {
+      "id": 13,
+      "chatMessageId": 4,
+      "timeStamp": "2023-04-10 10:10:05",
+      "usuarioId": 6,
+      "message": "Bom dia gostaria de saber mais informações sobre a loja",
+      "tenantId": 1
+    },
+    {
+      "id": 14,
+      "chatMessageId": 5,
+      "timeStamp": "2023-04-10 10:10:10",
+      "usuarioId": 2,
+      "message": "A loja esta pronta a vender produtos e serviços de material escolar",
+      "tenantId": 1
     }
   ]
 }

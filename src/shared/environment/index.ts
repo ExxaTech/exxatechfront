@@ -8,7 +8,7 @@ export const Environtment = {
   /**
   *Placeholder exibido nos inputs
   */
-  LIMITE_DE_LINHAS: 10,
+  LIMITE_DE_LINHAS: 5,
 
   /**
   *Texto exibido quando nenhum registro for encontrado na pesquisa

@@ -30,15 +30,25 @@ type IEnderecosComTotalCount = {
 
 const getAll = async (page = 1, filter = ''): Promise<IEnderecosComTotalCount | Error> => {
   try {
-    const urlRelativa = `/enderecos?_page=${page}& _limit=${Environtment.LIMITE_DE_LINHAS}&logradouro_like=${filter}`;
+    const urlRelativa = `/enderecos?_page=${page}&_limit=${Environtment.LIMITE_DE_LINHAS}&cep_like=${filter}`;
 
     const { data, headers } = await Api.get(urlRelativa);
 
-    if (data) {
+    if (data.length > 0) {
+      console.log(data)
       return {
         data,
         totalCount: Number(headers['x-total-count'] || Environtment.LIMITE_DE_LINHAS),
       };
+    } else {
+      const cepViaCep = await getEnderecoByViaCep(filter);
+      if (cepViaCep) {
+        console.log(cepViaCep)
+        return {
+          data: [cepViaCep],
+          totalCount: 1,
+        };
+      }
     }
 
     return new Error('Nenhum registro encontrado para essa pesquisa');
@@ -81,7 +91,7 @@ const getByCep = async (cep: string): Promise<IEnderecosComTotalCount | Error> =
     if (cepViaCep) {
       return {
         data: [cepViaCep],
-        totalCount: Number(headers['x-total-count'] || Environtment.LIMITE_DE_LINHAS),
+        totalCount: 1,
       };
     }
 
@@ -126,8 +136,7 @@ const deleteById = async (id: number): Promise<void | Error> => {
 
 const getEnderecoByViaCep = async (cep: string): Promise<IDetalheEndereco> => {
 
-
-  const { data } = await ApiViaCep.get(`/${cep}/json/`);
+  const { data } = await (await ApiViaCep.get(`/${cep}/json/`));
   return data;
 }
 

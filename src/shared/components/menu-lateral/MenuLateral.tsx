@@ -2,7 +2,7 @@ import { Avatar, Divider, Drawer, Icon, List, ListItemButton, ListItemIcon, List
 import { Box } from '@mui/system';
 import { ReactNode } from 'react';
 import { useMatch, useNavigate, useResolvedPath } from 'react-router-dom';
-import { useAppThemeContext, useDrawerContext } from '../../contexts';
+import { useAppThemeContext, useAuthContext, useDrawerContext } from '../../contexts';
 
 
 interface IListItemLinkProps {
@@ -42,6 +42,7 @@ export const MenuLateral: React.FC<IMenuLateralrData> = ({ children }) => {
   const smDown = useMediaQuery(theme.breakpoints.down('sm'));
   const { isDrawerOpen, toggleDrawerOpen, drawerOptions } = useDrawerContext();
   const { toggleTheme } = useAppThemeContext();
+  const { logout } = useAuthContext();
 
   return (
     <>
@@ -71,6 +72,12 @@ export const MenuLateral: React.FC<IMenuLateralrData> = ({ children }) => {
               <ListItemButton onClick={toggleTheme}>
                 <ListItemIcon>
                   <Icon> dark_mode </Icon>
+                </ListItemIcon>
+                <ListItemText />
+              </ListItemButton>
+              <ListItemButton onClick={logout}>
+                <ListItemIcon>
+                  <Icon> logout </Icon>
                 </ListItemIcon>
                 <ListItemText />
               </ListItemButton>

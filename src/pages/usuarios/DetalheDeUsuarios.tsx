@@ -6,6 +6,7 @@ import { FerramentasDeDetalhe } from "../../shared/components";
 import { IVFormsError, useVForm, VForm, VTextField } from "../../shared/forms";
 import { LayoutBaseDePagina } from "../../shared/layouts";
 import { UsuariosServices } from "../../shared/services/api/usuario/UsuarioServices";
+import { AutoCompleteEndereco } from "./componente/AutoCompleteEndereco";
 
 interface IFormData {
   email: string;
@@ -56,6 +57,7 @@ export const DetalheDeUsuarios: React.FC = () => {
 
 
   const handleSave = (dados: IFormData) => {
+    console.log(dados)
 
     formValidationSchema.
       validate(dados, { abortEarly: false })
@@ -179,12 +181,9 @@ export const DetalheDeUsuarios: React.FC = () => {
 
             <Grid container item direction="row" spacing={2}>
               <Grid item xs={12} sm={12} md={6} lg={4} xl={2}>
-                <VTextField
-                  fullWidth
-                  name='enderecoId'
-                  label='Endereço Id'
-                  disabled={isLoading}
-                />
+                <AutoCompleteEndereco
+                  isExternalLoading={isLoading} />
+
               </Grid>
             </Grid>
           </Grid>
