@@ -1,6 +1,6 @@
 {
   "auth": {
-    "accesToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ik1pbHRvbiBSZWlzIiwiaWF0IjoxNTE2MjM5MDIyLCJhdXRob3JpemF0aW9uIjoiYWxsIn0.fp_WO7c-bA5zT698XBiihCjQK1ugvOhi_dbK9-JbCTg"
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ik1pbHRvbiBSZWlzIiwiaWF0IjoxNTE2MjM5MDIyLCJhdXRob3JpemF0aW9uIjoiYWxsIn0.fp_WO7c-bA5zT698XBiihCjQK1ugvOhi_dbK9-JbCTg"
   },
   "usuarios": [
     {

@@ -49,8 +49,6 @@ export const ListagemDeEnderecos: React.FC = () => {
           if (result instanceof Error) {
             console.log(result.message);
           } else {
-            console.log(result);
-
             setTotalCount(result.totalCount);
             setRows(result.data)
           }
