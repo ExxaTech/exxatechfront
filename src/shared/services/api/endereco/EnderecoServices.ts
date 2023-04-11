@@ -35,7 +35,7 @@ const getAll = async (page = 1, filter = ''): Promise<IEnderecosComTotalCount | 
     const { data, headers } = await Api.get(urlRelativa);
 
     if (data.length > 0) {
-      console.log(data)
+
       return {
         data,
         totalCount: Number(headers['x-total-count'] || Environtment.LIMITE_DE_LINHAS),

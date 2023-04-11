@@ -28,8 +28,6 @@ export const Wppchat: React.FC = () => {
 
           if (result instanceof Error) {
             console.log(result.message);
-          } else {
-            console.log(result);
           }
         });
     });

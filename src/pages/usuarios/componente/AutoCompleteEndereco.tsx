@@ -43,7 +43,6 @@ export const AutoCompleteEndereco: React.FC<IAutoCompleteEnderecoProps> = ({ isE
           if (result instanceof Error) {
             console.log(result.message);
           } else {
-            console.log(result);
             setOpcoes(result.data.map(endereco => ({ id: endereco.id, label: endereco.cep })))
           }
         });

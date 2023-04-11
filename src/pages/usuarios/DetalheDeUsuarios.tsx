@@ -41,7 +41,6 @@ export const DetalheDeUsuarios: React.FC = () => {
             alert(result.message);
             navigate('/user');
           } else {
-            console.log(result)
             setNome(result.nomeCompleto)
             formRef.current?.setData(result);
           }
@@ -57,8 +56,6 @@ export const DetalheDeUsuarios: React.FC = () => {
 
 
   const handleSave = (dados: IFormData) => {
-    console.log(dados)
-
     formValidationSchema.
       validate(dados, { abortEarly: false })
       .then((dadosValidados) => {
