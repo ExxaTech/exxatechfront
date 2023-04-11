@@ -7,21 +7,23 @@ import { useDrawerContext } from '../contexts';
 
 interface ILayoutBaseDePaginaProps {
   children: ReactNode;
-  titulo: string;
-  caminho: string;
+  navegacao: { descricao: string; caminho: string; }[];
   barraDeFerramentas: ReactNode;
 }
 
-export const LayoutBaseDePagina: React.FC<ILayoutBaseDePaginaProps> = ({ children,
-  titulo,
+export const LayoutBaseDePagina: React.FC<ILayoutBaseDePaginaProps> = ({
+  navegacao,
+  children,
   barraDeFerramentas,
-  caminho }) => {
+}
+) => {
 
   const smDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
   const mdDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('md'));
   const theme = useTheme();
   const { toggleDrawerOpen } = useDrawerContext();
   const navigate = useNavigate();
+
 
   return (
     <Box height='100%' display="flex" flexDirection="column" gap={2}>
@@ -32,12 +34,15 @@ export const LayoutBaseDePagina: React.FC<ILayoutBaseDePaginaProps> = ({ childre
           </IconButton>)}
         <Box display="flex" height={theme.spacing(2)}>
           <Breadcrumbs separator={<NavigateNextIcon />} >
-            <Link component="button"
-              variant="body2"
-              onClick={() => navigate(`/`)} > Inicio</Link>
-            <Link component="button"
-              variant="body2"
-              onClick={() => navigate(`${caminho}`)}> {titulo} </Link>
+            {
+              navegacao.map((item) =>
+                <Link component="button"
+                  variant="body2"
+                  key={item.caminho}
+                  onClick={() => navigate(item.caminho)}>
+                  {item.descricao}
+                </Link>)
+            }
           </Breadcrumbs>
         </Box>
       </Box>

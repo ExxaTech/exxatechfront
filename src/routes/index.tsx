@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { Dashboard, ListagemDeCep, ListagemDeUsuarios, Wppchat } from '../pages';
+import { Dashboard, DetalheDeEnderecos, DetalheDeUsuarios, ListagemDeEnderecos, ListagemDeUsuarios, Wppchat } from '../pages';
 import { useDrawerContext } from '../shared/contexts';
 
 export const AppRoutes = () => {
@@ -20,7 +20,7 @@ export const AppRoutes = () => {
       },
       {
         label: 'Endereços',
-        path: '/cep',
+        path: '/endereco',
         icon: 'location_city',
       },
       {
@@ -29,7 +29,7 @@ export const AppRoutes = () => {
         icon: 'person',
       }
     ]);
-  });
+  }, []);
 
 
   return (
@@ -38,15 +38,15 @@ export const AppRoutes = () => {
 
       {/* Endereços */}
 
-      <Route path="/cep" element={<ListagemDeCep />} />
-      <Route path="/cep/detahles/:id" element={<ListagemDeCep />} />
+      <Route path="/endereco" element={<ListagemDeEnderecos />} />
+      <Route path="/endereco/detalhes/:id" element={<DetalheDeEnderecos />} />
 
       {/* Whatsapp */}
       <Route path="/wppchat" element={<Wppchat />} />
 
       {/* Usuários */}
       <Route path="/user" element={<ListagemDeUsuarios />} />
-      <Route path="/user/detahles/:id" element={<p>Detalhes do usuário</p>} />
+      <Route path="/user/detalhes/:id" element={<DetalheDeUsuarios />} />
 
       <Route path="*" element={<Navigate to="/pagina-inicial" />} />
     </Routes >
