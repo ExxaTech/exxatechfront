@@ -14,7 +14,7 @@ export const AppRoutes = () => {
         icon: 'home',
       },
       {
-        label: 'WhatsApp',
+        label: 'Atendimento',
         path: '/wppchat',
         icon: 'chat',
       },
