@@ -3,12 +3,12 @@ import { Avatar, Grid, List, ListItemAvatar, ListItemButton, ListItemText, Paper
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useDebounce } from "../../../shared/hooks";
-import { ChatServices, IListagemChat } from "../../../shared/services/api/chat/ChatServices";
+import { IListagemUsuario, UsuariosServices } from "../../../shared/services/api/usuario/UsuarioServices";
 
 
 export const WppchatContatos: React.FC = () => {
 
-  const [rows, setRows] = useState<IListagemChat[]>([]);
+  const [rows, setRows] = useState<IListagemUsuario[]>([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const { debounce } = useDebounce();
 
@@ -22,7 +22,7 @@ export const WppchatContatos: React.FC = () => {
 
   useEffect(() => {
     debounce(() => {
-      ChatServices.getAllByChatUsuarioId(pagina, busca)
+      UsuariosServices.getAll(pagina, busca)
         .then((result) => {
           if (result instanceof Error) {
             console.log(result.message);
@@ -38,7 +38,7 @@ export const WppchatContatos: React.FC = () => {
   };
 
   return (
-    <Grid item xs={4} sm={4} md={4} lg={4} xl={2} style={{ height: '100vh', overflow: 'auto' }}>
+    <Grid item xs={8} sm={8} md={4} lg={4} xl={2} style={{ height: '100vh', overflow: 'auto' }}>
       <List component={Paper} variant="outlined" sx={{ m: 1, width: 'auto' }}>
         {rows.map((row) => (
           <ListItemButton key={row.id} onClick={handleClick}>
@@ -47,7 +47,7 @@ export const WppchatContatos: React.FC = () => {
                 <Person />
               </Avatar>
             </ListItemAvatar>
-            <ListItemText primary={row.usuario.nomeCompleto} />
+            <ListItemText primary={row.email} />
           </ListItemButton>
         ))}
       </List>

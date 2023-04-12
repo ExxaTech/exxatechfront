@@ -24,14 +24,14 @@ type IUsuariosComTotalCount = {
 
 const getAll = async (page = 1, filter = ''): Promise<IUsuariosComTotalCount | Error> => {
   try {
-    const urlRelativa = `/usuarios?_page=${page}&_limit=${Environtment.LIMITE_DE_LINHAS}&nomeCompleto_like=${filter}`;
+    const urlRelativa = `/usuarios?_page=${page}&_limit=${Environtment.LIMITE_DE_LINHAS_CHAT}&nomeCompleto_like=${filter}`;
 
     const { data, headers } = await Api.get(urlRelativa);
 
     if (data) {
       return {
         data,
-        totalCount: Number(headers['x-total-count'] || Environtment.LIMITE_DE_LINHAS),
+        totalCount: Number(headers['x-total-count'] || Environtment.LIMITE_DE_LINHAS_CHAT),
       };
     }
     return new Error('Nenhum registro encontrado para essa pesquisa');

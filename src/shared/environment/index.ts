@@ -14,7 +14,7 @@ export const Environtment = {
   /**
   *Placeholder exibido nos inputs
   */
-  LIMITE_DE_LINHAS_CHAT: 20,
+  LIMITE_DE_LINHAS_CHAT: 40,
 
   /**
   *Texto exibido quando nenhum registro for encontrado na pesquisa

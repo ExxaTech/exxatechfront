@@ -18,7 +18,13 @@ export const Wppchat: React.FC = () => {
         />
       }
     >
-      <Grid container direction="row" flexWrap='nowrap' alignContent='stretch' justifyContent='space-between' alignItems='flex-start'>
+      <Grid container
+        direction="row"
+        flexWrap='nowrap'
+        alignContent='stretch'
+        justifyContent='space-evenly'
+        alignItems='stretch'
+        height='-webkit-fill-available'>
         <WppchatContatos />
         <WppchatMensagens />
       </Grid>

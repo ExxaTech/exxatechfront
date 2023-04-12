@@ -17,7 +17,7 @@ export const WppchatMensagens: React.FC = () => {
   };
 
   return (
-    <Box display='flex' flexDirection='row'>
+    <Box display='flex' flexDirection='row' >
 
       <Box display='flex' flexDirection='column'>
         <Box component={Paper} elevation={3} sx={{ m: 1 }} flex={1}>
@@ -35,9 +35,9 @@ export const WppchatMensagens: React.FC = () => {
           </List>
         </Box>
         <FormControl >
-          <InputLabel htmlFor="message-input">message</InputLabel>
+          <InputLabel htmlFor="message-input-01">Mensagem</InputLabel>
           <Input
-            id="message-input"
+            id="message-input-01"
             value={messageInput}
             onChange={(e) => setMessageInput(e.target.value)}
             endAdornment={
@@ -71,9 +71,9 @@ export const WppchatMensagens: React.FC = () => {
           </List>
         </Box>
         <FormControl >
-          <InputLabel htmlFor="message-input">message</InputLabel>
+          <InputLabel htmlFor="message-input-02">Mensagem</InputLabel>
           <Input
-            id="message-input"
+            id="message-input-02"
             value={messageInput}
             onChange={(e) => setMessageInput(e.target.value)}
             endAdornment={
