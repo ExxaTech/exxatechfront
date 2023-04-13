@@ -5,12 +5,14 @@
   "usuarios": [
     {
       "id": 1,
+      "telefone": "19992129961",
       "nomeCompleto": "Pedro Paulo Diniz 1",
       "email": "ppd3@gmail.com",
       "enderecoId": 5
     },
     {
       "id": 2,
+      "telefone": "19992129962",
       "nomeCompleto": "Pedro Paulo Diniz 2",
       "email": "ppd@gmail.com",
       "enderecoId": 1,
@@ -18,6 +20,7 @@
     },
     {
       "id": 3,
+      "telefone": "19992129963",
       "nomeCompleto": "Pedro Paulo Diniz tres",
       "email": "ppd@gmail.com",
       "enderecoId": 1,
@@ -25,6 +28,7 @@
     },
     {
       "id": 4,
+      "telefone": "19992129964",
       "nomeCompleto": "Pedro Paulo Diniz 4",
       "email": "mf@gmail.com",
       "enderecoId": 1,
@@ -32,6 +36,7 @@
     },
     {
       "id": 5,
+      "telefone": "19992129965",
       "nomeCompleto": "Pedro Paulo Diniz 5",
       "email": "ppd5@gmail.com",
       "enderecoId": 1,
@@ -39,6 +44,7 @@
     },
     {
       "id": 6,
+      "telefone": "19992129966",
       "nomeCompleto": "Pedro Paulo Diniz 6",
       "email": "ppd6@gmail.com",
       "enderecoId": 1,
@@ -46,6 +52,7 @@
     },
     {
       "id": 7,
+      "telefone": "19992129967",
       "nomeCompleto": "Pedro Paulo Diniz 7",
       "email": "ppd7@gmail.com",
       "enderecoId": 1,
@@ -53,6 +60,7 @@
     },
     {
       "id": 8,
+      "telefone": "19992129968",
       "nomeCompleto": "Pedro Paulo Diniz 8",
       "email": "ppd8@gmail.com",
       "enderecoId": 1,
@@ -60,6 +68,7 @@
     },
     {
       "id": 9,
+      "telefone": "19992129969",
       "nomeCompleto": "Pedro Paulo Diniz 9",
       "email": "ppd9@gmail.com",
       "enderecoId": 1,
@@ -67,6 +76,7 @@
     },
     {
       "id": 10,
+      "telefone": "19992129970",
       "nomeCompleto": "Pedro Paulo Diniz 10",
       "email": "ppd10@gmail.com",
       "enderecoId": 1,
@@ -74,6 +84,7 @@
     },
     {
       "id": 11,
+      "telefone": "19992129971",
       "nomeCompleto": "Pedro Paulo Diniz 11",
       "email": "ppd11@gmail.com",
       "enderecoId": 1,
@@ -81,6 +92,215 @@
     },
     {
       "id": 12,
+      "telefone": "19992129972",
+      "nomeCompleto": "Pedro Paulo Diniz 12",
+      "email": "ppd12@gmail.com",
+      "enderecoId": 1,
+      "tenantId": 1
+    },
+    {
+      "id": 13,
+      "telefone": "19992129973",
+      "nomeCompleto": "Pedro Paulo Diniz 13",
+      "email": "ppd13@gmail.com",
+      "enderecoId": 1,
+      "tenantId": 1
+    },
+    {
+      "id": 14,
+      "telefone": "19992129974",
+      "nomeCompleto": "Pedro Paulo Diniz 14",
+      "email": "ppd14@gmail.com",
+      "enderecoId": 1,
+      "tenantId": 1
+    },
+    {
+      "id": 15,
+      "telefone": "19992129975",
+      "nomeCompleto": "Pedro Paulo Diniz 15",
+      "email": "ppd15@gmail.com",
+      "enderecoId": 1,
+      "tenantId": 1
+    },
+    {
+      "id": 16,
+      "telefone": "19992129976",
+      "nomeCompleto": "Pedro Paulo Diniz 16",
+      "email": "ppd16@gmail.com",
+      "enderecoId": 1,
+      "tenantId": 1
+    },
+    {
+      "id": 17,
+      "telefone": "19992129977",
+      "nomeCompleto": "Pedro Paulo Diniz 17",
+      "email": "ppd17@gmail.com",
+      "enderecoId": 1,
+      "tenantId": 1
+    },
+    {
+      "id": 18,
+      "telefone": "19992129978",
+      "nomeCompleto": "Pedro Paulo Diniz 18",
+      "email": "ppd18@gmail.com",
+      "enderecoId": 1,
+      "tenantId": 1
+    },
+    {
+      "id": 19,
+      "telefone": "19992129979",
+      "nomeCompleto": "Pedro Paulo Diniz 19",
+      "email": "ppd19@gmail.com",
+      "enderecoId": 1,
+      "tenantId": 1
+    },
+    {
+      "id": 20,
+      "telefone": "19992129972",
+      "nomeCompleto": "Pedro Paulo Diniz 12",
+      "email": "ppd12@gmail.com",
+      "enderecoId": 1,
+      "tenantId": 1
+    },
+    {
+      "id": 21,
+      "telefone": "19992129972",
+      "nomeCompleto": "Pedro Paulo Diniz 12",
+      "email": "ppd12@gmail.com",
+      "enderecoId": 1,
+      "tenantId": 1
+    },
+    {
+      "id": 22,
+      "telefone": "19992129972",
+      "nomeCompleto": "Pedro Paulo Diniz 12",
+      "email": "ppd12@gmail.com",
+      "enderecoId": 1,
+      "tenantId": 1
+    },
+    {
+      "id": 23,
+      "telefone": "19992129972",
+      "nomeCompleto": "Pedro Paulo Diniz 12",
+      "email": "ppd12@gmail.com",
+      "enderecoId": 1,
+      "tenantId": 1
+    },
+    {
+      "id": 24,
+      "telefone": "19992129972",
+      "nomeCompleto": "Pedro Paulo Diniz 12",
+      "email": "ppd12@gmail.com",
+      "enderecoId": 1,
+      "tenantId": 1
+    },
+    {
+      "id": 25,
+      "telefone": "19992129972",
+      "nomeCompleto": "Pedro Paulo Diniz 12",
+      "email": "ppd12@gmail.com",
+      "enderecoId": 1,
+      "tenantId": 1
+    },
+    {
+      "id": 26,
+      "telefone": "19992129972",
+      "nomeCompleto": "Pedro Paulo Diniz 12",
+      "email": "ppd12@gmail.com",
+      "enderecoId": 1,
+      "tenantId": 1
+    },
+    {
+      "id": 27,
+      "telefone": "19992129972",
+      "nomeCompleto": "Pedro Paulo Diniz 12",
+      "email": "ppd12@gmail.com",
+      "enderecoId": 1,
+      "tenantId": 1
+    },
+    {
+      "id": 28,
+      "telefone": "19992129972",
+      "nomeCompleto": "Pedro Paulo Diniz 12",
+      "email": "ppd12@gmail.com",
+      "enderecoId": 1,
+      "tenantId": 1
+    },
+    {
+      "id": 29,
+      "telefone": "19992129972",
+      "nomeCompleto": "Pedro Paulo Diniz 12",
+      "email": "ppd12@gmail.com",
+      "enderecoId": 1,
+      "tenantId": 1
+    },
+    {
+      "id": 30,
+      "telefone": "19992129972",
+      "nomeCompleto": "Pedro Paulo Diniz 12",
+      "email": "ppd12@gmail.com",
+      "enderecoId": 1,
+      "tenantId": 1
+    },
+    {
+      "id": 31,
+      "telefone": "19992129972",
+      "nomeCompleto": "Pedro Paulo Diniz 12",
+      "email": "ppd12@gmail.com",
+      "enderecoId": 1,
+      "tenantId": 1
+    },
+    {
+      "id": 32,
+      "telefone": "19992129972",
+      "nomeCompleto": "Pedro Paulo Diniz 12",
+      "email": "ppd12@gmail.com",
+      "enderecoId": 1,
+      "tenantId": 1
+    },
+    {
+      "id": 33,
+      "telefone": "19992129972",
+      "nomeCompleto": "Pedro Paulo Diniz 12",
+      "email": "ppd12@gmail.com",
+      "enderecoId": 1,
+      "tenantId": 1
+    },
+    {
+      "id": 34,
+      "telefone": "19992129972",
+      "nomeCompleto": "Pedro Paulo Diniz 12",
+      "email": "ppd12@gmail.com",
+      "enderecoId": 1,
+      "tenantId": 1
+    },
+    {
+      "id": 35,
+      "telefone": "19992129972",
+      "nomeCompleto": "Pedro Paulo Diniz 12",
+      "email": "ppd12@gmail.com",
+      "enderecoId": 1,
+      "tenantId": 1
+    },
+    {
+      "id": 36,
+      "telefone": "19992129972",
+      "nomeCompleto": "Pedro Paulo Diniz 12",
+      "email": "ppd12@gmail.com",
+      "enderecoId": 1,
+      "tenantId": 1
+    },
+    {
+      "id": 37,
+      "telefone": "19992129972",
+      "nomeCompleto": "Pedro Paulo Diniz 12",
+      "email": "ppd12@gmail.com",
+      "enderecoId": 1,
+      "tenantId": 1
+    },
+    {
+      "id": 38,
+      "telefone": "19992129972",
       "nomeCompleto": "Pedro Paulo Diniz 12",
       "email": "ppd12@gmail.com",
       "enderecoId": 1,
@@ -156,7 +376,9 @@
       "id": 1,
       "chatMessageId": 1,
       "timeStamp": "2023-04-10 10:10:05",
-      "usuarioId": 1,
+      "usuario": {
+        "nomeCompleto": "Pedro Paulo Diniz 1"
+      },
       "message": "Bom dia gostaria de saber mais informações sobre a loja",
       "tenantId": 1
     },
@@ -164,7 +386,9 @@
       "id": 2,
       "chatMessageId": 1,
       "timeStamp": "2023-04-10 10:10:10",
-      "usuarioId": 2,
+      "usuario": {
+        "nomeCompleto": "Pedro Paulo Diniz 2"
+      },
       "message": "A loja esta pronta a vender produtos e serviços de material escolar",
       "tenantId": 1
     },
@@ -172,7 +396,9 @@
       "id": 3,
       "chatMessageId": 1,
       "timeStamp": "2023-04-10 10:10:15",
-      "usuarioId": 2,
+      "usuario": {
+        "nomeCompleto": "Pedro Paulo Diniz 2"
+      },
       "message": "Bom dia gostaria de saber mais informações sobre a loja",
       "tenantId": 1
     },
@@ -180,7 +406,9 @@
       "id": 4,
       "chatMessageId": 1,
       "timeStamp": "2023-04-10 10:10:20",
-      "usuarioId": 2,
+      "usuario": {
+        "nomeCompleto": "Pedro Paulo Diniz 2"
+      },
       "message": "A loja esta pronta a vender produtos e serviços de material escolar",
       "tenantId": 1
     },
@@ -188,7 +416,9 @@
       "id": 5,
       "chatMessageId": 2,
       "timeStamp": "2023-04-10 10:10:25",
-      "usuarioId": 10,
+      "usuario": {
+        "nomeCompleto": "Pedro Paulo Diniz 10"
+      },
       "message": "Bom dia gostaria de saber mais informações sobre a loja",
       "tenantId": 1
     },
@@ -196,7 +426,9 @@
       "id": 6,
       "chatMessageId": 2,
       "timeStamp": "2023-04-10 10:10:30",
-      "usuarioId": 12,
+      "usuario": {
+        "nomeCompleto": "Pedro Paulo Diniz 12"
+      },
       "message": "A loja esta pronta a vender produtos e serviços de material escolar",
       "tenantId": 1
     },
@@ -204,7 +436,9 @@
       "id": 7,
       "chatMessageId": 2,
       "timeStamp": "2023-04-10 10:10:35",
-      "usuarioId": 3,
+      "usuario": {
+        "nomeCompleto": "Pedro Paulo Diniz 3"
+      },
       "message": "Bom dia gostaria de saber mais informações sobre a loja",
       "tenantId": 1
     },
@@ -212,7 +446,9 @@
       "id": 8,
       "chatMessageId": 3,
       "timeStamp": "2023-04-10 10:10:10",
-      "usuarioId": 4,
+      "usuario": {
+        "nomeCompleto": "Pedro Paulo Diniz 4"
+      },
       "message": "A loja esta pronta a vender produtos e serviços de material escolar",
       "tenantId": 1
     },
@@ -220,7 +456,9 @@
       "id": 9,
       "chatMessageId": 3,
       "timeStamp": "2023-04-10 10:10:05",
-      "usuarioId": 8,
+      "usuario": {
+        "nomeCompleto": "Pedro Paulo Diniz 8"
+      },
       "message": "Bom dia gostaria de saber mais informações sobre a loja",
       "tenantId": 1
     },
@@ -228,7 +466,9 @@
       "id": 10,
       "chatMessageId": 3,
       "timeStamp": "2023-04-10 10:10:10",
-      "usuarioId": 8,
+      "usuario": {
+        "nomeCompleto": "Pedro Paulo Diniz 8"
+      },
       "message": "A loja esta pronta a vender produtos e serviços de material escolar",
       "tenantId": 1
     },
@@ -236,7 +476,9 @@
       "id": 11,
       "chatMessageId": 4,
       "timeStamp": "2023-04-10 10:10:05",
-      "usuarioId": 9,
+      "usuario": {
+        "nomeCompleto": "Pedro Paulo Diniz 9"
+      },
       "message": "Bom dia gostaria de saber mais informações sobre a loja",
       "tenantId": 1
     },
@@ -244,7 +486,9 @@
       "id": 12,
       "chatMessageId": 4,
       "timeStamp": "2023-04-10 10:10:10",
-      "usuarioId": 9,
+      "usuario": {
+        "nomeCompleto": "Pedro Paulo Diniz 9"
+      },
       "message": "A loja esta pronta a vender produtos e serviços de material escolar",
       "tenantId": 1
     },
@@ -252,7 +496,9 @@
       "id": 13,
       "chatMessageId": 4,
       "timeStamp": "2023-04-10 10:10:05",
-      "usuarioId": 6,
+      "usuario": {
+        "nomeCompleto": "Pedro Paulo Diniz 6"
+      },
       "message": "Bom dia gostaria de saber mais informações sobre a loja",
       "tenantId": 1
     },
@@ -260,7 +506,9 @@
       "id": 14,
       "chatMessageId": 5,
       "timeStamp": "2023-04-10 10:10:10",
-      "usuarioId": 2,
+      "usuario": {
+        "nomeCompleto": "Pedro Paulo Diniz 1"
+      },
       "message": "A loja esta pronta a vender produtos e serviços de material escolar",
       "tenantId": 1
     }
