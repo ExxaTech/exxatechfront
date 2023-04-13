@@ -14,7 +14,10 @@ export const Wppchat: React.FC = () => {
         { descricao: "Atendimento", caminho: "/wppchat" }]}
       barraDeFerramentas={
         <FerramentasDaListagem
+          mostrarInputBusca
           textoBotaoNovo="Novo"
+          textoDaBusca={''}
+          aoClicarEmNovo={() => { return }}
         />
       }
     >

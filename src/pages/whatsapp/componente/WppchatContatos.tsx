@@ -37,9 +37,14 @@ export const WppchatContatos: React.FC = () => {
     console.log('clique do contato')
   };
 
+  const listStyle = {
+    maxHeight: '-webkit-fill-available',
+    overflow: 'auto',
+  };
+
   return (
-    <Grid item xs={8} sm={8} md={4} lg={4} xl={2} style={{ height: '100vh', overflow: 'auto' }}>
-      <List component={Paper} variant="outlined" sx={{ m: 1, width: 'auto' }}>
+    <Grid item xs={8} sm={8} md={4} lg={4} xl={2}>
+      <List style={listStyle} component={Paper} variant="outlined">
         {rows.map((row) => (
           <ListItemButton key={row.id} onClick={handleClick}>
             <ListItemAvatar>
@@ -47,7 +52,7 @@ export const WppchatContatos: React.FC = () => {
                 <Person />
               </Avatar>
             </ListItemAvatar>
-            <ListItemText primary={row.email} />
+            <ListItemText primary={row.telefone} />
           </ListItemButton>
         ))}
       </List>

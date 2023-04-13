@@ -10,12 +10,14 @@ import { AutoCompleteEndereco } from "./componente/AutoCompleteEndereco";
 
 interface IFormData {
   email: string;
+  telefone: string;
   enderecoId: number;
   nomeCompleto: string;
 }
 
 const formValidationSchema: yup.ObjectSchema<IFormData> = yup.object().shape({
   email: yup.string().required().email(),
+  telefone: yup.string().required().min(8),
   nomeCompleto: yup.string().required().min(3),
   enderecoId: yup.number().required()
 })

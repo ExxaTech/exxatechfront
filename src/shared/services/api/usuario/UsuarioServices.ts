@@ -4,6 +4,7 @@ import { Api } from '../axios-config';
 
 export interface IDetalheUsuario {
   id: number;
+  telefone: string;
   nomeCompleto: string;
   email: string;
   enderecoId: number;
@@ -12,6 +13,7 @@ export interface IDetalheUsuario {
 
 export interface IListagemUsuario {
   id: number;
+  telefone: string;
   nomeCompleto: string;
   email: string;
   enderecoId: number;
