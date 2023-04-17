@@ -6,6 +6,7 @@ export interface IDetalheUsuario {
   id: number;
   telefone: string;
   nomeCompleto: string;
+  avatar: string;
   email: string;
   enderecoId: number;
 }
@@ -15,6 +16,7 @@ export interface IListagemUsuario {
   id: number;
   telefone: string;
   nomeCompleto: string;
+  avatar: string;
   email: string;
   enderecoId: number;
 }

@@ -1,5 +1,4 @@
-import { Person } from "@mui/icons-material";
-import { Avatar, Grid, List, ListItemAvatar, ListItemButton, ListItemText, Paper } from "@mui/material";
+import { Avatar, Grid, List, ListItemAvatar, ListItemButton, ListItemText, Paper, useTheme } from "@mui/material";
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useDebounce } from "../../../shared/hooks";
@@ -11,6 +10,7 @@ export const WppchatContatos: React.FC = () => {
   const [rows, setRows] = useState<IListagemUsuario[]>([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const { debounce } = useDebounce();
+  const theme = useTheme();
 
   const pagina = useMemo(() => {
     return Number(searchParams.get('pagina')) || 1;
@@ -37,25 +37,30 @@ export const WppchatContatos: React.FC = () => {
     console.log('clique do contato')
   };
 
-  const listStyle = {
-    maxHeight: '-webkit-fill-available',
-    overflow: 'auto',
-  };
-
   return (
     <Grid item xs={8} sm={8} md={4} lg={4} xl={2}>
-      <List style={listStyle} component={Paper} variant="outlined">
+      <List
+        style={{ maxHeight: '-webkit-fill-available', overflow: 'auto' }}
+        component={Paper}
+        variant="outlined"
+        sx={{ m: 1 }}
+      >
         {rows.map((row) => (
           <ListItemButton key={row.id} onClick={handleClick}>
             <ListItemAvatar>
-              <Avatar>
-                <Person />
-              </Avatar>
+              <Avatar
+                style={{ width: 30, height: 30, fontSize: 14 }}
+                src={row.avatar} />                
             </ListItemAvatar>
-            <ListItemText primary={row.telefone} />
+            <ListItemText
+              primaryTypographyProps={{ style: { fontSize: 14 } }}
+              primary={row.nomeCompleto}
+              secondaryTypographyProps={{ style: { fontSize: 12 } }}
+              secondary={row.telefone}
+            />
           </ListItemButton>
         ))}
       </List>
-    </Grid>
+    </Grid >
   );
 } 

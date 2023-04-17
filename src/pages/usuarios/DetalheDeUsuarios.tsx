@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import * as yup from 'yup';
 import { FerramentasDeDetalhe } from "../../shared/components";
-import { IVFormsError, useVForm, VForm, VTextField } from "../../shared/forms";
+import { IVFormsError, VForm, VTextField, useVForm } from "../../shared/forms";
 import { LayoutBaseDePagina } from "../../shared/layouts";
 import { UsuariosServices } from "../../shared/services/api/usuario/UsuarioServices";
 import { AutoCompleteEndereco } from "./componente/AutoCompleteEndereco";
@@ -13,13 +13,15 @@ interface IFormData {
   telefone: string;
   enderecoId: number;
   nomeCompleto: string;
+  avatar: string;
 }
 
 const formValidationSchema: yup.ObjectSchema<IFormData> = yup.object().shape({
   email: yup.string().required().email(),
   telefone: yup.string().required().min(8),
   nomeCompleto: yup.string().required().min(3),
-  enderecoId: yup.number().required()
+  enderecoId: yup.number().required(),
+  avatar: yup.string().required().min(3)
 })
 
 export const DetalheDeUsuarios: React.FC = () => {

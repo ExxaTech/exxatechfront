@@ -1,8 +1,8 @@
-import { Person, SupportAgent } from "@mui/icons-material";
-import SendIcon from '@mui/icons-material/Send';
-import { Avatar, Box, Button, FormControl, Input, InputAdornment, InputLabel, List, ListItem, ListItemAvatar, ListItemText, Paper, useTheme } from "@mui/material";
-import { useState } from "react";
 
+import { Close, Person, SupportAgent } from "@mui/icons-material";
+import { AppBar, Avatar, Box, Button, FormControl, Grid, Icon, IconButton, Input, InputAdornment, InputLabel, List, ListItem, ListItemAvatar, ListItemText, Paper, Toolbar, Typography, useTheme } from "@mui/material";
+import { useEffect, useState } from "react";
+import { useDebounce } from "../../../shared/hooks";
 
 interface InputMsgChat {
   id: string;
@@ -19,8 +19,13 @@ export const WppchatMensagens: React.FC = () => {
   const [messages, setMessages] = useState<{ text: string; sentByUser: boolean }[]>([]);
   const [messageInput, setMessageInput] = useState('');
   const [chats, setChats] = useState<InputMsgChat[]>([]);
-
   const theme = useTheme();
+  const [maxHeight, setMaxHeight] = useState(0);
+
+  const [minimized, setMinimized] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  const { debounce } = useDebounce();
 
   const handleSend = () => {
     if (messageInput) {
@@ -29,13 +34,84 @@ export const WppchatMensagens: React.FC = () => {
     }
   };
 
+  const handleRemoveChat = (index: number) => {
+    const removeListChat = [...chats]
+    removeListChat.splice(index, 1);
+    setChats(removeListChat)
+  }
+
+  useEffect(() => {
+    const handleResize = () => {
+      const availableHeight = window.innerHeight;
+      const fixedHeight = 300;
+      const calculatedMaxHeight = availableHeight - fixedHeight;
+      setMaxHeight(calculatedMaxHeight);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    debounce(() => {
+      setChats([...chats,
+      {
+        id: Math.random().toString(36).substr(2, 9),
+        name: 'João R',
+        avatar: 'https://picsum.photos/200/300',
+        message: '',
+        timestamp: '',
+        type: 'chat'
+      },
+      {
+        id: Math.random().toString(36).substr(2, 9),
+        name: 'Pedro F.',
+        avatar: 'https://picsum.photos/200/301',
+        message: '',
+        timestamp: '',
+        type: 'chat'
+      },
+      {
+        id: Math.random().toString(36).substr(2, 9),
+        name: 'Maria',
+        avatar: 'https://picsum.photos/200/302',
+        message: '',
+        timestamp: '',
+        type: 'chat'
+      }
+      ]);
+    });
+  }, []);
+
   return (
     <Box display='flex' flexDirection='row' >
 
       {chats.map((chat) => (
-        <Box key={chat.id} display='flex' flexDirection='column'>
-          <Box component={Paper} elevation={3} sx={{ m: 1 }} flex={1}>
-            __<List>
+        <Box key={chat.id} display='flex' flexDirection='column' sx={{ m: 1 }}>
+          <div>
+            <AppBar position="static">
+              <Toolbar style={{ minHeight: '4px', paddingLeft: '10px' }}>
+                <Grid container item xs={11} direction='row'>
+                  <Avatar
+                    style={{ width: 30, height: 30, fontSize: 14 }}
+                    src={chat.avatar} />
+                  <Typography variant="body2" paddingLeft={1} >
+                    {chat.name}
+                  </Typography>
+                </Grid>
+                <Grid item xs={1}>
+                  <IconButton edge="end" color="inherit" aria-label="fechar" onClick={() => handleRemoveChat(Number(chat.id))}>
+                    <Close />
+                  </IconButton>
+                </Grid>
+              </Toolbar>
+            </AppBar>
+          </div>
+          <Box component={Paper} elevation={3} flex={1}>
+            <Grid item display='flex' alignItems='center' padding={theme.spacing(1)}>
+            </Grid>
+            <List style={{ maxHeight, overflow: 'auto' }}>
               {messages.map((message, index) => (
                 <ListItem key={index}>
                   <ListItemAvatar>
@@ -43,108 +119,32 @@ export const WppchatMensagens: React.FC = () => {
                       {message.sentByUser ? <SupportAgent /> : <Person />}
                     </Avatar>
                   </ListItemAvatar>
-                  <ListItemText primary={message.text} />
+                  <ListItemText
+                    primaryTypographyProps={{ style: { fontSize: 14 } }}
+                    primary={message.text} />
                 </ListItem>
               ))}
             </List>
           </Box>
-          <FormControl >
-            <InputLabel htmlFor="message-input-01">Mensagem</InputLabel>
+          <FormControl component={Paper} variant="outlined">
+            <InputLabel htmlFor="mesdsage-input">Mensagem</InputLabel>
             <Input
-              id="message-input-01"
+              id="message-input"
               value={messageInput}
               onChange={(e) => setMessageInput(e.target.value)}
-              endAdornment={
-                <InputAdornment position="end">
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    onClick={handleSend}
-                  >
-                    <SendIcon />
-                  </Button>
-                </InputAdornment>
-              }
-            />
+              onClick={handleSend}
+              endAdornment={<InputAdornment position="end">
+                <Button
+                  color='primary'
+                  disableElevation
+                  startIcon={<Icon>send</Icon>}
+                  onClick={handleSend} />
+              </InputAdornment>} />
           </FormControl>
         </Box>
-      ))}
-
-
-
-      <Box display='flex' flexDirection='column'>
-        <Box component={Paper} elevation={3} sx={{ m: 1 }} flex={1}>
-          __<List>
-            {messages.map((message, index) => (
-              <ListItem key={index}>
-                <ListItemAvatar>
-                  <Avatar>
-                    {message.sentByUser ? <SupportAgent /> : <Person />}
-                  </Avatar>
-                </ListItemAvatar>
-                <ListItemText primary={message.text} />
-              </ListItem>
-            ))}
-          </List>
-        </Box>
-        <FormControl >
-          <InputLabel htmlFor="message-input-02">Mensagem</InputLabel>
-          <Input
-            id="message-input-02"
-            value={messageInput}
-            onChange={(e) => setMessageInput(e.target.value)}
-            endAdornment={
-              <InputAdornment position="end">
-                <Button
-                  variant="contained"
-                  color="primary"
-                  onClick={handleSend}
-                >
-                  <SendIcon />
-                </Button>
-              </InputAdornment>
-            }
-          />
-        </FormControl>
-      </Box>
-
-      <Box display='flex' flexDirection='column'>
-        <Box component={Paper} elevation={3} sx={{ m: 1 }} flex={1}>
-          __<List>
-            {messages.map((message, index) => (
-              <ListItem key={index}>
-                <ListItemAvatar>
-                  <Avatar>
-                    {message.sentByUser ? <SupportAgent /> : <Person />}
-                  </Avatar>
-                </ListItemAvatar>
-                <ListItemText primary={message.text} />
-              </ListItem>
-            ))}
-          </List>
-        </Box>
-        <FormControl >
-          <InputLabel htmlFor="message-input-03">Mensagem</InputLabel>
-          <Input
-            id="message-input-03"
-            value={messageInput}
-            onChange={(e) => setMessageInput(e.target.value)}
-            endAdornment={
-              <InputAdornment position="end">
-                <Button
-                  variant="contained"
-                  color="primary"
-                  onClick={handleSend}
-                >
-                  <SendIcon />
-                </Button>
-              </InputAdornment>
-            }
-          />
-        </FormControl>
-      </Box>
-
-    </Box>
+      ))
+      }
+    </Box >
 
   );
 } 

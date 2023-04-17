@@ -4,16 +4,10 @@
   },
   "usuarios": [
     {
-      "id": 1,
-      "telefone": "19992129961",
-      "nomeCompleto": "Pedro Paulo Diniz 1",
-      "email": "ppd3@gmail.com",
-      "enderecoId": 5
-    },
-    {
       "id": 2,
       "telefone": "19992129962",
-      "nomeCompleto": "Pedro Paulo Diniz 2",
+      "nomeCompleto": "Fabiana Ribeiro",
+      "avatar": "https://picsum.photos/200/300",
       "email": "ppd@gmail.com",
       "enderecoId": 1,
       "tenantId": 1
@@ -21,15 +15,17 @@
     {
       "id": 3,
       "telefone": "19992129963",
-      "nomeCompleto": "Pedro Paulo Diniz tres",
-      "email": "ppd@gmail.com",
+      "nomeCompleto": "Milton Reis",
+      "avatar": "https://picsum.photos/200/301",
+      "email": "wmr049@gmail.com",
       "enderecoId": 1,
       "tenantId": 1
     },
     {
       "id": 4,
       "telefone": "19992129964",
-      "nomeCompleto": "Pedro Paulo Diniz 4",
+      "nomeCompleto": "Marcia Lira",
+      "avatar": "https://picsum.photos/200/302",
       "email": "mf@gmail.com",
       "enderecoId": 1,
       "tenantId": 1
@@ -38,6 +34,7 @@
       "id": 5,
       "telefone": "19992129965",
       "nomeCompleto": "Pedro Paulo Diniz 5",
+      "avatar": "https://picsum.photos/200/303",
       "email": "ppd5@gmail.com",
       "enderecoId": 1,
       "tenantId": 1
@@ -46,6 +43,7 @@
       "id": 6,
       "telefone": "19992129966",
       "nomeCompleto": "Pedro Paulo Diniz 6",
+      "avatar": "https://picsum.photos/200/304",
       "email": "ppd6@gmail.com",
       "enderecoId": 1,
       "tenantId": 1
@@ -54,6 +52,7 @@
       "id": 7,
       "telefone": "19992129967",
       "nomeCompleto": "Pedro Paulo Diniz 7",
+      "avatar": "https://picsum.photos/200/305",
       "email": "ppd7@gmail.com",
       "enderecoId": 1,
       "tenantId": 1
@@ -62,6 +61,7 @@
       "id": 8,
       "telefone": "19992129968",
       "nomeCompleto": "Pedro Paulo Diniz 8",
+      "avatar": "https://picsum.photos/200/306",
       "email": "ppd8@gmail.com",
       "enderecoId": 1,
       "tenantId": 1
@@ -70,6 +70,7 @@
       "id": 9,
       "telefone": "19992129969",
       "nomeCompleto": "Pedro Paulo Diniz 9",
+      "avatar": "https://picsum.photos/200/307",
       "email": "ppd9@gmail.com",
       "enderecoId": 1,
       "tenantId": 1
@@ -78,6 +79,7 @@
       "id": 10,
       "telefone": "19992129970",
       "nomeCompleto": "Pedro Paulo Diniz 10",
+      "avatar": "https://picsum.photos/200/308",
       "email": "ppd10@gmail.com",
       "enderecoId": 1,
       "tenantId": 1
@@ -86,6 +88,7 @@
       "id": 11,
       "telefone": "19992129971",
       "nomeCompleto": "Pedro Paulo Diniz 11",
+      "avatar": "https://picsum.photos/200/309",
       "email": "ppd11@gmail.com",
       "enderecoId": 1,
       "tenantId": 1
@@ -94,6 +97,7 @@
       "id": 12,
       "telefone": "19992129972",
       "nomeCompleto": "Pedro Paulo Diniz 12",
+      "avatar": "https://picsum.photos/200/310",
       "email": "ppd12@gmail.com",
       "enderecoId": 1,
       "tenantId": 1
@@ -102,6 +106,7 @@
       "id": 13,
       "telefone": "19992129973",
       "nomeCompleto": "Pedro Paulo Diniz 13",
+      "avatar": "https://picsum.photos/200/311",
       "email": "ppd13@gmail.com",
       "enderecoId": 1,
       "tenantId": 1
@@ -110,6 +115,7 @@
       "id": 14,
       "telefone": "19992129974",
       "nomeCompleto": "Pedro Paulo Diniz 14",
+      "avatar": "https://picsum.photos/200/312",
       "email": "ppd14@gmail.com",
       "enderecoId": 1,
       "tenantId": 1
@@ -118,6 +124,7 @@
       "id": 15,
       "telefone": "19992129975",
       "nomeCompleto": "Pedro Paulo Diniz 15",
+      "avatar": "https://picsum.photos/200/313",
       "email": "ppd15@gmail.com",
       "enderecoId": 1,
       "tenantId": 1
@@ -126,6 +133,7 @@
       "id": 16,
       "telefone": "19992129976",
       "nomeCompleto": "Pedro Paulo Diniz 16",
+      "avatar": "https://picsum.photos/200/314",
       "email": "ppd16@gmail.com",
       "enderecoId": 1,
       "tenantId": 1
@@ -134,6 +142,7 @@
       "id": 17,
       "telefone": "19992129977",
       "nomeCompleto": "Pedro Paulo Diniz 17",
+      "avatar": "https://picsum.photos/200/315",
       "email": "ppd17@gmail.com",
       "enderecoId": 1,
       "tenantId": 1
@@ -142,6 +151,7 @@
       "id": 18,
       "telefone": "19992129978",
       "nomeCompleto": "Pedro Paulo Diniz 18",
+      "avatar": "https://picsum.photos/200/316",
       "email": "ppd18@gmail.com",
       "enderecoId": 1,
       "tenantId": 1
@@ -150,6 +160,7 @@
       "id": 19,
       "telefone": "19992129979",
       "nomeCompleto": "Pedro Paulo Diniz 19",
+      "avatar": "https://picsum.photos/200/317",
       "email": "ppd19@gmail.com",
       "enderecoId": 1,
       "tenantId": 1
@@ -369,6 +380,16 @@
       "localidade": "Campinas",
       "uf": "SP",
       "id": 8
+    },
+    {
+      "cep": "13098-035",
+      "logradouro": "Estrada Municipal Adelina Segantini Cerqueira Leite",
+      "numero": "3000",
+      "complemento": "haras albar",
+      "bairro": "Chácara São Rafael",
+      "localidade": "Campinas",
+      "uf": "SP",
+      "id": 9
     }
   ],
   "chats": [
