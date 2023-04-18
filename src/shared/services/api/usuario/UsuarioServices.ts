@@ -7,6 +7,8 @@ export interface IDetalheUsuario {
   telefone: string;
   nomeCompleto: string;
   avatar: string;
+  lastMessage: string;
+  lastMessageTimeStamp: Date;
   email: string;
   enderecoId: number;
 }
@@ -17,6 +19,8 @@ export interface IListagemUsuario {
   telefone: string;
   nomeCompleto: string;
   avatar: string;
+  lastMessage: string;
+  lastMessageTimeStamp: Date;
   email: string;
   enderecoId: number;
 }
@@ -29,6 +33,26 @@ type IUsuariosComTotalCount = {
 const getAll = async (page = 1, filter = ''): Promise<IUsuariosComTotalCount | Error> => {
   try {
     const urlRelativa = `/usuarios?_page=${page}&_limit=${Environtment.LIMITE_DE_LINHAS_CHAT}&nomeCompleto_like=${filter}`;
+
+    const { data, headers } = await Api.get(urlRelativa);
+
+    if (data) {
+      return {
+        data,
+        totalCount: Number(headers['x-total-count'] || Environtment.LIMITE_DE_LINHAS_CHAT),
+      };
+    }
+    return new Error('Nenhum registro encontrado para essa pesquisa');
+  } catch (error) {
+    console.log(error);
+    return new Error((error as { message: string }).message || 'Erro ao listar registros de Usuarios');
+  }
+
+};
+
+const getAllUsuariosComChat = async (page = 1, filter = ''): Promise<IUsuariosComTotalCount | Error> => {
+  try {
+    const urlRelativa = `/usuarios?lastMessageTimeStamp_ne=""&_page=${page}&_limit=${Environtment.LIMITE_DE_LINHAS_CHAT}&_sort=lastMessageTimeStamp&_order=desc`;
 
     const { data, headers } = await Api.get(urlRelativa);
 
@@ -98,4 +122,5 @@ export const UsuariosServices = {
   create,
   updateById,
   deleteById,
+  getAllUsuariosComChat,
 };

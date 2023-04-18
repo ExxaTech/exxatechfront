@@ -14,6 +14,8 @@ interface IFormData {
   enderecoId: number;
   nomeCompleto: string;
   avatar: string;
+  lastMessage: string;
+  lastMessageTimeStamp: Date;
 }
 
 const formValidationSchema: yup.ObjectSchema<IFormData> = yup.object().shape({
@@ -21,7 +23,9 @@ const formValidationSchema: yup.ObjectSchema<IFormData> = yup.object().shape({
   telefone: yup.string().required().min(8),
   nomeCompleto: yup.string().required().min(3),
   enderecoId: yup.number().required(),
-  avatar: yup.string().required().min(3)
+  avatar: yup.string().required().min(3),
+  lastMessage: yup.string().required().min(3),
+  lastMessageTimeStamp: yup.date().required()
 })
 
 export const DetalheDeUsuarios: React.FC = () => {

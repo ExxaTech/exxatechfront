@@ -1,44 +1,43 @@
 
-import { Close, Person, SupportAgent } from "@mui/icons-material";
-import { AppBar, Avatar, Box, Button, FormControl, Grid, Icon, IconButton, Input, InputAdornment, InputLabel, List, ListItem, ListItemAvatar, ListItemText, Paper, Toolbar, Typography, useTheme } from "@mui/material";
-import { useEffect, useState } from "react";
+import { Close, Send } from "@mui/icons-material";
+import { AppBar, Avatar, Box, FormControl, Grid, IconButton, Input, InputAdornment, InputLabel, List, ListItem, ListItemText, Paper, Toolbar, Typography, useTheme } from "@mui/material";
+import { KeyboardEvent, useEffect, useState } from "react";
 import { useDebounce } from "../../../shared/hooks";
 
-interface InputMsgChat {
+interface MessageInput {
   id: string;
   name: string;
   avatar: string;
-  message: string;
+  messages: string[];
   timestamp: string;
   type: string;
 }
 
-
 export const WppchatMensagens: React.FC = () => {
 
   const [messages, setMessages] = useState<{ text: string; sentByUser: boolean }[]>([]);
-  const [messageInput, setMessageInput] = useState('');
-  const [chats, setChats] = useState<InputMsgChat[]>([]);
+  const [inputValue, setInputValue] = useState('');
+  const [chats, setChats] = useState<MessageInput[]>([]);
+
   const theme = useTheme();
   const [maxHeight, setMaxHeight] = useState(0);
-
-  const [minimized, setMinimized] = useState(false);
-  const [open, setOpen] = useState(false);
-
   const { debounce } = useDebounce();
-
-  const handleSend = () => {
-    if (messageInput) {
-      setMessages([...messages, { text: messageInput, sentByUser: true }]);
-      setMessageInput('');
-    }
-  };
 
   const handleRemoveChat = (index: number) => {
     const removeListChat = [...chats]
     removeListChat.splice(index, 1);
     setChats(removeListChat)
   }
+
+  const handleKeyPress = (e: KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      if (inputValue.trim() !== '') {
+        setMessages((prevMessages) => [...prevMessages, { text: inputValue, sentByUser: true }]);
+        setInputValue('');
+      }
+    }
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -60,7 +59,7 @@ export const WppchatMensagens: React.FC = () => {
         id: Math.random().toString(36).substr(2, 9),
         name: 'João R',
         avatar: 'https://picsum.photos/200/300',
-        message: '',
+        messages: [],
         timestamp: '',
         type: 'chat'
       },
@@ -68,7 +67,7 @@ export const WppchatMensagens: React.FC = () => {
         id: Math.random().toString(36).substr(2, 9),
         name: 'Pedro F.',
         avatar: 'https://picsum.photos/200/301',
-        message: '',
+        messages: [],
         timestamp: '',
         type: 'chat'
       },
@@ -76,7 +75,7 @@ export const WppchatMensagens: React.FC = () => {
         id: Math.random().toString(36).substr(2, 9),
         name: 'Maria',
         avatar: 'https://picsum.photos/200/302',
-        message: '',
+        messages: [],
         timestamp: '',
         type: 'chat'
       }
@@ -114,11 +113,6 @@ export const WppchatMensagens: React.FC = () => {
             <List style={{ maxHeight, overflow: 'auto' }}>
               {messages.map((message, index) => (
                 <ListItem key={index}>
-                  <ListItemAvatar>
-                    <Avatar>
-                      {message.sentByUser ? <SupportAgent /> : <Person />}
-                    </Avatar>
-                  </ListItemAvatar>
                   <ListItemText
                     primaryTypographyProps={{ style: { fontSize: 14 } }}
                     primary={message.text} />
@@ -130,21 +124,20 @@ export const WppchatMensagens: React.FC = () => {
             <InputLabel htmlFor="mesdsage-input">Mensagem</InputLabel>
             <Input
               id="message-input"
-              value={messageInput}
-              onChange={(e) => setMessageInput(e.target.value)}
-              onClick={handleSend}
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+              onKeyPress={handleKeyPress}
               endAdornment={<InputAdornment position="end">
-                <Button
-                  color='primary'
-                  disableElevation
-                  startIcon={<Icon>send</Icon>}
-                  onClick={handleSend} />
+                <div onKeyDown={handleKeyPress}>
+                  <IconButton type="submit">
+                    <Send />
+                  </IconButton>
+                </div>
               </InputAdornment>} />
           </FormControl>
         </Box>
       ))
       }
     </Box >
-
   );
 } 

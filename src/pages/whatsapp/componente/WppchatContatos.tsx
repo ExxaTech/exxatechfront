@@ -1,4 +1,4 @@
-import { Avatar, Grid, List, ListItemAvatar, ListItemButton, ListItemText, Paper, useTheme } from "@mui/material";
+import { Avatar, Grid, List, ListItemAvatar, ListItemButton, ListItemText, Paper } from "@mui/material";
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useDebounce } from "../../../shared/hooks";
@@ -10,7 +10,6 @@ export const WppchatContatos: React.FC = () => {
   const [rows, setRows] = useState<IListagemUsuario[]>([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const { debounce } = useDebounce();
-  const theme = useTheme();
 
   const pagina = useMemo(() => {
     return Number(searchParams.get('pagina')) || 1;
@@ -22,7 +21,7 @@ export const WppchatContatos: React.FC = () => {
 
   useEffect(() => {
     debounce(() => {
-      UsuariosServices.getAll(pagina, busca)
+      UsuariosServices.getAllUsuariosComChat(pagina, busca)
         .then((result) => {
           if (result instanceof Error) {
             console.log(result.message);
@@ -47,16 +46,18 @@ export const WppchatContatos: React.FC = () => {
       >
         {rows.map((row) => (
           <ListItemButton key={row.id} onClick={handleClick}>
-            <ListItemAvatar>
+            <ListItemAvatar style={{ minWidth: 35 }}>
               <Avatar
                 style={{ width: 30, height: 30, fontSize: 14 }}
-                src={row.avatar} />                
+                src={row.avatar} />
             </ListItemAvatar>
             <ListItemText
               primaryTypographyProps={{ style: { fontSize: 14 } }}
               primary={row.nomeCompleto}
               secondaryTypographyProps={{ style: { fontSize: 12 } }}
-              secondary={row.telefone}
+              secondary={new Date(row.lastMessageTimeStamp).toLocaleDateString('pt-BR') != new Date().toLocaleDateString('pt-BR')
+                ? new Date(row.lastMessageTimeStamp).toLocaleDateString('pt-BR') :
+                new Date(row.lastMessageTimeStamp).toLocaleTimeString('pt-BR')}
             />
           </ListItemButton>
         ))}
