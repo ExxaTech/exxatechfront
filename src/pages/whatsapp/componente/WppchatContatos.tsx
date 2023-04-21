@@ -1,4 +1,3 @@
-import { Person } from "@mui/icons-material";
 import { Avatar, Grid, List, ListItemAvatar, ListItemButton, ListItemText, Paper } from "@mui/material";
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
@@ -22,7 +21,7 @@ export const WppchatContatos: React.FC = () => {
 
   useEffect(() => {
     debounce(() => {
-      UsuariosServices.getAll(pagina, busca)
+      UsuariosServices.getAllUsuariosComChat(pagina, busca)
         .then((result) => {
           if (result instanceof Error) {
             console.log(result.message);
@@ -38,19 +37,31 @@ export const WppchatContatos: React.FC = () => {
   };
 
   return (
-    <Grid item xs={8} sm={8} md={4} lg={4} xl={2} style={{ height: '100vh', overflow: 'auto' }}>
-      <List component={Paper} variant="outlined" sx={{ m: 1, width: 'auto' }}>
+    <Grid item xs={8} sm={8} md={4} lg={4} xl={2}>
+      <List
+        style={{ maxHeight: '-webkit-fill-available', overflow: 'auto' }}
+        component={Paper}
+        variant="outlined"
+        sx={{ m: 1 }}
+      >
         {rows.map((row) => (
           <ListItemButton key={row.id} onClick={handleClick}>
-            <ListItemAvatar>
-              <Avatar>
-                <Person />
-              </Avatar>
+            <ListItemAvatar style={{ minWidth: 35 }}>
+              <Avatar
+                style={{ width: 30, height: 30, fontSize: 14 }}
+                src={row.avatar} />
             </ListItemAvatar>
-            <ListItemText primary={row.email} />
+            <ListItemText
+              primaryTypographyProps={{ style: { fontSize: 14 } }}
+              primary={row.nomeCompleto}
+              secondaryTypographyProps={{ style: { fontSize: 12 } }}
+              secondary={new Date(row.lastMessageTimeStamp).toLocaleDateString('pt-BR') != new Date().toLocaleDateString('pt-BR')
+                ? new Date(row.lastMessageTimeStamp).toLocaleDateString('pt-BR') :
+                new Date(row.lastMessageTimeStamp).toLocaleTimeString('pt-BR')}
+            />
           </ListItemButton>
         ))}
       </List>
-    </Grid>
+    </Grid >
   );
 } 

@@ -14,15 +14,17 @@ export const Wppchat: React.FC = () => {
         { descricao: "Atendimento", caminho: "/wppchat" }]}
       barraDeFerramentas={
         <FerramentasDaListagem
+          mostrarInputBusca
           textoBotaoNovo="Novo"
+          textoDaBusca={''}
+          aoClicarEmNovo={() => { return }}
         />
       }
     >
       <Grid container
         direction="row"
         flexWrap='nowrap'
-        alignContent='stretch'
-        justifyContent='space-evenly'
+        justifyContent='flex-start'
         alignItems='stretch'
         height='-webkit-fill-available'>
         <WppchatContatos />

@@ -25,5 +25,5 @@ export const DarkTheme = createTheme({
     allVariants: {
       color: 'white'
     }
-  }
+  },
 });
