@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { Dashboard, DetalheDeEnderecos, DetalheDeUsuarios, ListagemDeEnderecos, ListagemDeUsuarios, Wppchat } from '../pages';
+import { Dashboard, DetalheDeEnderecos, ListagemDeEnderecos, UserDetail, UserList, Wppchat } from '../pages';
 import { useDrawerContext } from '../shared/contexts';
 
 export const AppRoutes = () => {
@@ -45,8 +45,8 @@ export const AppRoutes = () => {
       <Route path="/wppchat" element={<Wppchat />} />
 
       {/* Usuários */}
-      <Route path="/user" element={<ListagemDeUsuarios />} />
-      <Route path="/user/detalhes/:id" element={<DetalheDeUsuarios />} />
+      <Route path="/user" element={<UserList />} />
+      <Route path="/user/detalhes/:id" element={<UserDetail />} />
 
       <Route path="*" element={<Navigate to="/pagina-inicial" />} />
     </Routes >

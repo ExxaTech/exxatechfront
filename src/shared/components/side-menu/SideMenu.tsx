@@ -33,11 +33,11 @@ const ListItemLink: React.FC<IListItemLinkProps> = ({ label, icon, to, onClick }
   );
 };
 
-interface IMenuLateralrData {
+interface ISideMenuData {
   children: ReactNode
 }
 
-export const MenuLateral: React.FC<IMenuLateralrData> = ({ children }) => {
+export const SideMenu: React.FC<ISideMenuData> = ({ children }) => {
   const theme = useTheme();
   const smDown = useMediaQuery(theme.breakpoints.down('sm'));
   const { isDrawerOpen, toggleDrawerOpen, drawerOptions } = useDrawerContext();

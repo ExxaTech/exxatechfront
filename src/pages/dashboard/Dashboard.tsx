@@ -1,9 +1,9 @@
 import { Box, Card, CardContent, Grid, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
-import { FerramentasDaListagem } from '../../shared/components';
-import { LayoutBaseDePagina } from '../../shared/layouts';
-import { EnderecoServices } from '../../shared/services/api/endereco/EnderecoServices';
-import { UsuariosServices } from '../../shared/services/api/usuario/UsuarioServices';
+import { ListTools } from '../../shared/components';
+import { BasePageLayout } from '../../shared/layouts';
+import { AddressService } from '../../shared/services/api/address/AddressService';
+import { UserServices } from '../../shared/services/api/user/UserServices';
 
 export const Dashboard = () => {
 
@@ -17,7 +17,7 @@ export const Dashboard = () => {
     setIsLoadingUsuarios(true);
     setIsLoadingEnderecos(true);
 
-    UsuariosServices.getAll(1)
+    UserServices.getAll(1)
       .then((result) => {
         setIsLoadingUsuarios(false);
 
@@ -28,7 +28,7 @@ export const Dashboard = () => {
         }
       });
 
-    EnderecoServices.getAll(1)
+    AddressService.getAll(1)
       .then((result) => {
         setIsLoadingEnderecos(false);
 
@@ -41,11 +41,11 @@ export const Dashboard = () => {
   }, [])
 
   return (
-    <LayoutBaseDePagina
-      navegacao={[
-        { descricao: "Inicio", caminho: "/" }]}
-      barraDeFerramentas={(
-        <FerramentasDaListagem mostrarBotaoNovo={false} />
+    <BasePageLayout
+      navigation={[
+        { description: "Inicio", path: "/" }]}
+      toolBar={(
+        <ListTools showNewButtonText={false} />
       )}
     >
       <Box width='100%' display='flex'>
@@ -102,6 +102,6 @@ export const Dashboard = () => {
           </Grid>
         </Grid>
       </Box>
-    </LayoutBaseDePagina>
+    </BasePageLayout>
   );
 };

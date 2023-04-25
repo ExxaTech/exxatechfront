@@ -2,19 +2,19 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { Icon, IconButton, LinearProgress, Menu, MenuItem, Pagination, Paper, Table, TableBody, TableCell, TableContainer, TableFooter, TableHead, TableRow } from "@mui/material";
 import React, { useEffect, useMemo, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { FerramentasDaListagem } from "../../shared/components";
+import { ListTools } from "../../shared/components";
 import { Environtment } from "../../shared/environment";
 import { useDebounce } from "../../shared/hooks";
-import { LayoutBaseDePagina } from "../../shared/layouts";
-import { IListagemUsuario, UsuariosServices } from "../../shared/services/api/usuario/UsuarioServices";
+import { BasePageLayout } from "../../shared/layouts";
+import { IUserList, UserServices } from "../../shared/services/api/user/UserServices";
 
-export const ListagemDeUsuarios: React.FC = () => {
+export const UserList: React.FC = () => {
 
   const [searchParams, setSearchParams] = useSearchParams();
   const { debounce } = useDebounce();
   const navigate = useNavigate();
 
-  const [rows, setRows] = useState<IListagemUsuario[]>([]);
+  const [rows, setRows] = useState<IUserList[]>([]);
   const [totalCount, setTotalCount] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -29,7 +29,7 @@ export const ListagemDeUsuarios: React.FC = () => {
 
   const handleDelete = (id: number) => {
     if (confirm('Realmente deseja apagar ? ')) {
-      UsuariosServices.deleteById(id)
+      UserServices.deleteById(id)
         .then(result => {
           if (result instanceof Error) {
             alert(result.message);
@@ -45,7 +45,7 @@ export const ListagemDeUsuarios: React.FC = () => {
     setIsLoading(true);
 
     debounce(() => {
-      UsuariosServices.getAll(pagina, busca)
+      UserServices.getAll(pagina, busca)
         .then((result) => {
           setIsLoading(false);
 
@@ -81,17 +81,17 @@ export const ListagemDeUsuarios: React.FC = () => {
 
 
   return (
-    <LayoutBaseDePagina
-      navegacao={[
-        { descricao: "Inicio", caminho: "/" },
-        { descricao: "Usuários", caminho: "/user" }]}
-      barraDeFerramentas={
-        <FerramentasDaListagem
-          mostrarInputBusca
-          textoBotaoNovo="Novo"
-          textoDaBusca={busca}
-          aoClicarEmNovo={() => navigate('/user/detalhes/nova')}
-          aoMudarTextoDaBusca={texto => setSearchParams({ busca: texto, pagina: '1' }, { replace: true })}
+    <BasePageLayout
+      navigation={[
+        { description: "Inicio", path: "/" },
+        { description: "Usuários", path: "/user" }]}
+      toolBar={
+        <ListTools
+          showSearchInput
+          newButtonText="Novo"
+          searchText={busca}
+          whenClickOnNew={() => navigate('/user/detalhes/nova')}
+          whenChangeSearchText={texto => setSearchParams({ busca: texto, pagina: '1' }, { replace: true })}
         />
       }
     >
@@ -118,8 +118,8 @@ export const ListagemDeUsuarios: React.FC = () => {
                     <Icon>delete</Icon>
                   </IconButton>
                 </TableCell>
-                <TableCell align="left">{row.nomeCompleto}</TableCell>
-                <TableCell align="left">{row.email}</TableCell>
+                <TableCell align="left">{row.name}</TableCell>
+                <TableCell align="left">{row.contact?.email}</TableCell>
                 <TableCell align="left">
                   <IconButton
                     aria-label="more"
@@ -161,7 +161,7 @@ export const ListagemDeUsuarios: React.FC = () => {
           </TableBody>
 
           {totalCount === 0 && !isLoading && (
-            <caption>{Environtment.LISTAGEM_VAZIA}</caption>
+            <caption>{Environtment.LIST_EMPTY}</caption>
           )}
 
           <TableFooter>
@@ -173,13 +173,13 @@ export const ListagemDeUsuarios: React.FC = () => {
               </TableRow>
             )}
             {(totalCount > 0
-              && totalCount > Environtment.LIMITE_DE_LINHAS
+              && totalCount > Environtment.LIMIT_ROWS
             ) && (
                 <TableRow>
                   <TableCell colSpan={4}>
                     <Pagination
                       page={pagina}
-                      count={Math.ceil(totalCount / Environtment.LIMITE_DE_LINHAS)}
+                      count={Math.ceil(totalCount / Environtment.LIMIT_ROWS)}
                       onChange={(_, newPage) => setSearchParams({ busca, pagina: newPage.toString() }, { replace: true })}
                     />
                   </TableCell>
@@ -188,6 +188,6 @@ export const ListagemDeUsuarios: React.FC = () => {
           </TableFooter>
         </Table>
       </TableContainer>
-    </LayoutBaseDePagina>
+    </BasePageLayout>
   );
 };

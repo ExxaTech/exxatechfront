@@ -8,28 +8,28 @@ export const Environtment = {
   /**
   *Placeholder exibido nos inputs
   */
-  LIMITE_DE_LINHAS: 5,
+  LIMIT_ROWS: 5,
 
 
   /**
   *Placeholder exibido nos inputs
   */
-  LIMITE_DE_LINHAS_CHAT: 40,
+  LIMIT_ROWS_CHAT: 40,
 
   /**
   *Texto exibido quando nenhum registro for encontrado na pesquisa
   */
-  LISTAGEM_VAZIA: process.env.LISTAGEM_VAZIA || 'Nenhum registro encontrado',
+  LIST_EMPTY: process.env.LIST_EMPTY || 'Nenhum registro encontrado',
 
   /**
   *Texto exibido no input de busca
   */
-  INPUT_DE_BUSCA: process.env.INPUT_DE_BUSCA || 'Pesquisar...',
+  SEARCH_INPUT: process.env.SEARCH_INPUT || 'Pesquisar...',
 
   /**
   *Url base de API
   */
-  URL_BASE: process.env.URL_BASE || 'http://localhost:3333',
+  BASE_URL: process.env.URL_BASE || 'http://localhost:3333',
 
 
   /**

@@ -3,7 +3,7 @@ import { Environtment } from '../../../environment';
 import { errorInterceptor, responseInterceptor } from './interceptors';
 
 const Api = axios.create({
-  baseURL: Environtment.URL_BASE,
+  baseURL: Environtment.BASE_URL,
   headers: {
     // 'Authorization': `Bearer ${JSON.parse(localStorage.getItem('APP_ACCESS_TOKEN') || '')}`
   }

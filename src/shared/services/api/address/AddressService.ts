@@ -1,7 +1,7 @@
 import { Environtment } from '../../../environment';
 import { Api, ApiViaCep } from '../axios-config';
 
-export interface IDetalheEndereco {
+export interface IAddressDetail {
   id: number;
   cep: string;
   logradouro: string;
@@ -12,7 +12,7 @@ export interface IDetalheEndereco {
   numero: string;
 }
 
-export interface IListagemEndereco {
+export interface IAddressList {
   id: number;
   cep: string;
   logradouro: string;
@@ -23,14 +23,14 @@ export interface IListagemEndereco {
   numero: string;
 }
 
-type IEnderecosComTotalCount = {
-  data: IListagemEndereco[];
+type IAddressWithTotalCount = {
+  data: IAddressList[];
   totalCount: number;
 }
 
-const getAll = async (page = 1, filter = ''): Promise<IEnderecosComTotalCount | Error> => {
+const getAll = async (page = 1, filter = ''): Promise<IAddressWithTotalCount | Error> => {
   try {
-    const urlRelativa = `/enderecos?_page=${page}&_limit=${Environtment.LIMITE_DE_LINHAS}&cep_like=${filter}`;
+    const urlRelativa = `/address?_page=${page}&_limit=${Environtment.LIMIT_ROWS}&cep_like=${filter}`;
 
     const { data, headers } = await Api.get(urlRelativa);
 
@@ -38,7 +38,7 @@ const getAll = async (page = 1, filter = ''): Promise<IEnderecosComTotalCount | 
 
       return {
         data,
-        totalCount: Number(headers['x-total-count'] || Environtment.LIMITE_DE_LINHAS),
+        totalCount: Number(headers['x-total-count'] || Environtment.LIMIT_ROWS),
       };
     } else {
       const cepViaCep = await getEnderecoByViaCep(filter);
@@ -59,9 +59,9 @@ const getAll = async (page = 1, filter = ''): Promise<IEnderecosComTotalCount | 
 
 };
 
-const getById = async (id: number): Promise<IDetalheEndereco | Error> => {
+const getById = async (id: number): Promise<IAddressDetail | Error> => {
   try {
-    const { data } = await Api.get(`/enderecos/${id}`);
+    const { data } = await Api.get(`/address/${id}`);
 
     if (data) return data;
 
@@ -73,17 +73,17 @@ const getById = async (id: number): Promise<IDetalheEndereco | Error> => {
 }
 
 
-const getByCep = async (cep: string): Promise<IEnderecosComTotalCount | Error> => {
+const getByCep = async (cep: string): Promise<IAddressWithTotalCount | Error> => {
   try {
 
-    const urlRelativa = `/enderecos?cep=${cep}`;
+    const urlRelativa = `/address?cep=${cep}`;
 
     const { data, headers } = await Api.get(urlRelativa);
 
     if (data[0]) {
       return {
         data,
-        totalCount: Number(headers['x-total-count'] || Environtment.LIMITE_DE_LINHAS),
+        totalCount: Number(headers['x-total-count'] || Environtment.LIMIT_ROWS),
       };
     }
 
@@ -102,9 +102,9 @@ const getByCep = async (cep: string): Promise<IEnderecosComTotalCount | Error> =
   }
 }
 
-const create = async (dados: Omit<IDetalheEndereco, 'id'>): Promise<number | Error> => {
+const create = async (dados: Omit<IAddressDetail, 'id'>): Promise<number | Error> => {
   try {
-    const { data } = await Api.post<IDetalheEndereco>('/enderecos', dados);
+    const { data } = await Api.post<IAddressDetail>('/address', dados);
 
     if (data) return data.id;
 
@@ -116,9 +116,9 @@ const create = async (dados: Omit<IDetalheEndereco, 'id'>): Promise<number | Err
 
 };
 
-const updateById = async (id: number, dados: IDetalheEndereco): Promise<void | Error> => {
+const updateById = async (id: number, dados: IAddressDetail): Promise<void | Error> => {
   try {
-    await Api.put(`/enderecos/${id}`, dados);
+    await Api.put(`/address/${id}`, dados);
   } catch (error) {
     console.log(error);
     return new Error((error as { message: string }).message || 'Erro ao atualizar o registro');
@@ -127,20 +127,20 @@ const updateById = async (id: number, dados: IDetalheEndereco): Promise<void | E
 
 const deleteById = async (id: number): Promise<void | Error> => {
   try {
-    await Api.delete(`/enderecos/${id}`);
+    await Api.delete(`/address/${id}`);
   } catch (error) {
     console.log(error);
     return new Error((error as { message: string }).message || 'Erro ao deletar o registro');
   }
 };
 
-const getEnderecoByViaCep = async (cep: string): Promise<IDetalheEndereco> => {
+const getEnderecoByViaCep = async (cep: string): Promise<IAddressDetail> => {
 
   const { data } = await (await ApiViaCep.get(`/${cep}/json/`));
   return data;
 }
 
-export const EnderecoServices = {
+export const AddressService = {
   getAll,
   getById,
   create,

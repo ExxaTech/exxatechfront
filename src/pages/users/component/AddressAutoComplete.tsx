@@ -2,7 +2,7 @@ import { Autocomplete, CircularProgress, TextField } from "@mui/material";
 import { useField } from "@unform/core";
 import { useEffect, useMemo, useState } from "react";
 import { useDebounce } from "../../../shared/hooks";
-import { EnderecoServices } from "../../../shared/services/api/endereco/EnderecoServices";
+import { AddressService } from "../../../shared/services/api/address/AddressService";
 
 
 type IAutoCompleteOption = {
@@ -37,7 +37,7 @@ export const AutoCompleteEndereco: React.FC<IAutoCompleteEnderecoProps> = ({ isE
   useEffect(() => {
     setIsLoading(true)
     debounce(() => {
-      EnderecoServices.getAll(1, busca)
+      AddressService.getAll(1, busca)
         .then((result) => {
           setIsLoading(false)
           if (result instanceof Error) {

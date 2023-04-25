@@ -2,10 +2,10 @@ import { Box, Grid, Icon, IconButton, LinearProgress, Paper, Typography } from "
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import * as yup from 'yup';
-import { FerramentasDeDetalhe } from "../../shared/components";
-import { IVFormsError, useVForm, VForm, VTextField } from "../../shared/forms";
-import { LayoutBaseDePagina } from "../../shared/layouts";
-import { EnderecoServices } from "../../shared/services/api/endereco/EnderecoServices";
+import { DetailTools } from "../../shared/components";
+import { IVFormsError, VForm, VTextField, useVForm } from "../../shared/forms";
+import { BasePageLayout } from "../../shared/layouts";
+import { AddressService } from "../../shared/services/api/address/AddressService";
 
 interface IFormData {
   cep: string;
@@ -37,8 +37,8 @@ export const DetalheDeEnderecos: React.FC = () => {
   const [cep, setCep] = useState('');
 
 
-  const handleBuscaCep = () => {
-    EnderecoServices
+  const handleSearchCep = () => {
+    AddressService
       .getByCep(cep)
       .then((response) => {
         if (response instanceof Error) {
@@ -52,11 +52,11 @@ export const DetalheDeEnderecos: React.FC = () => {
   const handleSave = (dados: IFormData) => {
     formValidationSchema.
       validate(dados, { abortEarly: false })
-      .then((dadosValidados) => {
+      .then((validateData) => {
         setIsLoading(true);
         if (id === 'novo') {
-          EnderecoServices
-            .create(dadosValidados)
+          AddressService
+            .create(validateData)
             .then((result) => {
               setIsLoading(false);
               if (result instanceof Error) {
@@ -80,21 +80,21 @@ export const DetalheDeEnderecos: React.FC = () => {
   };
 
   return (
-    <LayoutBaseDePagina
-      navegacao={[
-        { descricao: "Inicio", caminho: "/" },
-        { descricao: "Endereços", caminho: "/endereco" },
-        { descricao: id === 'novo' ? 'Novo Endereço' : `Detalhe do Endereço ${''}`, caminho: "/cep/detalhes/novo" }]}
-      barraDeFerramentas={
-        <FerramentasDeDetalhe
-          textoBotaoNovo="Novo"
+    <BasePageLayout
+      navigation={[
+        { description: "Inicio", path: "/" },
+        { description: "Endereços", path: "/endereco" },
+        { description: id === 'novo' ? 'Novo Endereço' : `Detalhe do Endereço ${''}`, path: "/cep/detalhes/novo" }]}
+      toolBar={
+        <DetailTools
+          newTextButton="Novo"
 
-          mostrarBotaoNovo={id !== 'novo'}
-          mostrarBotaoSalvar
-          mostrarBotaoApagar={id !== 'novo'}
+          showNewButton={id !== 'novo'}
+          showSaveButton
+          showDeleteButton={id !== 'novo'}
 
-          aoClicarEmSalvar={save}
-          aoClicarEmNovo={() => navigate('/endereco/detalhes/novo')}
+          whenClickingSave={save}
+          whenClickingNew={() => navigate('/endereco/detalhes/novo')}
         />
       }
     >
@@ -123,7 +123,7 @@ export const DetalheDeEnderecos: React.FC = () => {
                 />
               </Grid>
               <Grid item>
-                <IconButton onClick={handleBuscaCep} color="primary" aria-label="buscar cep" component="label">
+                <IconButton onClick={handleSearchCep} color="primary" aria-label="buscar cep" component="label">
                   <input hidden type="button" />
                   <Icon>search</Icon>
                 </IconButton>
@@ -186,7 +186,7 @@ export const DetalheDeEnderecos: React.FC = () => {
           </Grid>
         </Box>
       </VForm>
-    </LayoutBaseDePagina>
+    </BasePageLayout>
 
   )
 

@@ -1,11 +1,11 @@
 import { Icon, IconButton, LinearProgress, Pagination, Paper, Table, TableBody, TableCell, TableContainer, TableFooter, TableHead, TableRow } from "@mui/material";
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { FerramentasDaListagem } from "../../shared/components";
+import { ListTools } from "../../shared/components";
 import { Environtment } from "../../shared/environment";
 import { useDebounce } from "../../shared/hooks";
-import { LayoutBaseDePagina } from "../../shared/layouts";
-import { EnderecoServices, IListagemEndereco } from "../../shared/services/api/endereco/EnderecoServices";
+import { BasePageLayout } from "../../shared/layouts";
+import { AddressService, IAddressList } from "../../shared/services/api/address/AddressService";
 
 export const ListagemDeEnderecos: React.FC = () => {
 
@@ -14,7 +14,7 @@ export const ListagemDeEnderecos: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const { debounce } = useDebounce();
 
-  const [rows, setRows] = useState<IListagemEndereco[]>([]);
+  const [rows, setRows] = useState<IAddressList[]>([]);
   const [totalCount, setTotalCount] = useState(0);
 
   const pagina = useMemo(() => {
@@ -27,7 +27,7 @@ export const ListagemDeEnderecos: React.FC = () => {
 
   const handleDelete = (id: number) => {
     if (confirm('Realmente deseja apagar ? ')) {
-      EnderecoServices.deleteById(id)
+      AddressService.deleteById(id)
         .then(result => {
           if (result instanceof Error) {
             alert(result.message);
@@ -42,7 +42,7 @@ export const ListagemDeEnderecos: React.FC = () => {
   useEffect(() => {
     setIsLoading(true);
     debounce(() => {
-      EnderecoServices.getAll(pagina, busca)
+      AddressService.getAll(pagina, busca)
         .then((result) => {
           setIsLoading(false);
 
@@ -57,17 +57,17 @@ export const ListagemDeEnderecos: React.FC = () => {
   }, [busca, pagina]);
 
   return (
-    <LayoutBaseDePagina
-      navegacao={[
-        { descricao: "Inicio", caminho: "/" },
-        { descricao: "Endereços", caminho: "/endereco" }]}
-      barraDeFerramentas={
-        <FerramentasDaListagem
-          mostrarInputBusca
-          textoBotaoNovo="Novo"
-          textoDaBusca={busca}
-          aoClicarEmNovo={() => navigate('/endereco/detalhes/novo')}
-          aoMudarTextoDaBusca={texto => setSearchParams({ busca: texto }, { replace: true })}
+    <BasePageLayout
+      navigation={[
+        { description: "Inicio", path: "/" },
+        { description: "Endereços", path: "/endereco" }]}
+      toolBar={
+        <ListTools
+          showSearchInput
+          newButtonText="Novo"
+          searchText={busca}
+          whenClickOnNew={() => navigate('/endereco/detalhes/novo')}
+          whenChangeSearchText={texto => setSearchParams({ busca: texto }, { replace: true })}
         />
       }
     >
@@ -104,7 +104,7 @@ export const ListagemDeEnderecos: React.FC = () => {
             ))}
           </TableBody>
           {totalCount === 0 && !isLoading && (
-            <caption>{Environtment.LISTAGEM_VAZIA}</caption>
+            <caption>{Environtment.LIST_EMPTY}</caption>
           )}
 
           <TableFooter>
@@ -116,13 +116,13 @@ export const ListagemDeEnderecos: React.FC = () => {
               </TableRow>
             )}
             {(totalCount > 0
-              && totalCount > Environtment.LIMITE_DE_LINHAS
+              && totalCount > Environtment.LIMIT_ROWS
             ) && (
                 <TableRow>
                   <TableCell colSpan={4}>
                     <Pagination
                       page={pagina}
-                      count={Math.ceil(totalCount / Environtment.LIMITE_DE_LINHAS)}
+                      count={Math.ceil(totalCount / Environtment.LIMIT_ROWS)}
                       onChange={(_, newPage) => setSearchParams({ busca, pagina: newPage.toString() }, { replace: true })}
                     />
                   </TableCell>
@@ -132,6 +132,6 @@ export const ListagemDeEnderecos: React.FC = () => {
 
         </Table>
       </TableContainer>
-    </LayoutBaseDePagina>
+    </BasePageLayout>
   );
 };

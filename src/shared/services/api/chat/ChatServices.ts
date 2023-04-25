@@ -5,38 +5,38 @@ export interface IChat {
   id: number;
   chatMessageId: number;
   timeStamp: string;
-  usuario: IUsuario;
+  usuario: IUser;
   message: string;
 }
 
-export interface IListagemChat {
+export interface IChatList {
   id: number;
   chatMessageId: number;
   timeStamp: string;
-  usuario: IUsuario;
+  usuario: IUser;
   message: string;
 }
 
-export interface IChatComTotalCount {
-  data: IListagemChat[];
+export interface IChatWithTotalCount {
+  data: IChatList[];
   totalCount: number;
 }
 
 
-interface IUsuario {
+interface IUser {
   nomeCompleto: string
 }
 
-const getAllByChatUsuarioId = async (page = 1, filter = ''): Promise<IChatComTotalCount | Error> => {
+const getAllByChatUsuarioId = async (page = 1, filter = ''): Promise<IChatWithTotalCount | Error> => {
   try {
-    const urlRelativa = `/chats?_page=${page}&_limit=${Environtment.LIMITE_DE_LINHAS_CHAT}&chatMessageId_like=${filter}`;
+    const urlRelativa = `/chats?_page=${page}&_limit=${Environtment.LIMIT_ROWS_CHAT}&chatMessageId_like=${filter}`;
 
     const { data, headers } = await Api.get(urlRelativa);
 
     if (data) {
       return {
         data,
-        totalCount: Number(headers['x-total-count'] || Environtment.LIMITE_DE_LINHAS_CHAT),
+        totalCount: Number(headers['x-total-count'] || Environtment.LIMIT_ROWS_CHAT),
       };
     }
 

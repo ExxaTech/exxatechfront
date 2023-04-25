@@ -5,16 +5,16 @@ import { ReactNode } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDrawerContext } from '../contexts';
 
-interface ILayoutBaseDePaginaProps {
+interface IBasePageLayoutProps {
   children: ReactNode;
-  navegacao: { descricao: string; caminho: string; }[];
-  barraDeFerramentas: ReactNode;
+  navigation: { description: string; path: string; }[];
+  toolBar: ReactNode;
 }
 
-export const LayoutBaseDePagina: React.FC<ILayoutBaseDePaginaProps> = ({
-  navegacao,
+export const BasePageLayout: React.FC<IBasePageLayoutProps> = ({
+  navigation: navigation,
   children,
-  barraDeFerramentas,
+  toolBar: toolBar,
 }
 ) => {
 
@@ -35,23 +35,23 @@ export const LayoutBaseDePagina: React.FC<ILayoutBaseDePaginaProps> = ({
         <Box display="flex" height={theme.spacing(2)}>
           <Breadcrumbs separator={<NavigateNextIcon />} >
             {
-              navegacao.map((item) =>
+              navigation.map((item) =>
                 <Link component="button"
                   variant="body2"
-                  key={item.caminho}
-                  onClick={() => navigate(item.caminho)}>
-                  {item.descricao}
+                  key={item.path}
+                  onClick={() => navigate(item.path)}>
+                  {item.description}
                 </Link>)
             }
           </Breadcrumbs>
         </Box>
       </Box>
       {
-        barraDeFerramentas && (<Box>
-          {barraDeFerramentas}
+        toolBar && (<Box>
+          {toolBar}
         </Box>)
       }
-      <Box flex={1} overflow='hidden' >
+      <Box flex={1} overflow='auto' >
         {children}
       </Box>
     </Box >
