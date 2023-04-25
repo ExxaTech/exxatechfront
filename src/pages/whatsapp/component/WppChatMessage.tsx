@@ -2,12 +2,13 @@
 import { Close, Send } from "@mui/icons-material";
 import { AppBar, Avatar, Box, FormControl, Grid, IconButton, Input, InputAdornment, InputLabel, List, ListItem, ListItemText, Paper, Toolbar, Typography, useTheme } from "@mui/material";
 import { ChangeEvent, KeyboardEvent, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useDebounce } from "../../../shared/hooks";
+import { IUserList } from "../../../shared/services/api/user/UserServices";
 
 interface MessageInput {
-  id: string | undefined;
+  id?: number;
   name: string;
-  avatar: string;
+  avatar?: string;
   messages: Message[];
   type: string;
 }
@@ -22,16 +23,15 @@ interface Message {
   timestamp: Date
 }
 
-export const WppchatMessage: React.FC = () => {
+export const WppchatMessage: React.FC<{ user: IUserList }> = ({ user }) => {
 
   const [messages, setMessages] = useState<Message[]>([]);
-  const { id } = useParams<{ id: string }>();
-
+  const { debounce } = useDebounce();
   const [chats, setChats] = useState<MessageInput[]>([
     {
-      id: id,
-      name: '',
-      avatar: '',
+      id: undefined,
+      name: "",
+      avatar: "",
       messages: messages,
       type: 'chat'
     }
@@ -42,6 +42,20 @@ export const WppchatMessage: React.FC = () => {
   const theme = useTheme();
   const [maxHeight, setMaxHeight] = useState(0);
 
+
+  useEffect(() => {
+    debounce(() => {
+      setChats(
+        [{
+          id: user.id,
+          name: user.name,
+          avatar: user.avatar,
+          messages: messages,
+          type: 'chat'
+        }]
+      )
+    });
+  }, [messages, user]);
 
   function handleChange(event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, indice: number) {
     const { name, value } = event.target;

@@ -1,14 +1,16 @@
 import { Avatar, Grid, List, ListItemAvatar, ListItemButton, ListItemText, Paper } from "@mui/material";
 import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
 import { useDebounce } from "../../../shared/hooks";
 import { IUserList, UserServices } from "../../../shared/services/api/user/UserServices";
 
 
-export const WppchatContatos: React.FC = () => {
+interface IWppchatContatosProps {
+  setUserActive: (user: IUserList) => void;
+}
+
+export const WppchatContatos: React.FC<IWppchatContatosProps> = ({ setUserActive }) => {
 
   const [rows, setRows] = useState<IUserList[]>([]);
-  const [searchParams, setSearchParams] = useSearchParams();
   const { debounce } = useDebounce();
 
 
@@ -26,8 +28,8 @@ export const WppchatContatos: React.FC = () => {
     });
   }, []);
 
-  const handleClick = (usuario: IUserList) => {
-    console.log('clique do contato')
+  const handleClick = (user: IUserList) => {
+    setUserActive(user);
   };
 
   return (
