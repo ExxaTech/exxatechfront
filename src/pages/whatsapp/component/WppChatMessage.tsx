@@ -23,37 +23,40 @@ interface Message {
   timestamp: Date
 }
 
+function generateInitialChats(): MessageInput[] {
+  return Array.from({ length: 1 }).map(() => ({
+    id: 0,
+    name: "",
+    avatar: "",
+    messages: [],
+    type: ''
+  }));
+}
+
 export const WppchatMessage: React.FC<{ user: IUserList }> = ({ user }) => {
 
   const [messages, setMessages] = useState<Message[]>([]);
   const { debounce } = useDebounce();
-  const [chats, setChats] = useState<MessageInput[]>([
-    {
-      id: undefined,
-      name: "",
-      avatar: "",
-      messages: messages,
-      type: 'chat'
-    }
-  ]);
-
-  const [inputs, setInputs] = useState<InputValues[]>(chats.map(() => ({})));
 
   const theme = useTheme();
   const [maxHeight, setMaxHeight] = useState(0);
-
+  const [chats, setChats] = useState<MessageInput[]>(generateInitialChats());
+  const [inputs, setInputs] = useState<InputValues[]>(Array.from({ length: 3 }).map(() => ({
+    inputValue: "",
+    inputType: "text"
+  })));
 
   useEffect(() => {
     debounce(() => {
-      setChats(
-        [{
-          id: user.id,
-          name: user.name,
-          avatar: user.avatar,
-          messages: messages,
-          type: 'chat'
-        }]
-      )
+
+      let tempChats: MessageInput[] = [
+        { id: user.id, name: user.name, avatar: user.avatar, messages: messages, type: 'chat' }
+      ];
+
+      if (chats.length < 3) tempChats = [...chats, ...tempChats];
+      else tempChats = [...chats.slice(0, 1), ...tempChats];
+
+      setChats(tempChats)
     });
   }, [messages, user]);
 
@@ -113,7 +116,7 @@ export const WppchatMessage: React.FC<{ user: IUserList }> = ({ user }) => {
     <Box display='flex' flexDirection='row' >
 
       {chats.map((chat, index) => (
-        chat.id !== undefined && (
+        chat.id !== undefined && chat.id !== 0 && (
           <Box key={chat.id} display='flex' flexDirection='column' sx={{ m: 1 }}>
             <AppBar position="static">
               <Toolbar style={{ minHeight: '4px', paddingLeft: '10px' }}>
