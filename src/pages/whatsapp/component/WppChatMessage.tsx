@@ -24,7 +24,7 @@ interface Message {
 }
 
 function generateInitialChats(): MessageInput[] {
-  return Array.from({ length: 1 }).map(() => ({
+  return Array.from({ length: 3 }).map(() => ({
     id: 0,
     name: "",
     avatar: "",
@@ -33,30 +33,43 @@ function generateInitialChats(): MessageInput[] {
   }));
 }
 
+function generateInitialInputValues(): InputValues[] {
+  return Array.from({ length: 3 }).map(() => ({
+    inputValue: "",
+    inputType: "text"
+  }));
+}
+
 export const WppchatMessage: React.FC<{ user: IUserList }> = ({ user }) => {
 
-  const [messages, setMessages] = useState<Message[]>([]);
+
   const { debounce } = useDebounce();
 
   const theme = useTheme();
   const [maxHeight, setMaxHeight] = useState(0);
   const [chats, setChats] = useState<MessageInput[]>(generateInitialChats());
-  const [inputs, setInputs] = useState<InputValues[]>(Array.from({ length: 3 }).map(() => ({
-    inputValue: "",
-    inputType: "text"
-  })));
+  const [inputs, setInputs] = useState<InputValues[]>(generateInitialInputValues());
+
+  const [messages, setMessages] = useState<Message[]>([]);
 
   useEffect(() => {
     debounce(() => {
 
-      let tempChats: MessageInput[] = [
-        { id: user.id, name: user.name, avatar: user.avatar, messages: messages, type: 'chat' }
-      ];
+      const existingChat = chats.find(chat => chat.id === user.id);
 
-      if (chats.length < 3) tempChats = [...chats, ...tempChats];
-      else tempChats = [...chats.slice(0, 1), ...tempChats];
+      if (!existingChat) {
+        let tempChats: MessageInput[] = [
+          { id: user.id, name: user.name, avatar: user.avatar, messages: messages, type: 'chat' }
+        ];
 
-      setChats(tempChats)
+        if (chats.length < 3) {
+          tempChats.push(...chats)
+        } else {
+          tempChats = [...chats.slice(0, 2).filter(chat => chat.id !== 0), ...tempChats];
+        }
+
+        setChats(tempChats)
+      }
     });
   }, [messages, user]);
 
@@ -165,12 +178,13 @@ export const WppchatMessage: React.FC<{ user: IUserList }> = ({ user }) => {
                 value={inputs[index][`input${index}`] || ''}
                 onChange={(event) => handleChange(event, index)}
                 onKeyPress={(e) => handleKeyPress(e, index)}
-                style={{ paddingLeft: '10px' }}
+                style={{ alignItems: 'baseline', paddingLeft: '10px' }}
                 endAdornment={
                   <InputAdornment position='end'>
                     <IconButton
                       edge='end'
                       style={{ paddingRight: '15px' }}
+                      size="small"
                       onClick={(_) => handleClick(index)}
                       disabled={inputs[index][`input${index}`]?.trim() === ''}
                     >
