@@ -27,9 +27,9 @@ interface IUser {
   nomeCompleto: string
 }
 
-const getAllByChatUsuarioId = async (page = 1, filter = ''): Promise<IChatWithTotalCount | Error> => {
+const getAllByChatUsuarioId = async (page = 1, user = 0): Promise<IChatWithTotalCount | Error> => {
   try {
-    const urlRelativa = `/chats?_page=${page}&_limit=${Environtment.LIMIT_ROWS_CHAT}&chatMessageId_like=${filter}`;
+    const urlRelativa = `/chats?_page=${page}&_limit=${Environtment.LIMIT_ROWS_CHAT}&user.id=${user}&_sort=timeStamp&_order=desc`;
 
     const { data, headers } = await Api.get(urlRelativa);
 

@@ -36,4 +36,10 @@ export const Environtment = {
   *Url base de API
   */
   URL_VIA_CEP: process.env.URL_VIA_CEP || 'https://viacep.com.br/ws/',
+
+
+  /**
+  *Url base de API
+  */
+  SIZE_CHAT: 3,
 };

@@ -434,8 +434,8 @@
       "id": 8,
       "timeStamp": "2023-04-10 10:10:10",
       "user": {
-        "id": 4,
-        "name": "Pedro Paulo Diniz 4"
+        "id": 7,
+        "name": "Pedro Paulo Diniz 7"
       },
       "message": "A loja esta pronta a vender produtos e serviços de material escolar",
       "tenantId": 1,
@@ -445,8 +445,8 @@
       "id": 9,
       "timeStamp": "2023-04-10 10:10:05",
       "user": {
-        "id": 8,
-        "name": "Pedro Paulo Diniz 8"
+        "id": 7,
+        "name": "Pedro Paulo Diniz 7"
       },
       "message": "Bom dia gostaria de saber mais informações sobre a loja",
       "tenantId": 1,
@@ -456,8 +456,8 @@
       "id": 10,
       "timeStamp": "2023-04-10 10:10:10",
       "user": {
-        "id": 8,
-        "name": "Pedro Paulo Diniz 8"
+        "id": 7,
+        "name": "Pedro Paulo Diniz 7"
       },
       "message": "A loja esta pronta a vender produtos e serviços de material escolar",
       "tenantId": 1,

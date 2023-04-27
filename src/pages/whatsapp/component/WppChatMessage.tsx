@@ -4,6 +4,8 @@ import { AppBar, Avatar, Box, FormControl, Grid, IconButton, Input, InputAdornme
 import { ChangeEvent, KeyboardEvent, useEffect, useState } from "react";
 import { useDebounce } from "../../../shared/hooks";
 import { IUserList } from "../../../shared/services/api/user/UserServices";
+import { Environtment } from "../../../shared/environment";
+import { ChatServices } from "../../../shared/services/api/chat/ChatServices";
 
 interface MessageInput {
   id?: number;
@@ -20,11 +22,11 @@ interface InputValues {
 interface Message {
   text: string;
   sentByUser: boolean;
-  timestamp: Date
+  timestamp: string
 }
 
 function generateInitialChats(): MessageInput[] {
-  return Array.from({ length: 3 }).map(() => ({
+  return Array.from({ length: Environtment.SIZE_CHAT }).map(() => ({
     id: 0,
     name: "",
     avatar: "",
@@ -34,7 +36,7 @@ function generateInitialChats(): MessageInput[] {
 }
 
 function generateInitialInputValues(): InputValues[] {
-  return Array.from({ length: 3 }).map(() => ({
+  return Array.from({ length: Environtment.SIZE_CHAT }).map(() => ({
     inputValue: "",
     inputType: "text"
   }));
@@ -58,6 +60,20 @@ export const WppchatMessage: React.FC<{ user: IUserList }> = ({ user }) => {
       const existingChat = chats.find(chat => chat.id === user.id);
 
       if (!existingChat) {
+
+        ChatServices.getAllByChatUsuarioId(1, user.id)
+          .then((result) => {
+            if (result instanceof Error) {
+              console.log(result.message);
+            } else {
+              const msg: Message[] = [];
+              result.data.forEach((message) => {
+                msg.push({ text: message.message, timestamp: new Date(message.timeStamp).toLocaleTimeString('pt-BR'), sentByUser: false });
+              });
+              setMessages(msg);
+            }
+          })
+
         let tempChats: MessageInput[] = [
           { id: user.id, name: user.name, avatar: user.avatar, messages: messages, type: 'chat' }
         ];
@@ -88,7 +104,7 @@ export const WppchatMessage: React.FC<{ user: IUserList }> = ({ user }) => {
 
   const handleClick = (index: number) => {
     if (inputs[index][`input${index}`]?.trim() !== '' && inputs[index][`input${index}`] !== undefined) {
-      const novaMensagem: Message = { text: inputs[index][`input${index}`].trim(), sentByUser: true, timestamp: new Date() };
+      const novaMensagem: Message = { text: inputs[index][`input${index}`].trim(), sentByUser: true, timestamp: new Date().toLocaleTimeString('pt-BR') };
       setMessages((prevMessages) => [...prevMessages, novaMensagem]);
       const novosInputs = [...inputs];
       novosInputs[index][`input${index}`] = '';
@@ -152,17 +168,15 @@ export const WppchatMessage: React.FC<{ user: IUserList }> = ({ user }) => {
             <Box component={Paper} elevation={3} flex={1}>
               <List style={{ maxHeight: maxHeight, overflowY: 'auto' }}>
                 {chat.messages.map((message, i) => (
-                  <ListItem key={i} alignItems='flex-start'>
+                  <ListItem key={i} style={{ textAlign: message.sentByUser ? 'right' : 'left' }}>
                     <ListItemText
                       primary={message.text}
-                      secondary={message.sentByUser
-                        ? 'Você - ' + new Date(message.timestamp).toLocaleTimeString('pt-BR')
-                        : chat.name}
+                      primaryTypographyProps={{
+                        style: { backgroundColor: message.sentByUser ? 'whitesmoke' : 'silver' }
+                      }}
+                      secondary={message.timestamp}
                       secondaryTypographyProps={{
-                        style: {
-                          fontWeight: 'bold',
-                          color: message.sentByUser ? theme.palette.primary.main : theme.palette.text.primary
-                        }
+                        style: { fontWeight: 'bold', color: message.sentByUser ? theme.palette.primary.main : theme.palette.text.primary }
                       }}
                     />
 
