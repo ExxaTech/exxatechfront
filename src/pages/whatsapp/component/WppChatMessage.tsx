@@ -6,6 +6,7 @@ import { useDebounce } from "../../../shared/hooks";
 import { IUserList } from "../../../shared/services/api/user/UserServices";
 import { Environtment } from "../../../shared/environment";
 import { ChatServices } from "../../../shared/services/api/chat/ChatServices";
+import { Await } from "react-router-dom";
 
 interface MessageInput {
   id?: number;
@@ -55,24 +56,23 @@ export const WppchatMessage: React.FC<{ user: IUserList }> = ({ user }) => {
   const [messages, setMessages] = useState<Message[]>([]);
 
   useEffect(() => {
-    debounce(() => {
+    debounce(async () => {
 
       const existingChat = chats.find(chat => chat.id === user.id);
 
       if (!existingChat) {
 
-        ChatServices.getAllByChatUsuarioId(1, user.id)
-          .then((result) => {
-            if (result instanceof Error) {
-              console.log(result.message);
-            } else {
-              const msg: Message[] = [];
-              result.data.forEach((message) => {
-                msg.push({ text: message.message, timestamp: new Date(message.timeStamp).toLocaleTimeString('pt-BR'), sentByUser: false });
-              });
-              setMessages(msg);
-            }
-          })
+        const result = await ChatServices.getAllByChatUsuarioId(1, user.id)
+
+        if (result instanceof Error) {
+          console.log(result.message);
+        } else {
+          const msg: Message[] = [];
+          result.data.forEach((message) => {
+            msg.push({ text: message.message, timestamp: new Date(message.timeStamp).toLocaleTimeString('pt-BR'), sentByUser: false });
+          });
+          setMessages(msg);
+        }
 
         let tempChats: MessageInput[] = [
           { id: user.id, name: user.name, avatar: user.avatar, messages: messages, type: 'chat' }
@@ -184,7 +184,7 @@ export const WppchatMessage: React.FC<{ user: IUserList }> = ({ user }) => {
                 ))}
               </List>
             </Box>
-            <FormControl component={Paper} variant="outlined" size='small'>
+            <FormControl component={Paper} variant="outlined" size='small' style={{ backgroundColor: 'whitesmoke' }}>
               <InputLabel htmlFor={`mensagem-${index}`}>Digite uma mensagem</InputLabel>
               <Input
                 id={`mensagem-${index}`}

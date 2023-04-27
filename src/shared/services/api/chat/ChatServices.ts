@@ -3,18 +3,25 @@ import { Api } from "../axios-config";
 
 export interface IChat {
   id: number;
-  chatMessageId: number;
-  timeStamp: string;
-  usuario: IUser;
   message: string;
+  tenantId: string;
+  sentByUser: boolean;
+  timeStamp: string;
+  user: IUser;
+
+}
+interface IUser {
+  id: number;
+  name: string;
 }
 
 export interface IChatList {
   id: number;
-  chatMessageId: number;
-  timeStamp: string;
-  usuario: IUser;
   message: string;
+  tenantId: string;
+  sentByUser: boolean;
+  timeStamp: string;
+  user: IUser;
 }
 
 export interface IChatWithTotalCount {
@@ -23,13 +30,11 @@ export interface IChatWithTotalCount {
 }
 
 
-interface IUser {
-  nomeCompleto: string
-}
+
 
 const getAllByChatUsuarioId = async (page = 1, user = 0): Promise<IChatWithTotalCount | Error> => {
   try {
-    const urlRelativa = `/chats?_page=${page}&_limit=${Environtment.LIMIT_ROWS_CHAT}&user.id=${user}&_sort=timeStamp&_order=desc`;
+    const urlRelativa = `/chats?_page=${page}&_limit=${Environtment.LIMIT_ROWS_CHAT}&user.id=${user}&_sort=timeStamp&_order=asc`;
 
     const { data, headers } = await Api.get(urlRelativa);
 

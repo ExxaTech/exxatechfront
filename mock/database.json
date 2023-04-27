@@ -355,14 +355,14 @@
   "chats": [
     {
       "id": 1,
+      "message": "Bom dia gostaria de saber mais informações sobre a loja",
+      "tenantId": 1,
+      "sentByUser": true,
       "timeStamp": "2023-04-10 10:10:05",
       "user": {
         "id": 1,
         "name": "Pedro Paulo Diniz 1"
-      },
-      "message": "Bom dia gostaria de saber mais informações sobre a loja",
-      "tenantId": 1,
-      "direction": "from"
+      }
     },
     {
       "id": 2,
@@ -373,7 +373,7 @@
       },
       "message": "A loja esta pronta a vender produtos e serviços de material escolar",
       "tenantId": 1,
-      "direction": "from"
+      "sentByUser": true
     },
     {
       "id": 3,
@@ -384,7 +384,7 @@
       },
       "message": "Bom dia gostaria de saber mais informações sobre a loja",
       "tenantId": 1,
-      "direction": "to"
+      "sentByUser": false
     },
     {
       "id": 4,
@@ -395,7 +395,7 @@
       },
       "message": "A loja esta pronta a vender produtos e serviços de material escolar",
       "tenantId": 1,
-      "direction": "from"
+      "sentByUser": true
     },
     {
       "id": 5,
@@ -406,7 +406,7 @@
       },
       "message": "Bom dia gostaria de saber mais informações sobre a loja",
       "tenantId": 1,
-      "direction": "from"
+      "sentByUser": true
     },
     {
       "id": 6,
@@ -417,18 +417,18 @@
       },
       "message": "A loja esta pronta a vender produtos e serviços de material escolar",
       "tenantId": 1,
-      "direction": "from"
+      "sentByUser": true
     },
     {
       "id": 7,
-      "timeStamp": "2023-04-10 10:10:35",
+      "timeStamp": "2023-04-10 10:10:00",
       "user": {
         "id": 3,
         "name": "Pedro Paulo Diniz 3"
       },
       "message": "Bom dia gostaria de saber mais informações sobre a loja",
       "tenantId": 1,
-      "direction": "from"
+      "sentByUser": true
     },
     {
       "id": 8,
@@ -439,7 +439,7 @@
       },
       "message": "A loja esta pronta a vender produtos e serviços de material escolar",
       "tenantId": 1,
-      "direction": "from"
+      "sentByUser": false
     },
     {
       "id": 9,
@@ -448,9 +448,9 @@
         "id": 7,
         "name": "Pedro Paulo Diniz 7"
       },
-      "message": "Bom dia gostaria de saber mais informações sobre a loja",
+      "message": "Gostaria de fazer uma cotação de lista de material escolar",
       "tenantId": 1,
-      "direction": "from"
+      "sentByUser": true
     },
     {
       "id": 10,
@@ -461,7 +461,7 @@
       },
       "message": "A loja esta pronta a vender produtos e serviços de material escolar",
       "tenantId": 1,
-      "direction": "to"
+      "sentByUser": false
     },
     {
       "id": 11,
@@ -472,7 +472,7 @@
       },
       "message": "Bom dia gostaria de saber mais informações sobre a loja",
       "tenantId": 1,
-      "direction": "from"
+      "sentByUser": true
     },
     {
       "id": 12,
@@ -483,7 +483,7 @@
       },
       "message": "A loja esta pronta a vender produtos e serviços de material escolar",
       "tenantId": 1,
-      "direction": "to"
+      "sentByUser": false
     },
     {
       "id": 13,
@@ -494,7 +494,7 @@
       },
       "message": "Bom dia gostaria de saber mais informações sobre a loja",
       "tenantId": 1,
-      "direction": "from"
+      "sentByUser": true
     },
     {
       "id": 14,
@@ -503,7 +503,7 @@
         "id": 1,
         "name": "Pedro Paulo Diniz 1"
       },
-      "direction": "to",
+      "sentByUser": false,
       "message": "A loja esta pronta a vender produtos e serviços de material escolar",
       "tenantId": 1
     }
