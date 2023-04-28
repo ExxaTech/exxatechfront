@@ -2,11 +2,10 @@
 import { Close, Send } from "@mui/icons-material";
 import { AppBar, Avatar, Box, FormControl, Grid, IconButton, Input, InputAdornment, InputLabel, List, ListItem, ListItemText, Paper, Toolbar, Typography, useTheme } from "@mui/material";
 import { ChangeEvent, KeyboardEvent, useEffect, useState } from "react";
+import { Environtment } from "../../../shared/environment";
 import { useDebounce } from "../../../shared/hooks";
 import { IUserList } from "../../../shared/services/api/user/UserServices";
-import { Environtment } from "../../../shared/environment";
-import { ChatServices } from "../../../shared/services/api/chat/ChatServices";
-import { Await } from "react-router-dom";
+import chatSocketService from "../../../shared/services/websocket/chat/chatSocketService";
 
 interface MessageInput {
   id?: number;
@@ -62,17 +61,12 @@ export const WppchatMessage: React.FC<{ user: IUserList }> = ({ user }) => {
 
       if (!existingChat) {
 
-        const result = await ChatServices.getAllByChatUsuarioId(1, user.id)
-
-        if (result instanceof Error) {
-          console.log(result.message);
-        } else {
-          const msg: Message[] = [];
-          result.data.forEach((message) => {
-            msg.push({ text: message.message, timestamp: new Date(message.timeStamp).toLocaleTimeString('pt-BR'), sentByUser: false });
+        chatSocketService.getMessages()
+          .then((result) => {
+            console.info(result);
+          }).catch((error) => {
+            console.error(error);
           });
-          setMessages(msg);
-        }
 
         let tempChats: MessageInput[] = [
           { id: user.id, name: user.name, avatar: user.avatar, messages: messages, type: 'chat' }
@@ -139,7 +133,6 @@ export const WppchatMessage: React.FC<{ user: IUserList }> = ({ user }) => {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-
 
   return (
     <Box display='flex' flexDirection='row' >

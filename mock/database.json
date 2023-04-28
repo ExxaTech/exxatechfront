@@ -432,12 +432,12 @@
     },
     {
       "id": 8,
-      "timeStamp": "2023-04-10 10:10:10",
+      "timeStamp": "2023-04-10 10:10:00",
       "user": {
         "id": 7,
         "name": "Pedro Paulo Diniz 7"
       },
-      "message": "A loja esta pronta a vender produtos e serviços de material escolar",
+      "message": "Bom dia, gostaria de fazer uma cotação de lista de material escolar",
       "tenantId": 1,
       "sentByUser": false
     },
@@ -448,18 +448,18 @@
         "id": 7,
         "name": "Pedro Paulo Diniz 7"
       },
-      "message": "Gostaria de fazer uma cotação de lista de material escolar",
+      "message": "Sim, podemos ajudar, voce poderia me enviar sua lista em pdf que realizo a cotação e ja te respondo",
       "tenantId": 1,
       "sentByUser": true
     },
     {
       "id": 10,
-      "timeStamp": "2023-04-10 10:10:10",
+      "timeStamp": "2023-04-10 10:10:07",
       "user": {
         "id": 7,
         "name": "Pedro Paulo Diniz 7"
       },
-      "message": "A loja esta pronta a vender produtos e serviços de material escolar",
+      "message": "OK, tudo bem, ja lhe envio",
       "tenantId": 1,
       "sentByUser": false
     },
