@@ -1,14 +1,16 @@
 import { Environtment } from '../../../environment';
 import { Api } from '../axios-config';
+import { IMessage, IMessageWithTotalCount } from '../message/MessageServices';
 
 
-export interface IUserDetail {
+export interface IUser {
   id: number;
   name: string;
   avatar?: string;
   addressId?: number;
   contact?: IContact;
   security?: ISecurity;
+  messages?: IMessage[];
 }
 
 interface ISecurity {
@@ -27,9 +29,8 @@ export interface IUserList {
   id: number;
   name: string;
   avatar?: string;
-  addressId?: number;
   contact?: IContact;
-  security?: ISecurity;
+  messages?: IMessage[];
 }
 
 type IUserWithTotalCount = {
@@ -77,7 +78,7 @@ const getAllUsersWithChat = async (page = 1): Promise<IUserWithTotalCount | Erro
 
 };
 
-const getById = async (id: number): Promise<IUserDetail | Error> => {
+const getById = async (id: number): Promise<IUser | Error> => {
   try {
     const { data } = await Api.get(`/users/${id}`);
 
@@ -91,9 +92,9 @@ const getById = async (id: number): Promise<IUserDetail | Error> => {
 }
 
 
-const create = async (dados: Omit<IUserDetail, 'id'>): Promise<number | Error> => {
+const create = async (dados: Omit<IUser, 'id'>): Promise<number | Error> => {
   try {
-    const { data } = await Api.post<IUserDetail>('/users', dados);
+    const { data } = await Api.post<IUser>('/users', dados);
 
     if (data) return data.id;
 
@@ -105,7 +106,7 @@ const create = async (dados: Omit<IUserDetail, 'id'>): Promise<number | Error> =
 
 };
 
-const updateById = async (id: number, dados: IUserDetail): Promise<void | Error> => {
+const updateById = async (id: number, dados: IUser): Promise<void | Error> => {
   try {
     await Api.put(`/users/${id}`, dados);
   } catch (error) {

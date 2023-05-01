@@ -1,40 +1,36 @@
 import { Environtment } from "../../../environment";
 import { Api } from "../axios-config";
 
-export interface IChat {
+export interface IMessage {
+  id?: number;
+  message: string;
+  tenantId?: string;
+  sentByUser: boolean;
+  timeStamp: string;
+  userId?: number;
+
+}
+
+export interface IMessageList {
   id: number;
   message: string;
   tenantId: string;
   sentByUser: boolean;
   timeStamp: string;
-  user: IUser;
-
-}
-interface IUser {
-  id: number;
-  name: string;
+  userId: number;
 }
 
-export interface IChatList {
-  id: number;
-  message: string;
-  tenantId: string;
-  sentByUser: boolean;
-  timeStamp: string;
-  user: IUser;
-}
-
-export interface IChatWithTotalCount {
-  data: IChatList[];
+export interface IMessageWithTotalCount {
+  data: IMessageList[];
   totalCount: number;
 }
 
 
 
 
-const getAllByChatUsuarioId = async (page = 1, user = 0): Promise<IChatWithTotalCount | Error> => {
+const getAllByUerId = async (user: number, page = 1): Promise<IMessageWithTotalCount | Error> => {
   try {
-    const urlRelativa = `/chats?_page=${page}&_limit=${Environtment.LIMIT_ROWS_CHAT}&user.id=${user}&_sort=timeStamp&_order=asc`;
+    const urlRelativa = `/messages?_page=${page}&_limit=${Environtment.LIMIT_ROWS_CHAT}&userId=${user}&_sort=timeStamp&_order=asc`;
 
     const { data, headers } = await Api.get(urlRelativa);
 
@@ -54,6 +50,6 @@ const getAllByChatUsuarioId = async (page = 1, user = 0): Promise<IChatWithTotal
 };
 
 
-export const ChatServices = {
-  getAllByChatUsuarioId
+export const MessageServices = {
+  getAllByUerId
 };

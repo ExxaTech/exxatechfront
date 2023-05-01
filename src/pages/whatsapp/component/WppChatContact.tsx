@@ -2,7 +2,7 @@ import { Avatar, Grid, List, ListItemAvatar, ListItemButton, ListItemText, Paper
 import { useEffect, useState } from "react";
 import { useDebounce } from "../../../shared/hooks";
 import { IUserList, UserServices } from "../../../shared/services/api/user/UserServices";
-
+import { MessageServices } from "../../../shared/services/api/message/MessageServices";
 
 interface IWppchatContatosProps {
   setUserActive: (user: IUserList) => void;
@@ -13,16 +13,24 @@ export const WppchatContatos: React.FC<IWppchatContatosProps> = ({ setUserActive
   const [rows, setRows] = useState<IUserList[]>([]);
   const { debounce } = useDebounce();
 
-
-
   useEffect(() => {
     debounce(() => {
       UserServices.getAllUsersWithChat()
-        .then((result) => {
-          if (result instanceof Error) {
-            console.log(result.message);
+        .then((resultUser) => {
+          if (resultUser instanceof Error) {
+            console.log(resultUser.message);
           } else {
-            setRows(result.data)
+            resultUser.data.map((user, index) => {
+              const promiseMesage = MessageServices.getAllByUerId(user.id)
+              Promise.resolve(promiseMesage).then((resultMesage) => {
+                if (resultMesage instanceof Error) {
+                  console.error(resultMesage.message)
+                } else {
+                  resultUser.data[index].messages = resultMesage.data;
+                }
+              })
+            })
+            setRows(resultUser.data)
           }
         });
     });

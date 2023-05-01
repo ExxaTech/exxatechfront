@@ -352,58 +352,43 @@
       "id": 9
     }
   ],
-  "chats": [
+  "messages": [
     {
       "id": 1,
       "message": "Bom dia gostaria de saber mais informações sobre a loja",
       "tenantId": 1,
       "sentByUser": true,
       "timeStamp": "2023-04-10 10:10:05",
-      "user": {
-        "id": 1,
-        "name": "Pedro Paulo Diniz 1"
-      }
+      "userId": 1
     },
     {
       "id": 2,
       "timeStamp": "2023-04-10 10:10:10",
-      "user": {
-        "id": 2,
-        "name": "Pedro Paulo Diniz 2"
-      },
-      "message": "A loja esta pronta a vender produtos e serviços de material escolar",
+      "userId": 2,
+      "message": "Gostaria de saber o valor para impressão de 10 paginas",
       "tenantId": 1,
       "sentByUser": true
     },
     {
       "id": 3,
       "timeStamp": "2023-04-10 10:10:15",
-      "user": {
-        "id": 2,
-        "name": "Pedro Paulo Diniz 2"
-      },
-      "message": "Bom dia gostaria de saber mais informações sobre a loja",
+      "userId": 2,
+      "message": "Bom dia tudo bem com o senhora ? Vamos la o valor da impressão em preto e branco é de R$0,50 e da colorida apartir de R$2,50. ",
       "tenantId": 1,
       "sentByUser": false
     },
     {
       "id": 4,
       "timeStamp": "2023-04-10 10:10:20",
-      "user": {
-        "id": 2,
-        "name": "Pedro Paulo Diniz 2"
-      },
-      "message": "A loja esta pronta a vender produtos e serviços de material escolar",
+      "userId": 2,
+      "message": "A legal, estarei lhe enviando os arquivos e logo chego para retirar, muito obrigado",
       "tenantId": 1,
       "sentByUser": true
     },
     {
       "id": 5,
       "timeStamp": "2023-04-10 10:10:25",
-      "user": {
-        "id": 10,
-        "name": "Pedro Paulo Diniz 10"
-      },
+      "userId": 10,
       "message": "Bom dia gostaria de saber mais informações sobre a loja",
       "tenantId": 1,
       "sentByUser": true
@@ -411,10 +396,7 @@
     {
       "id": 6,
       "timeStamp": "2023-04-10 10:10:30",
-      "user": {
-        "id": 12,
-        "name": "Pedro Paulo Diniz 12"
-      },
+      "userId": 12,
       "message": "A loja esta pronta a vender produtos e serviços de material escolar",
       "tenantId": 1,
       "sentByUser": true
@@ -422,10 +404,7 @@
     {
       "id": 7,
       "timeStamp": "2023-04-10 10:10:00",
-      "user": {
-        "id": 3,
-        "name": "Pedro Paulo Diniz 3"
-      },
+      "userId": 3,
       "message": "Bom dia gostaria de saber mais informações sobre a loja",
       "tenantId": 1,
       "sentByUser": true
@@ -433,10 +412,7 @@
     {
       "id": 8,
       "timeStamp": "2023-04-10 10:10:00",
-      "user": {
-        "id": 7,
-        "name": "Pedro Paulo Diniz 7"
-      },
+      "userId": 7,
       "message": "Bom dia, gostaria de fazer uma cotação de lista de material escolar",
       "tenantId": 1,
       "sentByUser": false
@@ -444,10 +420,7 @@
     {
       "id": 9,
       "timeStamp": "2023-04-10 10:10:05",
-      "user": {
-        "id": 7,
-        "name": "Pedro Paulo Diniz 7"
-      },
+      "userId": 7,
       "message": "Sim, podemos ajudar, voce poderia me enviar sua lista em pdf que realizo a cotação e ja te respondo",
       "tenantId": 1,
       "sentByUser": true
@@ -455,10 +428,7 @@
     {
       "id": 10,
       "timeStamp": "2023-04-10 10:10:07",
-      "user": {
-        "id": 7,
-        "name": "Pedro Paulo Diniz 7"
-      },
+      "userId": 7,
       "message": "OK, tudo bem, ja lhe envio",
       "tenantId": 1,
       "sentByUser": false
@@ -466,10 +436,7 @@
     {
       "id": 11,
       "timeStamp": "2023-04-10 10:10:05",
-      "user": {
-        "id": 9,
-        "name": "Pedro Paulo Diniz 9"
-      },
+      "userId": 9,
       "message": "Bom dia gostaria de saber mais informações sobre a loja",
       "tenantId": 1,
       "sentByUser": true
@@ -477,10 +444,7 @@
     {
       "id": 12,
       "timeStamp": "2023-04-10 10:10:10",
-      "user": {
-        "id": 9,
-        "name": "Pedro Paulo Diniz 9"
-      },
+      "userId": 9,
       "message": "A loja esta pronta a vender produtos e serviços de material escolar",
       "tenantId": 1,
       "sentByUser": false
@@ -488,10 +452,7 @@
     {
       "id": 13,
       "timeStamp": "2023-04-10 10:10:05",
-      "user": {
-        "id": 6,
-        "name": "Pedro Paulo Diniz 6"
-      },
+      "userId": 6,
       "message": "Bom dia gostaria de saber mais informações sobre a loja",
       "tenantId": 1,
       "sentByUser": true
@@ -499,10 +460,7 @@
     {
       "id": 14,
       "timeStamp": "2023-04-10 10:10:10",
-      "user": {
-        "id": 1,
-        "name": "Pedro Paulo Diniz 1"
-      },
+      "userId": 1,
       "sentByUser": false,
       "message": "A loja esta pronta a vender produtos e serviços de material escolar",
       "tenantId": 1
