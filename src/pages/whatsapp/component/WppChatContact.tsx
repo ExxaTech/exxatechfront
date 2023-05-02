@@ -1,8 +1,9 @@
 import { Avatar, Grid, List, ListItemAvatar, ListItemButton, ListItemText, Paper } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useDebounce } from "../../../shared/hooks";
 import { IUserList, UserServices } from "../../../shared/services/api/user/UserServices";
 import { MessageServices } from "../../../shared/services/api/message/MessageServices";
+import { useSearchParams } from "react-router-dom";
 
 interface IWppchatContatosProps {
   setUserActive: (user: IUserList) => void;
@@ -12,10 +13,15 @@ export const WppchatContatos: React.FC<IWppchatContatosProps> = ({ setUserActive
 
   const [rows, setRows] = useState<IUserList[]>([]);
   const { debounce } = useDebounce();
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const busca = useMemo(() => {
+    return searchParams.get('busca') || '';
+  }, [searchParams]);
 
   useEffect(() => {
     debounce(() => {
-      UserServices.getAllUsersWithChat()
+      UserServices.getUsersWithChat(busca)
         .then((resultUser) => {
           if (resultUser instanceof Error) {
             console.log(resultUser.message);
@@ -34,7 +40,7 @@ export const WppchatContatos: React.FC<IWppchatContatosProps> = ({ setUserActive
           }
         });
     });
-  }, []);
+  }, [busca]);
 
   const handleClick = (user: IUserList) => {
     setUserActive(user);

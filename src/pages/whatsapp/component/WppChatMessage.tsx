@@ -7,6 +7,7 @@ import { useDebounce } from "../../../shared/hooks";
 import { IUserList } from "../../../shared/services/api/user/UserServices";
 import chatSocketService from "../../../shared/services/websocket/chat/chatSocketService";
 import { IMessage, MessageServices } from "../../../shared/services/api/message/MessageServices";
+import { format } from "date-fns";
 
 interface MessageInput {
   id?: number;
@@ -35,6 +36,18 @@ function generateInitialInputValues(): InputValues[] {
     inputValue: "",
     inputType: "text"
   }));
+}
+
+function saveMessage(message: IMessage) {
+  MessageServices.create(message)
+    .then((result) => {
+      if (result instanceof Error) {
+        alert(result.message);
+      } else {
+        console.log(result)
+      }
+    })
+
 }
 
 export const WppchatMessage: React.FC<{ user: IUserList }> = ({ user }) => {
@@ -90,13 +103,25 @@ export const WppchatMessage: React.FC<{ user: IUserList }> = ({ user }) => {
     setChats(removeListChat)
   }
 
-  const handleClick = (index: number) => {
+  const handleClick = (index: number, userId?: number) => {
     if (inputs[index][`input${index}`]?.trim() !== '' && inputs[index][`input${index}`] !== undefined) {
-      const novaMensagem: IMessage = { message: inputs[index][`input${index}`].trim(), sentByUser: true, timeStamp: new Date().toLocaleTimeString('pt-BR') };
+
+      const novaMensagem: IMessage = {
+        id: 0,
+        message: inputs[index][`input${index}`].trim(),
+        sentByUser: true,
+        timeStamp: format(new Date(), 'dd/MM/yyyy hh:mm:ss'),
+        userId: userId,
+        tenantId: '1' //TODO: verificar a melhor maneira de controlar tenanty nessa aplicação
+      };
+
+      saveMessage(novaMensagem);
+
       setMessages((prevMessages) => [...prevMessages, novaMensagem]);
       const novosInputs = [...inputs];
       novosInputs[index][`input${index}`] = '';
       setInputs(novosInputs);
+
       setChats((prevChats) =>
         prevChats.map((prevChat, i) => {
           if (i === index && prevChat.messages) {
@@ -108,10 +133,10 @@ export const WppchatMessage: React.FC<{ user: IUserList }> = ({ user }) => {
     }
   }
 
-  const handleKeyPress = (event: KeyboardEvent<HTMLDivElement>, index: number) => {
+  const handleKeyPress = (event: KeyboardEvent<HTMLDivElement>, index: number, userId?: number) => {
     if (event.key === 'Enter' && inputs[index][`input${index}`] !== undefined) {
       event.preventDefault();
-      handleClick(index)
+      handleClick(index, userId)
     }
   };
 
@@ -178,7 +203,7 @@ export const WppchatMessage: React.FC<{ user: IUserList }> = ({ user }) => {
                 name={`input${index}`}
                 value={inputs[index][`input${index}`] || ''}
                 onChange={(event) => handleChange(event, index)}
-                onKeyPress={(e) => handleKeyPress(e, index)}
+                onKeyPress={(e) => handleKeyPress(e, index, chat.id)}
                 style={{ alignItems: 'baseline', paddingLeft: '10px' }}
                 endAdornment={
                   <InputAdornment position='end'>
@@ -186,7 +211,7 @@ export const WppchatMessage: React.FC<{ user: IUserList }> = ({ user }) => {
                       edge='end'
                       style={{ paddingRight: '15px' }}
                       size="small"
-                      onClick={(_) => handleClick(index)}
+                      onClick={(_) => handleClick(index, chat.id)}
                       disabled={inputs[index][`input${index}`]?.trim() === ''}
                     >
                       <Send />

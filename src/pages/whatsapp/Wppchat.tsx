@@ -1,14 +1,20 @@
 import { Grid } from "@mui/material";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { ListTools } from "../../shared/components";
 import { BasePageLayout } from "../../shared/layouts";
 import { IUserList } from "../../shared/services/api/user/UserServices";
 import { WppchatContatos } from "./component/WppChatContact";
 import { WppchatMessage } from "./component/WppChatMessage";
+import { useSearchParams } from "react-router-dom";
 
 
 export const Wppchat: React.FC = () => {
   const [user, setUser] = useState<IUserList>({ id: 0, name: '' });
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const busca = useMemo(() => {
+    return searchParams.get('busca') || '';
+  }, [searchParams]);
 
   return (
     <BasePageLayout
@@ -18,9 +24,9 @@ export const Wppchat: React.FC = () => {
       toolBar={
         <ListTools
           showSearchInput
-          newButtonText="Novo"
-          searchText={''}
-          whenClickOnNew={() => { return }}
+          searchText={busca}
+          showNewButtonText={false}
+          whenChangeSearchText={texto => setSearchParams({ busca: texto, pagina: '1' }, { replace: true })}
         />
       }
     >

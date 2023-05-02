@@ -4,6 +4,23 @@
   },
   "users": [
     {
+      "id": 1,
+      "name": "João Pedro",
+      "avatar": "https://picsum.photos/200/299",
+      "addressId": 1,
+      "tenantId": 1,
+      "contact": {
+        "email": "jp@gmail.com",
+        "phone": "19992129960",
+        "lastMessage": "A loja esta pronta a vender produtos e serviços de material escolar",
+        "lastMessageTimeStamp": "2023-01-01 10:10:10"
+      },
+      "security": {
+        "user": "fb049",
+        "pass": "1209dsdsk1"
+      }
+    },
+    {
       "id": 2,
       "name": "Fabiana Ribeiro",
       "avatar": "https://picsum.photos/200/300",
@@ -13,7 +30,7 @@
         "email": "ppd@gmail.com",
         "phone": "19992129962",
         "lastMessage": "Bom dia Gostaria de saber o horario de funcionamento",
-        "lastMessageTimeStamp": "4/17/2023, 8:00:00 PM"
+        "lastMessageTimeStamp": "2023-02-01 10:10:20"
       },
       "security": {
         "user": "fb049",
@@ -30,7 +47,7 @@
         "email": "wmr049@gmail.com",
         "phone": "19992129963",
         "lastMessage": "Bom dia Gostaria de saber o horario de funcionamento",
-        "lastMessageTimeStamp": "1/01/2023, 8:00:00 AM"
+        "lastMessageTimeStamp": "2023-02-29 13:45:00"
       },
       "security": {
         "user": "wmr049",
@@ -51,7 +68,7 @@
       "contact": {
         "phone": "19992129965",
         "lastMessage": "Bom dia Gostaria de saber o horario de funcionamento",
-        "lastMessageTimeStamp": "2/28/2023, 9:27:00 PM",
+        "lastMessageTimeStamp": "2023-03-10 10:10:30",
         "email": "ppd5@gmail.com"
       },
       "addressId": 1,
@@ -63,7 +80,7 @@
       "avatar": "https://picsum.photos/200/304",
       "contact": {
         "lastMessage": "Bom dia Gostaria de saber o horario de funcionamento",
-        "lastMessageTimeStamp": "4/21/2023, 11:21:00 AM",
+        "lastMessageTimeStamp": "2023-03-23 10:10:05",
         "email": "ppd6@gmail.com",
         "phone": "19992129966"
       },
@@ -76,7 +93,7 @@
       "avatar": "https://picsum.photos/200/305",
       "contact": {
         "lastMessage": "Bom dia Gostaria de saber o horario de funcionamento",
-        "lastMessageTimeStamp": "4/21/2023, 11:21:35 AM",
+        "lastMessageTimeStamp": "2023-03-29 10:10:07",
         "phone": "19992129967",
         "email": "ppd7@gmail.com"
       },
@@ -115,6 +132,13 @@
       "id": 12,
       "name": "Pedro Paulo Diniz 12",
       "avatar": "https://picsum.photos/200/310",
+      "contact": {
+        "lastMessage": "Bom dia Gostaria de saber o horario de funcionamento",
+        "lastMessageTimeStamp": "2023-04-10 10:13:30",
+        "phone": "19992129967",
+        "email": "ppd12@gmail.com"
+      },
+      "addressId": 1,
       "tenantId": 1
     },
     {
@@ -355,46 +379,118 @@
   "messages": [
     {
       "id": 1,
+      "timeStamp": "2022-06-10 10:10:05",
+      "userId": 1,
       "message": "Bom dia gostaria de saber mais informações sobre a loja",
       "tenantId": 1,
-      "sentByUser": true,
-      "timeStamp": "2023-04-10 10:10:05",
-      "userId": 1
+      "sentByUser": true
     },
     {
       "id": 2,
-      "timeStamp": "2023-04-10 10:10:10",
+      "timeStamp": "2023-01-01 10:10:10",
+      "userId": 1,
+      "message": "A loja esta pronta a vender produtos e serviços de material escolar",
+      "tenantId": 1,
+      "sentByUser": false
+    },
+    {
+      "id": 3,
+      "timeStamp": "2023-01-31 10:10:10",
       "userId": 2,
       "message": "Gostaria de saber o valor para impressão de 10 paginas",
       "tenantId": 1,
       "sentByUser": true
     },
     {
-      "id": 3,
-      "timeStamp": "2023-04-10 10:10:15",
+      "id": 4,
+      "timeStamp": "2023-02-01 10:10:15",
       "userId": 2,
       "message": "Bom dia tudo bem com o senhora ? Vamos la o valor da impressão em preto e branco é de R$0,50 e da colorida apartir de R$2,50. ",
       "tenantId": 1,
       "sentByUser": false
     },
     {
-      "id": 4,
-      "timeStamp": "2023-04-10 10:10:20",
+      "id": 5,
+      "timeStamp": "2023-02-01 10:10:20",
       "userId": 2,
       "message": "A legal, estarei lhe enviando os arquivos e logo chego para retirar, muito obrigado",
       "tenantId": 1,
       "sentByUser": true
     },
     {
-      "id": 5,
-      "timeStamp": "2023-04-10 10:10:25",
-      "userId": 10,
+      "id": 6,
+      "timeStamp": "2023-02-29 13:45:00",
+      "userId": 3,
       "message": "Bom dia gostaria de saber mais informações sobre a loja",
       "tenantId": 1,
       "sentByUser": true
     },
     {
-      "id": 6,
+      "id": 7,
+      "timeStamp": "2023-03-10 10:10:30",
+      "userId": 5,
+      "message": "Fui muito mau atendido e gostaria de realizar um reclamação",
+      "tenantId": 1,
+      "sentByUser": true
+    },
+    {
+      "id": 8,
+      "timeStamp": "2023-03-23 10:10:05",
+      "userId": 6,
+      "message": "Bom dia gostaria de saber mais informações sobre a loja",
+      "tenantId": 1,
+      "sentByUser": true
+    },
+    {
+      "id": 9,
+      "timeStamp": "2023-03-29 10:10:00",
+      "userId": 7,
+      "message": "Bom dia, gostaria de fazer uma cotação de lista de material escolar",
+      "tenantId": 1,
+      "sentByUser": false
+    },
+    {
+      "id": 10,
+      "timeStamp": "2023-03-29 10:10:05",
+      "userId": 7,
+      "message": "Sim, podemos ajudar, voce poderia me enviar sua lista em pdf que realizo a cotação e ja te respondo",
+      "tenantId": 1,
+      "sentByUser": true
+    },
+    {
+      "id": 11,
+      "timeStamp": "2023-03-29 10:10:07",
+      "userId": 7,
+      "message": "OK, tudo bem, ja lhe envio",
+      "tenantId": 1,
+      "sentByUser": false
+    },
+    {
+      "id": 12,
+      "timeStamp": "2023-04-10 10:10:05",
+      "userId": 12,
+      "message": "Bom dia gostaria de saber mais informações sobre a loja",
+      "tenantId": 1,
+      "sentByUser": true
+    },
+    {
+      "id": 13,
+      "timeStamp": "2023-04-10 10:10:10",
+      "userId": 12,
+      "message": "A loja esta pronta a vender produtos e serviços de material escolar",
+      "tenantId": 1,
+      "sentByUser": false
+    },
+    {
+      "id": 14,
+      "timeStamp": "2023-04-10 10:10:25",
+      "userId": 12,
+      "message": "Bom dia gostaria de saber mais informações sobre a loja",
+      "tenantId": 1,
+      "sentByUser": true
+    },
+    {
+      "id": 15,
       "timeStamp": "2023-04-10 10:10:30",
       "userId": 12,
       "message": "A loja esta pronta a vender produtos e serviços de material escolar",
@@ -402,68 +498,227 @@
       "sentByUser": true
     },
     {
-      "id": 7,
-      "timeStamp": "2023-04-10 10:10:00",
-      "userId": 3,
+      "id": 16,
+      "timeStamp": "2023-04-10 10:10:35",
+      "userId": 12,
       "message": "Bom dia gostaria de saber mais informações sobre a loja",
       "tenantId": 1,
       "sentByUser": true
     },
     {
-      "id": 8,
-      "timeStamp": "2023-04-10 10:10:00",
-      "userId": 7,
-      "message": "Bom dia, gostaria de fazer uma cotação de lista de material escolar",
-      "tenantId": 1,
-      "sentByUser": false
-    },
-    {
-      "id": 9,
-      "timeStamp": "2023-04-10 10:10:05",
-      "userId": 7,
-      "message": "Sim, podemos ajudar, voce poderia me enviar sua lista em pdf que realizo a cotação e ja te respondo",
-      "tenantId": 1,
-      "sentByUser": true
-    },
-    {
-      "id": 10,
-      "timeStamp": "2023-04-10 10:10:07",
-      "userId": 7,
-      "message": "OK, tudo bem, ja lhe envio",
-      "tenantId": 1,
-      "sentByUser": false
-    },
-    {
-      "id": 11,
-      "timeStamp": "2023-04-10 10:10:05",
-      "userId": 9,
-      "message": "Bom dia gostaria de saber mais informações sobre a loja",
-      "tenantId": 1,
-      "sentByUser": true
-    },
-    {
-      "id": 12,
-      "timeStamp": "2023-04-10 10:10:10",
-      "userId": 9,
+      "id": 17,
+      "timeStamp": "2023-04-10 10:10:45",
+      "userId": 12,
       "message": "A loja esta pronta a vender produtos e serviços de material escolar",
       "tenantId": 1,
       "sentByUser": false
     },
     {
-      "id": 13,
-      "timeStamp": "2023-04-10 10:10:05",
+      "id": 18,
+      "timeStamp": "2023-04-10 10:10:50",
+      "userId": 12,
+      "message": "Bom dia gostaria de saber mais informações sobre a loja",
+      "tenantId": 1,
+      "sentByUser": true
+    },
+    {
+      "id": 19,
+      "timeStamp": "2023-04-10 10:10:55",
+      "userId": 12,
+      "message": "A loja esta pronta a vender produtos e serviços de material escolar",
+      "tenantId": 1,
+      "sentByUser": true
+    },
+    {
+      "id": 20,
+      "timeStamp": "2023-04-10 10:11:05",
+      "userId": 12,
+      "message": "Bom dia gostaria de saber mais informações sobre a loja",
+      "tenantId": 1,
+      "sentByUser": true
+    },
+    {
+      "id": 21,
+      "timeStamp": "2023-04-10 10:11:10",
+      "userId": 12,
+      "message": "A loja esta pronta a vender produtos e serviços de material escolar",
+      "tenantId": 1,
+      "sentByUser": false
+    },
+    {
+      "id": 22,
+      "timeStamp": "2023-04-10 10:11:25",
+      "userId": 12,
+      "message": "Bom dia gostaria de saber mais informações sobre a loja",
+      "tenantId": 1,
+      "sentByUser": true
+    },
+    {
+      "id": 23,
+      "timeStamp": "2023-04-10 10:11:30",
+      "userId": 12,
+      "message": "A loja esta pronta a vender produtos e serviços de material escolar",
+      "tenantId": 1,
+      "sentByUser": true
+    },
+    {
+      "id": 24,
+      "timeStamp": "2023-04-10 10:11:35",
+      "userId": 12,
+      "message": "Bom dia gostaria de saber mais informações sobre a loja",
+      "tenantId": 1,
+      "sentByUser": true
+    },
+    {
+      "id": 25,
+      "timeStamp": "2023-04-10 10:11:40",
+      "userId": 12,
+      "message": "A loja esta pronta a vender produtos e serviços de material escolar",
+      "tenantId": 1,
+      "sentByUser": false
+    },
+    {
+      "id": 26,
+      "timeStamp": "2023-04-10 10:11:45",
+      "userId": 12,
+      "message": "Bom dia gostaria de saber mais informações sobre a loja",
+      "tenantId": 1,
+      "sentByUser": true
+    },
+    {
+      "id": 27,
+      "timeStamp": "2023-04-10 10:11:50",
+      "userId": 12,
+      "message": "A loja esta pronta a vender produtos e serviços de material escolar",
+      "tenantId": 1,
+      "sentByUser": true
+    },
+    {
+      "id": 28,
+      "timeStamp": "2023-04-10 10:11:55",
+      "userId": 12,
+      "message": "Bom dia gostaria de saber mais informações sobre a loja",
+      "tenantId": 1,
+      "sentByUser": true
+    },
+    {
+      "id": 29,
+      "timeStamp": "2023-04-10 10:12:10",
+      "userId": 12,
+      "message": "A loja esta pronta a vender produtos e serviços de material escolar",
+      "tenantId": 1,
+      "sentByUser": false
+    },
+    {
+      "id": 30,
+      "timeStamp": "2023-04-10 10:12:25",
+      "userId": 12,
+      "message": "Bom dia gostaria de saber mais informações sobre a loja",
+      "tenantId": 1,
+      "sentByUser": true
+    },
+    {
+      "id": 31,
+      "timeStamp": "2023-04-10 10:12:30",
+      "userId": 12,
+      "message": "A loja esta pronta a vender produtos e serviços de material escolar",
+      "tenantId": 1,
+      "sentByUser": true
+    },
+    {
+      "id": 32,
+      "timeStamp": "2023-04-10 10:12:05",
+      "userId": 12,
+      "message": "Bom dia gostaria de saber mais informações sobre a loja",
+      "tenantId": 1,
+      "sentByUser": true
+    },
+    {
+      "id": 33,
+      "timeStamp": "2023-04-10 10:12:10",
+      "userId": 12,
+      "message": "A loja esta pronta a vender produtos e serviços de material escolar",
+      "tenantId": 1,
+      "sentByUser": false
+    },
+    {
+      "id": 34,
+      "timeStamp": "2023-04-10 10:12:25",
+      "userId": 12,
+      "message": "Bom dia gostaria de saber mais informações sobre a loja",
+      "tenantId": 1,
+      "sentByUser": true
+    },
+    {
+      "id": 35,
+      "timeStamp": "2023-04-10 10:12:30",
+      "userId": 12,
+      "message": "A loja esta pronta a vender produtos e serviços de material escolar",
+      "tenantId": 1,
+      "sentByUser": true
+    },
+    {
+      "id": 36,
+      "timeStamp": "2023-04-10 10:12:35",
+      "userId": 12,
+      "message": "Bom dia gostaria de saber mais informações sobre a loja",
+      "tenantId": 1,
+      "sentByUser": true
+    },
+    {
+      "id": 37,
+      "timeStamp": "2023-04-10 10:12:40",
+      "userId": 12,
+      "message": "A loja esta pronta a vender produtos e serviços de material escolar",
+      "tenantId": 1,
+      "sentByUser": false
+    },
+    {
+      "id": 38,
+      "timeStamp": "2023-04-10 10:12:45",
+      "userId": 12,
+      "message": "Bom dia gostaria de saber mais informações sobre a loja",
+      "tenantId": 1,
+      "sentByUser": true
+    },
+    {
+      "id": 39,
+      "timeStamp": "2023-04-10 10:13:30",
+      "userId": 12,
+      "message": "A loja esta pronta a vender produtos e serviços de material escolar",
+      "tenantId": 1,
+      "sentByUser": true
+    },
+    {
+      "id": 40,
+      "message": "Desculpa pela demora",
+      "sentByUser": true,
+      "timeStamp": "02/05/2023 08:34:11",
+      "userId": 3
+    },
+    {
+      "id": 41,
+      "message": "Tudo bem com vc",
+      "sentByUser": true,
+      "timeStamp": "02/05/2023 08:35:43",
       "userId": 6,
-      "message": "Bom dia gostaria de saber mais informações sobre a loja",
-      "tenantId": 1,
-      "sentByUser": true
+      "tenantId": "1"
     },
     {
-      "id": 14,
-      "timeStamp": "2023-04-10 10:10:10",
+      "id": 42,
+      "message": "como estão as coisas",
+      "sentByUser": true,
+      "timeStamp": "02/05/2023 08:35:48",
+      "userId": 6,
+      "tenantId": "1"
+    },
+    {
+      "id": 43,
+      "message": "Que belo dia para se fazer uma compra",
+      "sentByUser": true,
+      "timeStamp": "02/05/2023 08:36:12",
       "userId": 1,
-      "sentByUser": false,
-      "message": "A loja esta pronta a vender produtos e serviços de material escolar",
-      "tenantId": 1
+      "tenantId": "1"
     }
   ]
 }

@@ -2,7 +2,6 @@ import { Environtment } from '../../../environment';
 import { Api } from '../axios-config';
 import { IMessage, IMessageWithTotalCount } from '../message/MessageServices';
 
-
 export interface IUser {
   id: number;
   name: string;
@@ -58,9 +57,16 @@ const getAll = async (page = 1, filter = ''): Promise<IUserWithTotalCount | Erro
 
 };
 
-const getAllUsersWithChat = async (page = 1): Promise<IUserWithTotalCount | Error> => {
+const getUsersWithChat = async (busca: string, page = 1): Promise<IUserWithTotalCount | Error> => {
   try {
-    const urlRelativa = `/users?contact.lastMessageTimeStamp_ne=""&_page=${page}&_limit=${Environtment.LIMIT_ROWS_CHAT}&_sort=contact.lastMessageTimeStamp&_order=desc`;
+    let urlRelativa = ''
+
+    if (busca === '') {
+      urlRelativa = `/users?contact.lastMessageTimeStamp_ne=""&_page=${page}&_limit=${Environtment.LIMIT_ROWS_CHAT}&_sort=contact.lastMessageTimeStamp&_order=desc`;
+    } else {
+      urlRelativa = `/users?name_like=${busca}&_page=${page}&_limit=${Environtment.LIMIT_ROWS_CHAT}`;
+    }
+
 
     const { data, headers } = await Api.get(urlRelativa);
 
@@ -130,5 +136,5 @@ export const UserServices = {
   create,
   updateById,
   deleteById,
-  getAllUsersWithChat,
+  getUsersWithChat,
 };
