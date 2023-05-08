@@ -8,7 +8,7 @@ export const Environtment = {
   /**
   *Placeholder exibido nos inputs
   */
-  LIMIT_ROWS: 5,
+  LIMIT_ROWS: 10,
 
 
   /**

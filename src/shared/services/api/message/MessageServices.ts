@@ -8,8 +8,7 @@ export interface IMessage {
   tenantId?: string;
   sentByUser: boolean;
   timeStamp: string;
-  userId?: number;
-
+  userId: number;
 }
 
 export interface IMessageList {
@@ -48,9 +47,13 @@ const getAllByUerId = async (user: number, page = 1): Promise<IMessageWithTotalC
     const { data, headers } = await Api.get(urlRelativa);
 
     if (data) {
+      const formattedData = data.map((message: IMessage) => ({
+        ...message,
+        timeStamp: format(new Date(message.timeStamp), 'dd/MM/yyyy hh:mm:ss'),
+      }));
 
       return {
-        data: data,
+        data: formattedData,
         totalCount: Number(headers['x-total-count'] || Environtment.LIMIT_ROWS_CHAT),
       };
     }

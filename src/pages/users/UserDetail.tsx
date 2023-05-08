@@ -25,14 +25,14 @@ interface IContact {
   phone: string;
   email: string;
   lastMessage: string;
-  lastMessageTimeStamp: Date;
+  lastMessageTimeStamp: string;
 }
 
 const contactSchema = yup.object().shape({
   phone: yup.string().required(),
   email: yup.string().email().required(),
   lastMessage: yup.string().required(),
-  lastMessageTimeStamp: yup.date().required(),
+  lastMessageTimeStamp: yup.string().required(),
 });
 
 const formValidationSchema: yup.ObjectSchema<IFormData> = yup.object().shape({

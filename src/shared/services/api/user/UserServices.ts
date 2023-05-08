@@ -1,6 +1,6 @@
 import { Environtment } from '../../../environment';
 import { Api } from '../axios-config';
-import { IMessage, IMessageWithTotalCount } from '../message/MessageServices';
+import { IMessage } from '../message/MessageServices';
 
 export interface IUser {
   id: number;
@@ -21,7 +21,8 @@ interface IContact {
   phone: string;
   email: string;
   lastMessage: string;
-  lastMessageTimeStamp: Date;
+  lastMessageTimeStamp: string;
+  isServiceClosed?: boolean;
 }
 
 export interface IUserList {
@@ -39,7 +40,7 @@ type IUserWithTotalCount = {
 
 const getAll = async (page = 1, filter = ''): Promise<IUserWithTotalCount | Error> => {
   try {
-    const urlRelativa = `/users?_page=${page}&_limit=${Environtment.LIMIT_ROWS_CHAT}&name_like=${filter}`;
+    const urlRelativa = `/users?_page=${page}&_limit=${Environtment.LIMIT_ROWS}&name_like=${filter}`;
 
     const { data, headers } = await Api.get(urlRelativa);
 
@@ -57,16 +58,44 @@ const getAll = async (page = 1, filter = ''): Promise<IUserWithTotalCount | Erro
 
 };
 
-const getUsersWithChat = async (busca: string, page = 1): Promise<IUserWithTotalCount | Error> => {
+const getUsersContact = async (busca: string, page = 1): Promise<IUserWithTotalCount | Error> => {
   try {
+    let urlRelativa = ''
+
+    if (busca === '') {
+      urlRelativa = `/users?contact.phone_ne=""&_page=${page}&_limit=${Environtment.LIMIT_ROWS_CHAT}&_sort=contact.phone&_order=desc`;
+    } else {
+      urlRelativa = `/users?name_like=${busca}&_page=${page}&_limit=${Environtment.LIMIT_ROWS_CHAT}&_sort=contact.lastMessageTimeStamp&_order=desc`;
+    }
+
+
+    const { data, headers } = await Api.get(urlRelativa);
+
+    if (data) {
+      return {
+        data,
+        totalCount: Number(headers['x-total-count'] || Environtment.LIMIT_ROWS_CHAT),
+      };
+    }
+    return new Error('Nenhum registro encontrado para essa pesquisa');
+  } catch (error) {
+    console.log(error);
+    return new Error((error as { message: string }).message || 'Erro ao listar registros de usuários');
+  }
+
+};
+
+
+const getUsersWithChat = async (busca = '', page = 1): Promise<IUserWithTotalCount | Error> => {
+  try {
+
     let urlRelativa = ''
 
     if (busca === '') {
       urlRelativa = `/users?contact.lastMessageTimeStamp_ne=""&_page=${page}&_limit=${Environtment.LIMIT_ROWS_CHAT}&_sort=contact.lastMessageTimeStamp&_order=desc`;
     } else {
-      urlRelativa = `/users?name_like=${busca}&_page=${page}&_limit=${Environtment.LIMIT_ROWS_CHAT}`;
+      urlRelativa = `/users?name_like=${busca}&_page=${page}&_limit=${Environtment.LIMIT_ROWS_CHAT}&_sort=contact.lastMessageTimeStamp&_order=desc`;
     }
-
 
     const { data, headers } = await Api.get(urlRelativa);
 
@@ -121,6 +150,30 @@ const updateById = async (id: number, dados: IUser): Promise<void | Error> => {
   }
 };
 
+
+const updatelastMessageTimeStampById = async (id: number, lastMessageTimeStamp: string): Promise<void | Error> => {
+
+  try {
+    getById(id)
+      .then((user) => {
+        if (user instanceof Error) {
+          console.log(user.message)
+        } else {
+          if (user.contact) {
+            user.contact.lastMessageTimeStamp = lastMessageTimeStamp;
+            updateById(id, user)
+          } else {
+            throw new Error('Usuário não possui informações de contato');
+          }
+        }
+      })
+
+  } catch (error) {
+    console.log(error);
+    return new Error((error as { message: string }).message || 'Erro ao atualizar o registro');
+  }
+};
+
 const deleteById = async (id: number): Promise<void | Error> => {
   try {
     await Api.delete(`/users/${id}`);
@@ -136,5 +189,7 @@ export const UserServices = {
   create,
   updateById,
   deleteById,
+  getUsersContact,
+  updatelastMessageTimeStampById,
   getUsersWithChat,
 };
