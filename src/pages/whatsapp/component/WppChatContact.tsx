@@ -3,14 +3,16 @@ import { Avatar, Grid, List, ListItemAvatar, ListItemButton, ListItemIcon, ListI
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useDebounce } from "../../../shared/hooks";
+import { Observable } from "../../../shared/observer/Observable";
 import { MessageServices } from "../../../shared/services/api/message/MessageServices";
 import { IUserList, UserServices } from "../../../shared/services/api/user/UserServices";
 
 interface IWppchatContatosProps {
   setUserActive: (user: IUserList) => void;
+  observable: Observable<IUserList>;
 }
 
-export const WppchatContatos: React.FC<IWppchatContatosProps> = ({ setUserActive }) => {
+export const WppchatContatos: React.FC<IWppchatContatosProps> = ({ observable, setUserActive }) => {
 
   const [rows, setRows] = useState<IUserList[]>([]);
   const { debounce } = useDebounce();

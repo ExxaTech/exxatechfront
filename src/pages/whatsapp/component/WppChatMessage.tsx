@@ -4,9 +4,15 @@ import { format } from "date-fns";
 import { ChangeEvent, KeyboardEvent, useEffect, useState } from "react";
 import { Environtment } from "../../../shared/environment";
 import { useDebounce } from "../../../shared/hooks";
-import { IObserver } from "../../../shared/observer/Observable";
+import { IObserver, Observable } from "../../../shared/observer/Observable";
 import { IMessage, MessageServices } from "../../../shared/services/api/message/MessageServices";
 import { IUserList, UserServices } from "../../../shared/services/api/user/UserServices";
+
+
+interface IWppchatMessagesProps {
+  user: IUserList;
+  observable: Observable<IUserList>;
+}
 
 interface ChatInput {
   id: number;
@@ -71,7 +77,7 @@ class UserObserver implements IObserver<IUserList> {
   }
 }
 
-export const WppchatMessage: React.FC<{ user: IUserList }> = ({ user }) => {
+export const WppchatMessage: React.FC<IWppchatMessagesProps> = ({ observable, user }) => {
   const { debounce } = useDebounce();
   const theme = useTheme();
   const [maxHeight, setMaxHeight] = useState(0);
@@ -80,7 +86,7 @@ export const WppchatMessage: React.FC<{ user: IUserList }> = ({ user }) => {
   const [messages, setMessages] = useState<IMessage[]>([]);
   const [open, setOpen] = useState(false);
   const [isServiceClosed, setIsServiceClosed] = useState(false);
-  const userObserver = new UserObserver(user);
+
 
   useEffect(() => {
     debounce(async () => {
@@ -112,6 +118,7 @@ export const WppchatMessage: React.FC<{ user: IUserList }> = ({ user }) => {
   const handleClickOpenActiveChat = (chat: ChatInput) => {
     console.log(chat);
     setIsServiceClosed(chat.isServiceClosed ? chat.isServiceClosed : false)
+    observable.notifyObservers({ ...chat });
     setOpen(true);
   };
 
