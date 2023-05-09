@@ -1,51 +1,101 @@
 import { Box, Card, CardContent, Grid, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
-import { FerramentasDaListagem } from '../../shared/components';
-import { LayoutBaseDePagina } from '../../shared/layouts';
-import { EnderecoServices } from '../../shared/services/api/endereco/EnderecoServices';
-import { UsuariosServices } from '../../shared/services/api/usuario/UsuarioServices';
+import { ListTools } from '../../shared/components';
+import { BasePageLayout } from '../../shared/layouts';
+import { AddressService } from '../../shared/services/api/address/AddressService';
+import { UserServices } from '../../shared/services/api/user/UserServices';
 
 export const Dashboard = () => {
 
-  const [isLoadingUsuarios, setIsLoadingUsuarios] = useState(true);
-  const [totalCountUsuarios, setTotalCountUsuarios] = useState(0);
+  const [isLoadingUsers, setIsLoadingUsers] = useState(true);
+  const [totalCountUsers, setTotalCountUsers] = useState(0);
 
-  const [isLoadingEnderecos, setIsLoadingEnderecos] = useState(true);
-  const [totalCountEnderecos, setTotalCountEnderecos] = useState(0);
+  const [isLoadingContacts, setIsLoadingContacts] = useState(true);
+  const [totalCountContacts, setTotalCountContacts] = useState(0);
+
+  const [isLoadingChats, setIsLoadingChats] = useState(true);
+  const [totalCountChats, setTotalCountChats] = useState(0);
+
+  const [isLoadingOpenChats, setIsLoadingOpenChats] = useState(true);
+  const [totalCountOpenChats, setTotalCountOpenChats] = useState(0);
+
+  const [isLoadingCloseChats, setIsLoadingCloseChats] = useState(true);
+  const [totalCountCloseChats, setTotalCountCloseChats] = useState(0);
+
+  const [isLoadingAddress, setIsLoadingAddress] = useState(true);
+  const [totalCountAddress, setTotalCountAddress] = useState(0);
 
   useEffect(() => {
-    setIsLoadingUsuarios(true);
-    setIsLoadingEnderecos(true);
+    setIsLoadingUsers(true);
+    setIsLoadingContacts(true);
 
-    UsuariosServices.getAll(1)
+    setIsLoadingChats(true);
+    setIsLoadingOpenChats(true);
+    setIsLoadingCloseChats(true);
+
+    setIsLoadingAddress(true);
+
+
+    UserServices.getUsersWithChat()
       .then((result) => {
-        setIsLoadingUsuarios(false);
+        setIsLoadingChats(false);
+        setIsLoadingOpenChats(false);
+        setIsLoadingCloseChats(false);
 
         if (result instanceof Error) {
           alert(result.message);
         } else {
-          setTotalCountUsuarios(result.totalCount);
+
+          const userWithChatOpen = result.data.filter((user) => user.contact?.isServiceClosed === false).length
+          const userWithChatClosed = result.data.filter((user) => user.contact?.isServiceClosed === true).length
+
+          setTotalCountOpenChats(userWithChatOpen);
+          setTotalCountCloseChats(userWithChatClosed);
+          setTotalCountChats(result.totalCount);
         }
       });
 
-    EnderecoServices.getAll(1)
+    UserServices.getUsersContact('', 1)
       .then((result) => {
-        setIsLoadingEnderecos(false);
+        setIsLoadingContacts(false);
 
         if (result instanceof Error) {
           alert(result.message);
         } else {
-          setTotalCountEnderecos(result.totalCount);
+          setTotalCountContacts(result.totalCount);
+        }
+      });
+
+
+    UserServices.getAll(1)
+      .then((result) => {
+        setIsLoadingUsers(false);
+
+        if (result instanceof Error) {
+          alert(result.message);
+        } else {
+          setTotalCountUsers(result.totalCount);
+        }
+      });
+
+    AddressService.getAll(1)
+      .then((result) => {
+        setIsLoadingAddress(false);
+
+        if (result instanceof Error) {
+          alert(result.message);
+        } else {
+          setTotalCountAddress(result.totalCount);
         }
       });
   }, [])
 
   return (
-    <LayoutBaseDePagina
-      navegacao={[
-        { descricao: "Inicio", caminho: "/" }]}
-      barraDeFerramentas={(
-        <FerramentasDaListagem mostrarBotaoNovo={false} />
+    <BasePageLayout
+      navigation={[
+        { description: "Inicio", path: "/" }]}
+      toolBar={(
+        <ListTools showNewButtonText={false} />
       )}
     >
       <Box width='100%' display='flex'>
@@ -59,14 +109,113 @@ export const Dashboard = () => {
                   </Typography>
                   <Box display='flex' padding={6} justifyContent='center' alignItems='center'>
 
-                    {!isLoadingUsuarios && (
+                    {!isLoadingUsers && (
                       <Typography variant='h1'>
-                        {totalCountUsuarios}
+                        {totalCountUsers}
                       </Typography>
 
                     )}
 
-                    {isLoadingUsuarios &&
+                    {isLoadingUsers &&
+                      (<Typography variant='h6'>
+                        Carregando...
+                      </Typography>
+                      )}
+
+                  </Box>
+                </CardContent>
+              </Card>
+            </Grid>
+            <Grid item xs={12} sm={12} md={6} lg={4} xl={2} >
+              <Card>
+                <CardContent>
+                  <Typography variant='h5' align='center'>
+                    Total Contatos
+                  </Typography>
+                  <Box display='flex' padding={6} justifyContent='center' alignItems='center'>
+
+                    {!isLoadingContacts && (
+                      <Typography variant='h1'>
+                        {totalCountContacts}
+                      </Typography>
+                    )}
+
+                    {isLoadingContacts &&
+                      (<Typography variant='h6'>
+                        Carregando...
+                      </Typography>
+                      )}
+
+                  </Box>
+                </CardContent>
+              </Card>
+            </Grid>
+            <Grid item xs={12} sm={12} md={6} lg={4} xl={2} >
+              <Card>
+                <CardContent>
+                  <Typography variant='h5' align='center'>
+                    Total Chat
+                  </Typography>
+                  <Box display='flex' padding={6} justifyContent='center' alignItems='center'>
+
+                    {!isLoadingChats && (
+                      <Typography variant='h1'>
+                        {totalCountChats}
+                      </Typography>
+
+                    )}
+
+                    {isLoadingChats &&
+                      (<Typography variant='h6'>
+                        Carregando...
+                      </Typography>
+                      )}
+
+                  </Box>
+                </CardContent>
+              </Card>
+            </Grid>
+            <Grid item xs={12} sm={12} md={6} lg={4} xl={2} >
+              <Card>
+                <CardContent>
+                  <Typography variant='h5' align='center'>
+                    Total Chat Abertos
+                  </Typography>
+                  <Box display='flex' padding={6} justifyContent='center' alignItems='center'>
+
+                    {!isLoadingOpenChats && (
+                      <Typography variant='h1'>
+                        {totalCountOpenChats}
+                      </Typography>
+
+                    )}
+
+                    {isLoadingOpenChats &&
+                      (<Typography variant='h6'>
+                        Carregando...
+                      </Typography>
+                      )}
+
+                  </Box>
+                </CardContent>
+              </Card>
+            </Grid>
+            <Grid item xs={12} sm={12} md={6} lg={4} xl={2} >
+              <Card>
+                <CardContent>
+                  <Typography variant='h5' align='center'>
+                    Total Chat Finalizados
+                  </Typography>
+                  <Box display='flex' padding={6} justifyContent='center' alignItems='center'>
+
+                    {!isLoadingCloseChats && (
+                      <Typography variant='h1'>
+                        {totalCountCloseChats}
+                      </Typography>
+
+                    )}
+
+                    {isLoadingCloseChats &&
                       (<Typography variant='h6'>
                         Carregando...
                       </Typography>
@@ -83,14 +232,14 @@ export const Dashboard = () => {
                     Total Endereços
                   </Typography>
                   <Box display='flex' padding={6} justifyContent='center' alignItems='center'>
-                    {!isLoadingEnderecos && (
+                    {!isLoadingAddress && (
                       <Typography variant='h1'>
-                        {totalCountEnderecos}
+                        {totalCountAddress}
                       </Typography>
 
                     )}
 
-                    {isLoadingEnderecos &&
+                    {isLoadingAddress &&
                       (<Typography variant='h6'>
                         Carregando...
                       </Typography>
@@ -102,6 +251,6 @@ export const Dashboard = () => {
           </Grid>
         </Grid>
       </Box>
-    </LayoutBaseDePagina>
+    </BasePageLayout>
   );
 };

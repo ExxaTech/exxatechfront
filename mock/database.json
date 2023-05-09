@@ -2,335 +2,357 @@
   "auth": {
     "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ik1pbHRvbiBSZWlzIiwiaWF0IjoxNTE2MjM5MDIyLCJhdXRob3JpemF0aW9uIjoiYWxsIn0.fp_WO7c-bA5zT698XBiihCjQK1ugvOhi_dbK9-JbCTg"
   },
-  "usuarios": [
+  "users": [
+    {
+      "id": 1,
+      "name": "João Pedro",
+      "avatar": "https://picsum.photos/200/299",
+      "addressId": 1,
+      "tenantId": 1,
+      "contact": {
+        "email": "jp@gmail.com",
+        "phone": "19992129960",
+        "lastMessage": "A loja esta pronta a vender produtos e serviços de material escolar",
+        "lastMessageTimeStamp": "2023-01-01 10:10:10",
+        "isServiceClosed": true
+      },
+      "security": {
+        "user": "fb049",
+        "pass": "1209dsdsk1"
+      }
+    },
     {
       "id": 2,
-      "telefone": "19992129962",
-      "nomeCompleto": "Fabiana Ribeiro",
+      "name": "Fabiana Ribeiro",
       "avatar": "https://picsum.photos/200/300",
-      "lastMessage": "Bom dia Gostaria de saber o horario de funcionamento",
-      "lastMessageTimeStamp": "4/17/2023, 8:00:00 PM",
-      "email": "ppd@gmail.com",
-      "enderecoId": 1,
-      "tenantId": 1
+      "addressId": 1,
+      "tenantId": 1,
+      "contact": {
+        "email": "ppd@gmail.com",
+        "phone": "19992129962",
+        "lastMessage": "Bom dia Gostaria de saber o horario de funcionamento",
+        "lastMessageTimeStamp": "2023-02-01 10:10:20",
+        "isServiceClosed": true
+      },
+      "security": {
+        "user": "fb049",
+        "pass": "1209dsdsk1"
+      }
     },
     {
       "id": 3,
-      "telefone": "19992129963",
-      "nomeCompleto": "Milton Reis",
+      "name": "Milton Reis",
       "avatar": "https://picsum.photos/200/301",
-      "lastMessage": "Bom dia Gostaria de saber o horario de funcionamento",
-      "lastMessageTimeStamp": "1/01/2023, 8:00:00 AM",
-      "email": "wmr049@gmail.com",
-      "enderecoId": 1,
-      "tenantId": 1
+      "addressId": 1,
+      "tenantId": 1,
+      "contact": {
+        "email": "wmr049@gmail.com",
+        "phone": "19992129963",
+        "lastMessage": "Bom dia Gostaria de saber o horario de funcionamento",
+        "lastMessageTimeStamp": "2023-05-03 08:02:40",
+        "isServiceClosed": true
+      },
+      "security": {
+        "user": "wmr049",
+        "pass": "reis2000"
+      }
     },
     {
       "id": 4,
-      "telefone": "19992129964",
-      "nomeCompleto": "Marcia Lira",
+      "name": "Marcia Lira",
       "avatar": "https://picsum.photos/200/302",
-      "lastMessage": "Bom dia Gostaria de saber o horario de funcionamento",
-      "lastMessageTimeStamp": "1/11/2023, 8:10:00 AM",
-      "email": "mf@gmail.com",
-      "enderecoId": 1,
+      "addressId": 1,
       "tenantId": 1
     },
     {
       "id": 5,
-      "telefone": "19992129965",
-      "nomeCompleto": "Pedro Paulo Diniz 5",
+      "name": "Pedro Paulo Diniz 5",
       "avatar": "https://picsum.photos/200/303",
-      "lastMessage": "Bom dia Gostaria de saber o horario de funcionamento",
-      "lastMessageTimeStamp": "2/28/2023, 9:27:00 PM",
-      "email": "ppd5@gmail.com",
-      "enderecoId": 1,
+      "contact": {
+        "phone": "19992129965",
+        "lastMessage": "Bom dia Gostaria de saber o horario de funcionamento",
+        "lastMessageTimeStamp": "2023-05-08 07:31:59",
+        "email": "ppd5@gmail.com",
+        "isServiceClosed": false
+      },
+      "addressId": 1,
       "tenantId": 1
     },
     {
       "id": 6,
-      "telefone": "19992129966",
-      "nomeCompleto": "Pedro Paulo Diniz 6",
+      "name": "Pedro Paulo Diniz 6",
       "avatar": "https://picsum.photos/200/304",
-      "lastMessage": "Bom dia Gostaria de saber o horario de funcionamento",
-      "lastMessageTimeStamp": "4/21/2023, 11:21:00 AM",
-      "email": "ppd6@gmail.com",
-      "enderecoId": 1,
+      "contact": {
+        "lastMessage": "Bom dia Gostaria de saber o horario de funcionamento",
+        "lastMessageTimeStamp": "2023-03-23 10:10:05",
+        "email": "ppd6@gmail.com",
+        "phone": "19992129966",
+        "isServiceClosed": true
+      },
+      "addressId": 1,
       "tenantId": 1
     },
     {
       "id": 7,
-      "telefone": "19992129967",
-      "nomeCompleto": "Pedro Paulo Diniz 7",
+      "name": "Pedro Paulo Diniz 7",
       "avatar": "https://picsum.photos/200/305",
-      "lastMessage": "Bom dia Gostaria de saber o horario de funcionamento",
-      "lastMessageTimeStamp": "4/21/2023, 11:21:35 AM",
-      "email": "ppd7@gmail.com",
-      "enderecoId": 1,
+      "contact": {
+        "lastMessage": "Bom dia Gostaria de saber o horario de funcionamento",
+        "lastMessageTimeStamp": "2023-05-03 07:53:15",
+        "phone": "19992129967",
+        "email": "ppd7@gmail.com",
+        "isServiceClosed": true
+      },
+      "addressId": 1,
       "tenantId": 1
     },
     {
       "id": 8,
-      "telefone": "19992129968",
-      "nomeCompleto": "Pedro Paulo Diniz 8",
+      "name": "Pedro Paulo Diniz 8",
       "avatar": "https://picsum.photos/200/306",
-      "email": "ppd8@gmail.com",
-      "enderecoId": 1,
-      "tenantId": 1
+      "addressId": 1,
+      "tenantId": 1,
+      "contact": {
+        "email": "ppd8@gmail.com",
+        "phone": "19992129961"
+      }
     },
     {
       "id": 9,
-      "telefone": "19992129969",
-      "nomeCompleto": "Pedro Paulo Diniz 9",
+      "name": "Pedro Paulo Diniz 9",
       "avatar": "https://picsum.photos/200/307",
-      "email": "ppd9@gmail.com",
-      "enderecoId": 1,
-      "tenantId": 1
+      "addressId": 1,
+      "tenantId": 1,
+      "contact": {
+        "email": "ppd9@gmail.com",
+        "phone": "19992129961"
+      }
     },
     {
       "id": 10,
-      "telefone": "19992129970",
-      "nomeCompleto": "Pedro Paulo Diniz 10",
+      "name": "Pedro Paulo Diniz 10",
       "avatar": "https://picsum.photos/200/308",
-      "email": "ppd10@gmail.com",
-      "enderecoId": 1,
-      "tenantId": 1
+      "addressId": 1,
+      "tenantId": 1,
+      "contact": {
+        "email": "ppd10@gmail.com",
+        "phone": "19992129961"
+      }
     },
     {
       "id": 11,
-      "telefone": "19992129971",
-      "nomeCompleto": "Pedro Paulo Diniz 11",
+      "name": "Pedro Paulo Diniz 11",
       "avatar": "https://picsum.photos/200/309",
-      "email": "ppd11@gmail.com",
-      "enderecoId": 1,
-      "tenantId": 1
+      "addressId": 1,
+      "tenantId": 1,
+      "contact": {
+        "email": "ppd11@gmail.com",
+        "phone": "19992129961"
+      }
     },
     {
       "id": 12,
-      "telefone": "19992129972",
-      "nomeCompleto": "Pedro Paulo Diniz 12",
+      "name": "Pedro Paulo Diniz 12",
       "avatar": "https://picsum.photos/200/310",
-      "email": "ppd12@gmail.com",
-      "enderecoId": 1,
+      "contact": {
+        "lastMessage": "Bom dia Gostaria de saber o horario de funcionamento",
+        "lastMessageTimeStamp": "09/05/2023 08:03:03",
+        "phone": "19992129967",
+        "email": "ppd12@gmail.com",
+        "isServiceClosed": true
+      },
+      "addressId": 1,
       "tenantId": 1
     },
     {
       "id": 13,
-      "telefone": "19992129973",
-      "nomeCompleto": "Pedro Paulo Diniz 13",
-      "avatar": "https://picsum.photos/200/311",
-      "email": "ppd13@gmail.com",
-      "enderecoId": 1,
-      "tenantId": 1
+      "name": "Pedro Paulo Diniz 13",
+      "tenantId": 1,
+      "contact": {
+        "email": "ppd13@gmail.com",
+        "phone": "19992129961"
+      }
     },
     {
       "id": 14,
-      "telefone": "19992129974",
-      "nomeCompleto": "Pedro Paulo Diniz 14",
-      "avatar": "https://picsum.photos/200/312",
-      "email": "ppd14@gmail.com",
-      "enderecoId": 1,
-      "tenantId": 1
+      "name": "Pedro Paulo Diniz 14",
+      "tenantId": 1,
+      "contact": {
+        "email": "ppd14@gmail.com",
+        "phone": "19992129961"
+      }
     },
     {
       "id": 15,
-      "telefone": "19992129975",
-      "nomeCompleto": "Pedro Paulo Diniz 15",
-      "avatar": "https://picsum.photos/200/313",
-      "email": "ppd15@gmail.com",
-      "enderecoId": 1,
-      "tenantId": 1
+      "name": "Pedro Paulo Diniz 15",
+      "tenantId": 1,
+      "contact": {
+        "email": "ppd15@gmail.com",
+        "phone": "19992129961"
+      }
     },
     {
       "id": 16,
-      "telefone": "19992129976",
-      "nomeCompleto": "Pedro Paulo Diniz 16",
+      "name": "Pedro Paulo Diniz 16",
       "avatar": "https://picsum.photos/200/314",
-      "email": "ppd16@gmail.com",
-      "enderecoId": 1,
-      "tenantId": 1
+      "addressId": 1,
+      "tenantId": 1,
+      "contact": {
+        "email": "ppd16@gmail.com",
+        "phone": "19992129961",
+        "lastMessage": "",
+        "lastMessageTimeStamp": "03/05/2023 07:34:32",
+        "isServiceClosed": true
+      }
     },
     {
       "id": 17,
-      "telefone": "19992129977",
-      "nomeCompleto": "Pedro Paulo Diniz 17",
+      "name": "Pedro Paulo Diniz 17",
       "avatar": "https://picsum.photos/200/315",
-      "email": "ppd17@gmail.com",
-      "enderecoId": 1,
-      "tenantId": 1
+      "addressId": 1,
+      "tenantId": 1,
+      "contact": {
+        "email": "ppd17@gmail.com",
+        "phone": "19992129961"
+      }
     },
     {
       "id": 18,
-      "telefone": "19992129978",
-      "nomeCompleto": "Pedro Paulo Diniz 18",
+      "phone": "19992129978",
+      "name": "Pedro Paulo Diniz 18",
       "avatar": "https://picsum.photos/200/316",
       "email": "ppd18@gmail.com",
-      "enderecoId": 1,
-      "tenantId": 1
+      "addressId": 1,
+      "tenantId": 1,
+      "contact": {
+        "email": "ppd18@gmail.com",
+        "phone": "19992129961"
+      }
     },
     {
       "id": 19,
-      "telefone": "19992129979",
-      "nomeCompleto": "Pedro Paulo Diniz 19",
+      "phone": "19992129979",
+      "name": "Pedro Paulo Diniz 19",
       "avatar": "https://picsum.photos/200/317",
       "email": "ppd19@gmail.com",
-      "enderecoId": 1,
-      "tenantId": 1
+      "addressId": 1,
+      "tenantId": 2
     },
     {
       "id": 20,
-      "telefone": "19992129972",
-      "nomeCompleto": "Pedro Paulo Diniz 12",
-      "email": "ppd12@gmail.com",
-      "enderecoId": 1,
-      "tenantId": 1
+      "name": "Pedro Paulo Diniz 20",
+      "tenantId": 2
     },
     {
       "id": 21,
-      "telefone": "19992129972",
-      "nomeCompleto": "Pedro Paulo Diniz 12",
-      "email": "ppd12@gmail.com",
-      "enderecoId": 1,
-      "tenantId": 1
+      "name": "Pedro Paulo Diniz 21",
+      "addressId": 4,
+      "tenantId": 2
     },
     {
       "id": 22,
-      "telefone": "19992129972",
-      "nomeCompleto": "Pedro Paulo Diniz 12",
-      "email": "ppd12@gmail.com",
-      "enderecoId": 1,
+      "name": "Pedro Paulo Diniz 22",
+      "email": "ppd22@gmail.com",
+      "addressId": 3,
       "tenantId": 1
     },
     {
       "id": 23,
-      "telefone": "19992129972",
-      "nomeCompleto": "Pedro Paulo Diniz 12",
-      "email": "ppd12@gmail.com",
-      "enderecoId": 1,
-      "tenantId": 1
+      "name": "Pedro Paulo Diniz 23",
+      "addressId": 3,
+      "tenantId": 3
     },
     {
       "id": 24,
-      "telefone": "19992129972",
-      "nomeCompleto": "Pedro Paulo Diniz 12",
-      "email": "ppd12@gmail.com",
-      "enderecoId": 1,
-      "tenantId": 1
+      "name": "Pedro Paulo Diniz 24",
+      "addressId": 2,
+      "tenantId": 3
     },
     {
       "id": 25,
-      "telefone": "19992129972",
-      "nomeCompleto": "Pedro Paulo Diniz 12",
-      "email": "ppd12@gmail.com",
-      "enderecoId": 1,
+      "name": "Pedro Paulo Diniz 25",
+      "addressId": 4,
       "tenantId": 1
     },
     {
       "id": 26,
-      "telefone": "19992129972",
-      "nomeCompleto": "Pedro Paulo Diniz 12",
-      "email": "ppd12@gmail.com",
-      "enderecoId": 1,
+      "name": "Pedro Paulo Diniz 26",
+      "addressId": 1,
       "tenantId": 1
     },
     {
       "id": 27,
-      "telefone": "19992129972",
-      "nomeCompleto": "Pedro Paulo Diniz 12",
-      "email": "ppd12@gmail.com",
-      "enderecoId": 1,
+      "name": "Pedro Paulo Diniz 27",
+      "addressId": 5,
       "tenantId": 1
     },
     {
       "id": 28,
-      "telefone": "19992129972",
-      "nomeCompleto": "Pedro Paulo Diniz 12",
-      "email": "ppd12@gmail.com",
-      "enderecoId": 1,
-      "tenantId": 1
+      "name": "Pedro Paulo Diniz 28",
+      "addressId": 2,
+      "tenantId": 3
     },
     {
       "id": 29,
-      "telefone": "19992129972",
-      "nomeCompleto": "Pedro Paulo Diniz 12",
-      "email": "ppd12@gmail.com",
-      "enderecoId": 1,
-      "tenantId": 1
+      "name": "Pedro Paulo Diniz 29",
+      "addressId": 2,
+      "tenantId": 3
     },
     {
       "id": 30,
-      "telefone": "19992129972",
-      "nomeCompleto": "Pedro Paulo Diniz 12",
-      "email": "ppd12@gmail.com",
-      "enderecoId": 1,
-      "tenantId": 1
+      "name": "Pedro Paulo Diniz 30",
+      "addressId": 3,
+      "tenantId": 2
     },
     {
       "id": 31,
-      "telefone": "19992129972",
-      "nomeCompleto": "Pedro Paulo Diniz 12",
-      "email": "ppd12@gmail.com",
-      "enderecoId": 1,
-      "tenantId": 1
+      "name": "Pedro Paulo Diniz 31",
+      "addressId": 2,
+      "tenantId": 2
     },
     {
       "id": 32,
-      "telefone": "19992129972",
-      "nomeCompleto": "Pedro Paulo Diniz 12",
-      "email": "ppd12@gmail.com",
-      "enderecoId": 1,
-      "tenantId": 1
+      "name": "Pedro Paulo Diniz 32",
+      "addressId": 3,
+      "tenantId": 3
     },
     {
       "id": 33,
-      "telefone": "19992129972",
-      "nomeCompleto": "Pedro Paulo Diniz 12",
-      "email": "ppd12@gmail.com",
-      "enderecoId": 1,
-      "tenantId": 1
+      "name": "Pedro Paulo Diniz 33",
+      "addressId": 4,
+      "tenantId": 2
     },
     {
       "id": 34,
-      "telefone": "19992129972",
-      "nomeCompleto": "Pedro Paulo Diniz 12",
-      "email": "ppd12@gmail.com",
-      "enderecoId": 1,
-      "tenantId": 1
+      "name": "Pedro Paulo Diniz 34",
+      "addressId": 4,
+      "tenantId": 4
     },
     {
       "id": 35,
-      "telefone": "19992129972",
-      "nomeCompleto": "Pedro Paulo Diniz 12",
-      "email": "ppd12@gmail.com",
-      "enderecoId": 1,
-      "tenantId": 1
+      "name": "Pedro Paulo Diniz 35",
+      "addressId": 2,
+      "tenantId": 2
     },
     {
       "id": 36,
-      "telefone": "19992129972",
-      "nomeCompleto": "Pedro Paulo Diniz 12",
-      "email": "ppd12@gmail.com",
-      "enderecoId": 1,
-      "tenantId": 1
+      "name": "Pedro Paulo Diniz 36",
+      "addressId": 2,
+      "tenantId": 2
     },
     {
       "id": 37,
-      "telefone": "19992129972",
-      "nomeCompleto": "Pedro Paulo Diniz 12",
-      "email": "ppd12@gmail.com",
-      "enderecoId": 1,
-      "tenantId": 1
+      "name": "Pedro Paulo Diniz 37",
+      "addressId": 2,
+      "tenantId": 2
     },
     {
       "id": 38,
-      "telefone": "19992129972",
-      "nomeCompleto": "Pedro Paulo Diniz 12",
-      "email": "ppd12@gmail.com",
-      "enderecoId": 1,
+      "name": "Pedro Paulo Diniz 38",
       "tenantId": 1
     }
   ],
-  "enderecos": [
+  "address": [
     {
       "id": 1,
       "cep": "01001000",
@@ -404,146 +426,549 @@
       "id": 9
     }
   ],
-  "chats": [
+  "messages": [
     {
       "id": 1,
-      "chatMessageId": 1,
-      "timeStamp": "2023-04-10 10:10:05",
-      "usuario": {
-        "nomeCompleto": "Pedro Paulo Diniz 1"
-      },
+      "timeStamp": "2022-06-10 10:10:05",
+      "userId": 1,
       "message": "Bom dia gostaria de saber mais informações sobre a loja",
-      "tenantId": 1
+      "tenantId": 1,
+      "sentByUser": true
     },
     {
       "id": 2,
-      "chatMessageId": 1,
-      "timeStamp": "2023-04-10 10:10:10",
-      "usuario": {
-        "nomeCompleto": "Pedro Paulo Diniz 2"
-      },
+      "timeStamp": "2023-01-01 10:10:10",
+      "userId": 1,
       "message": "A loja esta pronta a vender produtos e serviços de material escolar",
-      "tenantId": 1
+      "tenantId": 1,
+      "sentByUser": false
     },
     {
       "id": 3,
-      "chatMessageId": 1,
-      "timeStamp": "2023-04-10 10:10:15",
-      "usuario": {
-        "nomeCompleto": "Pedro Paulo Diniz 2"
-      },
-      "message": "Bom dia gostaria de saber mais informações sobre a loja",
-      "tenantId": 1
+      "timeStamp": "2023-01-31 10:10:10",
+      "userId": 2,
+      "message": "Gostaria de saber o valor para impressão de 10 paginas",
+      "tenantId": 1,
+      "sentByUser": true
     },
     {
       "id": 4,
-      "chatMessageId": 1,
-      "timeStamp": "2023-04-10 10:10:20",
-      "usuario": {
-        "nomeCompleto": "Pedro Paulo Diniz 2"
-      },
-      "message": "A loja esta pronta a vender produtos e serviços de material escolar",
-      "tenantId": 1
+      "timeStamp": "2023-02-01 10:10:15",
+      "userId": 2,
+      "message": "Bom dia tudo bem com o senhora ? Vamos la o valor da impressão em preto e branco é de R$0,50 e da colorida apartir de R$2,50. ",
+      "tenantId": 1,
+      "sentByUser": false
     },
     {
       "id": 5,
-      "chatMessageId": 2,
-      "timeStamp": "2023-04-10 10:10:25",
-      "usuario": {
-        "nomeCompleto": "Pedro Paulo Diniz 10"
-      },
-      "message": "Bom dia gostaria de saber mais informações sobre a loja",
-      "tenantId": 1
+      "timeStamp": "2023-02-01 10:10:20",
+      "userId": 2,
+      "message": "A legal, estarei lhe enviando os arquivos e logo chego para retirar, muito obrigado",
+      "tenantId": 1,
+      "sentByUser": true
     },
     {
       "id": 6,
-      "chatMessageId": 2,
-      "timeStamp": "2023-04-10 10:10:30",
-      "usuario": {
-        "nomeCompleto": "Pedro Paulo Diniz 12"
-      },
-      "message": "A loja esta pronta a vender produtos e serviços de material escolar",
-      "tenantId": 1
+      "timeStamp": "2023-02-29 13:45:00",
+      "userId": 3,
+      "message": "Bom dia gostaria de saber mais informações sobre a loja",
+      "tenantId": 1,
+      "sentByUser": true
     },
     {
       "id": 7,
-      "chatMessageId": 2,
-      "timeStamp": "2023-04-10 10:10:35",
-      "usuario": {
-        "nomeCompleto": "Pedro Paulo Diniz 3"
-      },
-      "message": "Bom dia gostaria de saber mais informações sobre a loja",
-      "tenantId": 1
+      "timeStamp": "2023-03-10 10:10:30",
+      "userId": 5,
+      "message": "Fui muito mau atendido e gostaria de realizar um reclamação",
+      "tenantId": 1,
+      "sentByUser": true
     },
     {
       "id": 8,
-      "chatMessageId": 3,
-      "timeStamp": "2023-04-10 10:10:10",
-      "usuario": {
-        "nomeCompleto": "Pedro Paulo Diniz 4"
-      },
-      "message": "A loja esta pronta a vender produtos e serviços de material escolar",
-      "tenantId": 1
+      "timeStamp": "2023-03-23 10:10:05",
+      "userId": 6,
+      "message": "Bom dia gostaria de saber mais informações sobre a loja",
+      "tenantId": 1,
+      "sentByUser": true
     },
     {
       "id": 9,
-      "chatMessageId": 3,
-      "timeStamp": "2023-04-10 10:10:05",
-      "usuario": {
-        "nomeCompleto": "Pedro Paulo Diniz 8"
-      },
-      "message": "Bom dia gostaria de saber mais informações sobre a loja",
-      "tenantId": 1
+      "timeStamp": "2023-03-29 10:10:00",
+      "userId": 7,
+      "message": "Bom dia, gostaria de fazer uma cotação de lista de material escolar",
+      "tenantId": 1,
+      "sentByUser": false
     },
     {
       "id": 10,
-      "chatMessageId": 3,
-      "timeStamp": "2023-04-10 10:10:10",
-      "usuario": {
-        "nomeCompleto": "Pedro Paulo Diniz 8"
-      },
-      "message": "A loja esta pronta a vender produtos e serviços de material escolar",
-      "tenantId": 1
+      "timeStamp": "2023-03-29 10:10:05",
+      "userId": 7,
+      "message": "Sim, podemos ajudar, voce poderia me enviar sua lista em pdf que realizo a cotação e ja te respondo",
+      "tenantId": 1,
+      "sentByUser": true
     },
     {
       "id": 11,
-      "chatMessageId": 4,
-      "timeStamp": "2023-04-10 10:10:05",
-      "usuario": {
-        "nomeCompleto": "Pedro Paulo Diniz 9"
-      },
-      "message": "Bom dia gostaria de saber mais informações sobre a loja",
-      "tenantId": 1
+      "timeStamp": "2023-03-29 10:10:07",
+      "userId": 7,
+      "message": "OK, tudo bem, ja lhe envio",
+      "tenantId": 1,
+      "sentByUser": false
     },
     {
       "id": 12,
-      "chatMessageId": 4,
-      "timeStamp": "2023-04-10 10:10:10",
-      "usuario": {
-        "nomeCompleto": "Pedro Paulo Diniz 9"
-      },
-      "message": "A loja esta pronta a vender produtos e serviços de material escolar",
-      "tenantId": 1
+      "timeStamp": "2023-04-10 10:10:05",
+      "userId": 12,
+      "message": "Bom dia gostaria de saber mais informações sobre a loja",
+      "tenantId": 1,
+      "sentByUser": true
     },
     {
       "id": 13,
-      "chatMessageId": 4,
-      "timeStamp": "2023-04-10 10:10:05",
-      "usuario": {
-        "nomeCompleto": "Pedro Paulo Diniz 6"
-      },
-      "message": "Bom dia gostaria de saber mais informações sobre a loja",
-      "tenantId": 1
+      "timeStamp": "2023-04-10 10:10:10",
+      "userId": 12,
+      "message": "A loja esta pronta a vender produtos e serviços de material escolar",
+      "tenantId": 1,
+      "sentByUser": false
     },
     {
       "id": 14,
-      "chatMessageId": 5,
-      "timeStamp": "2023-04-10 10:10:10",
-      "usuario": {
-        "nomeCompleto": "Pedro Paulo Diniz 1"
-      },
+      "timeStamp": "2023-04-10 10:10:25",
+      "userId": 12,
+      "message": "Bom dia gostaria de saber mais informações sobre a loja",
+      "tenantId": 1,
+      "sentByUser": true
+    },
+    {
+      "id": 15,
+      "timeStamp": "2023-04-10 10:10:30",
+      "userId": 12,
       "message": "A loja esta pronta a vender produtos e serviços de material escolar",
-      "tenantId": 1
+      "tenantId": 1,
+      "sentByUser": true
+    },
+    {
+      "id": 16,
+      "timeStamp": "2023-04-10 10:10:35",
+      "userId": 12,
+      "message": "Bom dia gostaria de saber mais informações sobre a loja",
+      "tenantId": 1,
+      "sentByUser": true
+    },
+    {
+      "id": 17,
+      "timeStamp": "2023-04-10 10:10:45",
+      "userId": 12,
+      "message": "A loja esta pronta a vender produtos e serviços de material escolar",
+      "tenantId": 1,
+      "sentByUser": false
+    },
+    {
+      "id": 18,
+      "timeStamp": "2023-04-10 10:10:50",
+      "userId": 12,
+      "message": "Bom dia gostaria de saber mais informações sobre a loja",
+      "tenantId": 1,
+      "sentByUser": true
+    },
+    {
+      "id": 19,
+      "timeStamp": "2023-04-10 10:10:55",
+      "userId": 12,
+      "message": "A loja esta pronta a vender produtos e serviços de material escolar",
+      "tenantId": 1,
+      "sentByUser": true
+    },
+    {
+      "id": 20,
+      "timeStamp": "2023-04-10 10:11:05",
+      "userId": 12,
+      "message": "Bom dia gostaria de saber mais informações sobre a loja",
+      "tenantId": 1,
+      "sentByUser": true
+    },
+    {
+      "id": 21,
+      "timeStamp": "2023-04-10 10:11:10",
+      "userId": 12,
+      "message": "A loja esta pronta a vender produtos e serviços de material escolar",
+      "tenantId": 1,
+      "sentByUser": false
+    },
+    {
+      "id": 22,
+      "timeStamp": "2023-04-10 10:11:25",
+      "userId": 12,
+      "message": "Bom dia gostaria de saber mais informações sobre a loja",
+      "tenantId": 1,
+      "sentByUser": true
+    },
+    {
+      "id": 23,
+      "timeStamp": "2023-04-10 10:11:30",
+      "userId": 12,
+      "message": "A loja esta pronta a vender produtos e serviços de material escolar",
+      "tenantId": 1,
+      "sentByUser": true
+    },
+    {
+      "id": 24,
+      "timeStamp": "2023-04-10 10:11:35",
+      "userId": 12,
+      "message": "Bom dia gostaria de saber mais informações sobre a loja",
+      "tenantId": 1,
+      "sentByUser": true
+    },
+    {
+      "id": 25,
+      "timeStamp": "2023-04-10 10:11:40",
+      "userId": 12,
+      "message": "A loja esta pronta a vender produtos e serviços de material escolar",
+      "tenantId": 1,
+      "sentByUser": false
+    },
+    {
+      "id": 26,
+      "timeStamp": "2023-04-10 10:11:45",
+      "userId": 12,
+      "message": "Bom dia gostaria de saber mais informações sobre a loja",
+      "tenantId": 1,
+      "sentByUser": true
+    },
+    {
+      "id": 27,
+      "timeStamp": "2023-04-10 10:11:50",
+      "userId": 12,
+      "message": "A loja esta pronta a vender produtos e serviços de material escolar",
+      "tenantId": 1,
+      "sentByUser": true
+    },
+    {
+      "id": 28,
+      "timeStamp": "2023-04-10 10:11:55",
+      "userId": 12,
+      "message": "Bom dia gostaria de saber mais informações sobre a loja",
+      "tenantId": 1,
+      "sentByUser": true
+    },
+    {
+      "id": 29,
+      "timeStamp": "2023-04-10 10:12:10",
+      "userId": 12,
+      "message": "A loja esta pronta a vender produtos e serviços de material escolar",
+      "tenantId": 1,
+      "sentByUser": false
+    },
+    {
+      "id": 30,
+      "timeStamp": "2023-04-10 10:12:25",
+      "userId": 12,
+      "message": "Bom dia gostaria de saber mais informações sobre a loja",
+      "tenantId": 1,
+      "sentByUser": true
+    },
+    {
+      "id": 31,
+      "timeStamp": "2023-04-10 10:12:30",
+      "userId": 12,
+      "message": "A loja esta pronta a vender produtos e serviços de material escolar",
+      "tenantId": 1,
+      "sentByUser": true
+    },
+    {
+      "id": 32,
+      "timeStamp": "2023-04-10 10:12:05",
+      "userId": 12,
+      "message": "Bom dia gostaria de saber mais informações sobre a loja",
+      "tenantId": 1,
+      "sentByUser": true
+    },
+    {
+      "id": 33,
+      "timeStamp": "2023-04-10 10:12:10",
+      "userId": 12,
+      "message": "A loja esta pronta a vender produtos e serviços de material escolar",
+      "tenantId": 1,
+      "sentByUser": false
+    },
+    {
+      "id": 34,
+      "timeStamp": "2023-04-10 10:12:25",
+      "userId": 12,
+      "message": "Bom dia gostaria de saber mais informações sobre a loja",
+      "tenantId": 1,
+      "sentByUser": true
+    },
+    {
+      "id": 35,
+      "timeStamp": "2023-04-10 10:12:30",
+      "userId": 12,
+      "message": "A loja esta pronta a vender produtos e serviços de material escolar",
+      "tenantId": 1,
+      "sentByUser": true
+    },
+    {
+      "id": 36,
+      "timeStamp": "2023-04-10 10:12:35",
+      "userId": 12,
+      "message": "Bom dia gostaria de saber mais informações sobre a loja",
+      "tenantId": 1,
+      "sentByUser": true
+    },
+    {
+      "id": 37,
+      "timeStamp": "2023-04-10 10:12:40",
+      "userId": 12,
+      "message": "A loja esta pronta a vender produtos e serviços de material escolar",
+      "tenantId": 1,
+      "sentByUser": false
+    },
+    {
+      "id": 38,
+      "timeStamp": "2023-04-10 10:12:45",
+      "userId": 12,
+      "message": "Bom dia gostaria de saber mais informações sobre a loja",
+      "tenantId": 1,
+      "sentByUser": true
+    },
+    {
+      "id": 39,
+      "timeStamp": "2023-04-10 10:13:30",
+      "userId": 12,
+      "message": "A loja esta pronta a vender produtos e serviços de material escolar",
+      "tenantId": 1,
+      "sentByUser": true
+    },
+    {
+      "id": 40,
+      "message": "Desculpa pela demora",
+      "sentByUser": true,
+      "timeStamp": "2023-05-02 08:34:11",
+      "userId": 3
+    },
+    {
+      "id": 41,
+      "message": "Tudo bem com vc",
+      "sentByUser": true,
+      "timeStamp": "2023-05-02 08:35:43",
+      "userId": 6,
+      "tenantId": "1"
+    },
+    {
+      "id": 42,
+      "message": "como estão as coisas",
+      "sentByUser": true,
+      "timeStamp": "2023-05-02 08:35:48",
+      "userId": 6,
+      "tenantId": "1"
+    },
+    {
+      "id": 43,
+      "message": "Que belo dia para se fazer uma compra",
+      "sentByUser": true,
+      "timeStamp": "2023-05-02 08:36:12",
+      "userId": 1,
+      "tenantId": "1"
+    },
+    {
+      "id": 44,
+      "message": "Qual o horario de atendimento",
+      "sentByUser": true,
+      "timeStamp": "2023-05-02 11:32:01",
+      "userId": 3,
+      "tenantId": "1"
+    },
+    {
+      "id": 45,
+      "message": "??",
+      "sentByUser": true,
+      "timeStamp": "2023-05-02 11:32:03",
+      "userId": 3,
+      "tenantId": "1"
+    },
+    {
+      "id": 46,
+      "message": "teste bom dia",
+      "sentByUser": true,
+      "timeStamp": "2023-05-02 02:08:50",
+      "userId": 18,
+      "tenantId": "1"
+    },
+    {
+      "id": 47,
+      "message": "muito obrigado",
+      "sentByUser": true,
+      "timeStamp": "2023-05-02 02:08:58",
+      "userId": 18,
+      "tenantId": "1"
+    },
+    {
+      "id": 48,
+      "message": "Bom dia",
+      "sentByUser": true,
+      "timeStamp": "2023-05-03 05:39:00",
+      "userId": 16,
+      "tenantId": "1"
+    },
+    {
+      "id": 49,
+      "message": "2 Bom dia",
+      "sentByUser": true,
+      "timeStamp": "2023-05-03 05:55:45",
+      "userId": 16,
+      "tenantId": "1"
+    },
+    {
+      "id": 50,
+      "message": "3 Bom dia",
+      "sentByUser": true,
+      "timeStamp": "2023-05-03 07:34:32",
+      "userId": 16,
+      "tenantId": "1"
+    },
+    {
+      "id": 51,
+      "message": "Bom dia 4",
+      "sentByUser": true,
+      "timeStamp": "2023-05-03 07:35:29",
+      "userId": 5,
+      "tenantId": "1"
+    },
+    {
+      "id": 52,
+      "message": "bom dia 5",
+      "sentByUser": true,
+      "timeStamp": "2023-05-03 07:45:20",
+      "userId": 7,
+      "tenantId": "1"
+    },
+    {
+      "id": 53,
+      "message": "teste",
+      "sentByUser": true,
+      "timeStamp": "2023-05-03 07:45:20",
+      "userId": 7,
+      "tenantId": "1"
+    },
+    {
+      "id": 54,
+      "message": "bom dia",
+      "sentByUser": true,
+      "timeStamp": "2023-05-03 07:53:15",
+      "userId": 7,
+      "tenantId": "1"
+    },
+    {
+      "id": 55,
+      "message": "teste agora",
+      "sentByUser": true,
+      "timeStamp": "2023-05-03 07:56:16",
+      "userId": 3,
+      "tenantId": "1"
+    },
+    {
+      "id": 56,
+      "message": "teste novamente",
+      "sentByUser": true,
+      "timeStamp": "2023-05-03 07:56:47",
+      "userId": 3,
+      "tenantId": "1"
+    },
+    {
+      "id": 57,
+      "message": "teste novmamente",
+      "sentByUser": true,
+      "timeStamp": "2023-05-03 07:58:45",
+      "userId": 3,
+      "tenantId": "1"
+    },
+    {
+      "id": 58,
+      "message": "testa mais um pouco",
+      "sentByUser": true,
+      "timeStamp": "2023-05-03 07:59:12",
+      "userId": 3,
+      "tenantId": "1"
+    },
+    {
+      "id": 59,
+      "message": "teste again",
+      "sentByUser": true,
+      "timeStamp": "2023-05-03 08:00:54",
+      "userId": 3,
+      "tenantId": "1"
+    },
+    {
+      "id": 60,
+      "message": "mais uma  vez",
+      "sentByUser": true,
+      "timeStamp": "2023-05-03 08:02:40",
+      "userId": 3,
+      "tenantId": "1"
+    },
+    {
+      "id": 61,
+      "message": "é hoje",
+      "sentByUser": true,
+      "timeStamp": "2023-05-03 08:03:03",
+      "userId": 12,
+      "tenantId": "1"
+    },
+    {
+      "id": 62,
+      "message": "teste",
+      "sentByUser": true,
+      "timeStamp": "2023-05-03 08:03:43",
+      "userId": 5,
+      "tenantId": "1"
+    },
+    {
+      "id": 63,
+      "message": "teste",
+      "sentByUser": true,
+      "timeStamp": "2023-05-08 07:31:59",
+      "userId": 5,
+      "tenantId": "1"
+    },
+    {
+      "id": 64,
+      "message": "teste",
+      "sentByUser": true,
+      "timeStamp": "2023-05-08 07:58:27",
+      "userId": 12,
+      "tenantId": "1"
+    },
+    {
+      "id": 65,
+      "message": "teste",
+      "sentByUser": true,
+      "timeStamp": "2023-05-08 08:01:39",
+      "userId": 12,
+      "tenantId": "1"
+    },
+    {
+      "id": 66,
+      "message": "teste",
+      "sentByUser": true,
+      "timeStamp": "2023-05-08 08:02:38",
+      "userId": 12,
+      "tenantId": "1"
+    },
+    {
+      "id": 67,
+      "message": "teste",
+      "sentByUser": true,
+      "timeStamp": "2023-05-08 08:04:20",
+      "userId": 12,
+      "tenantId": "1"
+    },
+    {
+      "id": 68,
+      "message": "teste",
+      "sentByUser": true,
+      "timeStamp": "2023-05-09 08:03:03",
+      "userId": 12,
+      "tenantId": "1"
     }
   ]
 }

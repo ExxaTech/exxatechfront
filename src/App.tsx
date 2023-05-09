@@ -1,9 +1,9 @@
 import { BrowserRouter } from 'react-router-dom';
 import { AppRoutes } from './routes';
-import { MenuLateral } from './shared/components';
+import { SideMenu } from './shared/components';
 import { Login } from './shared/components/login/Login';
 import { AppThemeProvider, AuthProvider, DrawerProvider } from './shared/contexts';
-import './shared/forms/TraducoesYup';
+import './shared/forms/TranslateYup';
 
 export const App = () => {
   return (
@@ -13,9 +13,9 @@ export const App = () => {
           <DrawerProvider>
             <BrowserRouter>
 
-              <MenuLateral>
+              <SideMenu>
                 <AppRoutes />
-              </MenuLateral>
+              </SideMenu>
 
             </BrowserRouter>
           </DrawerProvider>

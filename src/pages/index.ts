@@ -1,7 +1,7 @@
+export * from './address/AddressDetail';
+export * from './address/AddressList';
 export * from './dashboard/Dashboard';
-export * from './endereco/DetalheDeEnderecos';
-export * from './endereco/ListagemDeEnderecos';
-export * from './usuarios/DetalheDeUsuarios';
-export * from './usuarios/ListagemDeUsuarios';
+export * from './users/UserDetail';
+export * from './users/UserList';
 export * from './whatsapp/Wppchat';
 
