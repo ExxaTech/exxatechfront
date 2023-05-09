@@ -1,5 +1,5 @@
 import { Close, Send } from "@mui/icons-material";
-import { AppBar, Avatar, Box, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, FormControl, Grid, IconButton, Input, InputAdornment, InputLabel, List, ListItem, ListItemText, Paper, Toolbar, Typography, useTheme } from "@mui/material";
+import { AppBar, Avatar, Box, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, FormControl, Grid, IconButton, Input, InputAdornment, InputLabel, List, ListItem, ListItemText, Paper, Toolbar, Tooltip, Typography, useTheme } from "@mui/material";
 import { format } from "date-fns";
 import { ChangeEvent, KeyboardEvent, useEffect, useState } from "react";
 import { Environtment } from "../../../shared/environment";
@@ -71,11 +71,14 @@ export const WppchatMessage: React.FC<IWppchatMessagesProps> = ({ observable, us
   const [inputs, setInputs] = useState<InputValues[]>(generateInitialInputValues());
   const [messages, setMessages] = useState<IMessage[]>([]);
   const [open, setOpen] = useState(false);
+  const [chatId, setchatId] = useState(0);
   observable.addObserver(UserObserver);
 
   useEffect(() => {
+    console.log(user)
 
     debounce(async () => {
+
       if (!chats.find(chat => chat.id === user.id)) {
         let tempChats: ChatInput[] = [
           {
@@ -96,25 +99,24 @@ export const WppchatMessage: React.FC<IWppchatMessagesProps> = ({ observable, us
 
         setChats(tempChats)
       }
+
+      const handleResize = () => {
+        const availableHeight = window.innerHeight;
+        const fixedHeight = 300;
+        const calculatedMaxHeight = availableHeight - fixedHeight;
+        setMaxHeight(calculatedMaxHeight);
+      };
+
+      handleResize();
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+
     });
   }, [messages, user]);
 
-  useEffect(() => {
-    const handleResize = () => {
-      const availableHeight = window.innerHeight;
-      const fixedHeight = 300;
-      const calculatedMaxHeight = availableHeight - fixedHeight;
-      setMaxHeight(calculatedMaxHeight);
-    };
-
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-
-  const handlePopUpStateChat = (isOpenPopuUp: boolean) => {
+  const handlePopUpStateChat = (isOpenPopuUp: boolean, chatId: number) => {
     setOpen(isOpenPopuUp);
+    setchatId(chatId)
   };
 
   const handleFinishOrOpenChat = async (isServiceClosed: boolean, chat: ChatInput, index: number) => {
@@ -201,9 +203,12 @@ export const WppchatMessage: React.FC<IWppchatMessagesProps> = ({ observable, us
             <AppBar position="static">
               <Toolbar style={{ minHeight: '4px', paddingLeft: '10px' }}>
                 <Grid container item direction='row'>
-                  <Avatar
-                    style={{ width: 30, height: 30, fontSize: 14 }}
-                    src={chat.avatar} />
+                  <Tooltip title={chat.name}>
+                    <Avatar
+                      style={{ width: 30, height: 30, fontSize: 14 }}
+                      src={chat.avatar}
+                    />
+                  </Tooltip>
                   <Typography variant='body2' whiteSpace="nowrap" textOverflow="ellipsis" overflow="hidden" paddingLeft={1} style={{ maxWidth: 100 }}>
                     {chat.name}
                   </Typography>
@@ -211,29 +216,35 @@ export const WppchatMessage: React.FC<IWppchatMessagesProps> = ({ observable, us
                 <Grid item >
                   <Button variant="contained"
                     style={{ backgroundColor: chat.isServiceClosed ? 'slategrey' : 'maroon' }}
-                    onClick={() => handlePopUpStateChat(true)}
+                    onClick={() => handlePopUpStateChat(true, chat.id)}
                   >
                     {chat.isServiceClosed ? 'Fechado' : 'Aberto'}
                   </Button>
-                  <Dialog
-                    open={open}
-                    onClose={handlePopUpStateChat}
-                    aria-labelledby="alert-dialog-title"
-                    aria-describedby="alert-dialog-description"
-                  >
-                    <DialogTitle key={`dialog_title_${chat.id}`}>
-                      {chat.isServiceClosed ? 'Deseja abrir o atendimento' : "Deseja finalizar o atendimento?"}
-                    </DialogTitle>
-                    <DialogContent>
-                      <DialogContentText key={`dialog_content_${chat.id}`}>
-                        Ao finalizar o atendimento ele tera menor prioridade na visibilidade da lista de contatos
-                      </DialogContentText>
-                    </DialogContent>
-                    <DialogActions>
-                      <Button onClick={() => handlePopUpStateChat(false)}>{'Cancelar'}</Button>
-                      <Button onClick={() => handleFinishOrOpenChat(!chat.isServiceClosed, chat, index)}>{chat.isServiceClosed ? 'Abrir' : 'Finalizar'}</Button>
-                    </DialogActions>
-                  </Dialog>
+                  {(chat.id === chatId && (
+                    <Dialog
+                      open={open}
+                      onClose={() => handlePopUpStateChat(true, chat.id)}
+                      aria-labelledby="alert-dialog-title"
+                      aria-describedby="alert-dialog-description"
+                    >
+                      <DialogTitle key={`dialog_title_${chat.id}`}>
+                        {chat.isServiceClosed ? 'Deseja abrir o atendimento' : "Deseja finalizar o atendimento?"}
+                      </DialogTitle>
+                      <DialogContent>
+                        <DialogContentText key={`dialog_content_${chat.id}`}>
+                          {chat.isServiceClosed ?
+                            'Ao abrir um atendimento, você devera iteragir e resolver o atendimento em tempo habil' :
+                            "Ao finalizar o atendimento ele tera menor prioridade na visibilidade da lista de contatos"
+                          }
+
+                        </DialogContentText>
+                      </DialogContent>
+                      <DialogActions>
+                        <Button onClick={() => handlePopUpStateChat(false, chat.id)}>{'Cancelar'}</Button>
+                        <Button onClick={() => handleFinishOrOpenChat(!chat.isServiceClosed, chat, index)}>{chat.isServiceClosed ? 'Abrir' : 'Finalizar'}</Button>
+                      </DialogActions>
+                    </Dialog>
+                  ))}
                 </Grid>
                 <Grid item >
                   <IconButton edge="end" color="inherit" aria-label="fechar" onClick={() => handleRemoveChat(index)}>

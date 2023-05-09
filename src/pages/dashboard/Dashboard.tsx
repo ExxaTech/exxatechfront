@@ -46,8 +46,8 @@ export const Dashboard = () => {
           alert(result.message);
         } else {
 
-          const userWithChatOpen = result.data.filter((user) => user.contact?.isServiceClosed === true).length
-          const userWithChatClosed = result.data.filter((user) => user.contact?.isServiceClosed === false).length
+          const userWithChatOpen = result.data.filter((user) => user.contact?.isServiceClosed === false).length
+          const userWithChatClosed = result.data.filter((user) => user.contact?.isServiceClosed === true).length
 
           setTotalCountOpenChats(userWithChatOpen);
           setTotalCountCloseChats(userWithChatClosed);

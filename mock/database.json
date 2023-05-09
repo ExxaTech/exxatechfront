@@ -14,7 +14,7 @@
         "phone": "19992129960",
         "lastMessage": "A loja esta pronta a vender produtos e serviços de material escolar",
         "lastMessageTimeStamp": "2023-01-01 10:10:10",
-        "isServiceClosed": false
+        "isServiceClosed": true
       },
       "security": {
         "user": "fb049",
@@ -32,7 +32,7 @@
         "phone": "19992129962",
         "lastMessage": "Bom dia Gostaria de saber o horario de funcionamento",
         "lastMessageTimeStamp": "2023-02-01 10:10:20",
-        "isServiceClosed": false
+        "isServiceClosed": true
       },
       "security": {
         "user": "fb049",
@@ -87,7 +87,7 @@
         "lastMessageTimeStamp": "2023-03-23 10:10:05",
         "email": "ppd6@gmail.com",
         "phone": "19992129966",
-        "isServiceClosed": false
+        "isServiceClosed": true
       },
       "addressId": 1,
       "tenantId": 1
@@ -101,7 +101,7 @@
         "lastMessageTimeStamp": "2023-05-03 07:53:15",
         "phone": "19992129967",
         "email": "ppd7@gmail.com",
-        "isServiceClosed": false
+        "isServiceClosed": true
       },
       "addressId": 1,
       "tenantId": 1
@@ -156,10 +156,10 @@
       "avatar": "https://picsum.photos/200/310",
       "contact": {
         "lastMessage": "Bom dia Gostaria de saber o horario de funcionamento",
-        "lastMessageTimeStamp": "2023-05-08 08:04:20",
+        "lastMessageTimeStamp": "09/05/2023 08:03:03",
         "phone": "19992129967",
         "email": "ppd12@gmail.com",
-        "isServiceClosed": false
+        "isServiceClosed": true
       },
       "addressId": 1,
       "tenantId": 1
@@ -202,7 +202,7 @@
         "phone": "19992129961",
         "lastMessage": "",
         "lastMessageTimeStamp": "03/05/2023 07:34:32",
-        "isServiceClosed": false
+        "isServiceClosed": true
       }
     },
     {
@@ -959,6 +959,14 @@
       "message": "teste",
       "sentByUser": true,
       "timeStamp": "2023-05-08 08:04:20",
+      "userId": 12,
+      "tenantId": "1"
+    },
+    {
+      "id": 68,
+      "message": "teste",
+      "sentByUser": true,
+      "timeStamp": "2023-05-09 08:03:03",
       "userId": 12,
       "tenantId": "1"
     }
