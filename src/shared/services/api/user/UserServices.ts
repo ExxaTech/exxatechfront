@@ -151,23 +151,20 @@ const updateById = async (id: number, dados: IUser): Promise<void | Error> => {
 };
 
 
-const updatelastMessageTimeStampById = async (id: number, lastMessageTimeStamp: string): Promise<void | Error> => {
+const updatelastMessageTimeStampById = async (id: number, lastMessageTimeStamp: string): Promise<IUserList | Error> => {
 
   try {
-    getById(id)
-      .then((user) => {
-        if (user instanceof Error) {
-          console.log(user.message)
-        } else {
-          if (user.contact) {
-            user.contact.lastMessageTimeStamp = lastMessageTimeStamp;
-            updateById(id, user)
-          } else {
-            throw new Error('Usuário não possui informações de contato');
-          }
-        }
-      })
 
+    const user = await getById(id);
+    if (user instanceof Error)
+      console.warn(user)
+    else {
+      if (user.contact) {
+        user.contact.lastMessageTimeStamp = lastMessageTimeStamp;
+        await updateById(id, user);
+      }
+    }
+    return user;
   } catch (error) {
     console.log(error);
     return new Error((error as { message: string }).message || 'Erro ao atualizar o registro');

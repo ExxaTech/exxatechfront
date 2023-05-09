@@ -20,7 +20,7 @@ interface ChatInput {
   avatar?: string;
   messages?: IMessage[];
   input: string;
-  isServiceClosed?: boolean;
+  isServiceClosed: boolean;
 }
 
 interface InputValues {
@@ -33,7 +33,8 @@ function generateInitialChats(): ChatInput[] {
     name: "",
     avatar: "",
     messages: [],
-    input: ''
+    input: '',
+    isServiceClosed: false
   }));
 }
 
@@ -44,40 +45,25 @@ function generateInitialInputValues(): InputValues[] {
   }));
 }
 
-function saveMessage(message: IMessage) {
+async function saveMessage(message: IMessage, observable: Observable<IUserList>) {
+  await MessageServices.create(message);
+  const userUpdated = await UserServices.updatelastMessageTimeStampById(message.userId, message.timeStamp);
 
-  const lastDateUpdate = message.timeStamp;
-
-  MessageServices.create(message)
-    .then((result) => {
-      if (result instanceof Error) {
-        alert(result.message);
-      } else {
-        console.log(result)
-        UserServices.updatelastMessageTimeStampById(
-          message.userId,
-          lastDateUpdate
-        )
-          .then((resultUser) => {
-            if (resultUser instanceof Error) {
-              alert(resultUser.message);
-            } else {
-              console.log(resultUser)
-            }
-          })
-      }
-    });
+  if (userUpdated instanceof Error) {
+    alert(userUpdated.message);
+  } else {
+    observable.notifyObservers(userUpdated);
+  }
 }
 
-class UserObserver implements IObserver<IUserList> {
-  constructor(private userList: IUserList) { }
-
-  update(): void {
-    console.log("User list has been updated:", this.userList);
+const UserObserver: IObserver<IUserList> = {
+  update: (data: IUserList) => {
+    console.log("User list has been updated:", data);
   }
 }
 
 export const WppchatMessage: React.FC<IWppchatMessagesProps> = ({ observable, user }) => {
+
   const { debounce } = useDebounce();
   const theme = useTheme();
   const [maxHeight, setMaxHeight] = useState(0);
@@ -85,14 +71,12 @@ export const WppchatMessage: React.FC<IWppchatMessagesProps> = ({ observable, us
   const [inputs, setInputs] = useState<InputValues[]>(generateInitialInputValues());
   const [messages, setMessages] = useState<IMessage[]>([]);
   const [open, setOpen] = useState(false);
-  const [isServiceClosed, setIsServiceClosed] = useState(false);
-
+  observable.addObserver(UserObserver);
 
   useEffect(() => {
+
     debounce(async () => {
-
       if (!chats.find(chat => chat.id === user.id)) {
-
         let tempChats: ChatInput[] = [
           {
             id: user.id,
@@ -100,7 +84,7 @@ export const WppchatMessage: React.FC<IWppchatMessagesProps> = ({ observable, us
             avatar: user.avatar,
             messages: user.messages,
             input: 'chat',
-            isServiceClosed: user.contact?.isServiceClosed
+            isServiceClosed: user.contact?.isServiceClosed ?? false
           }
         ];
 
@@ -115,14 +99,46 @@ export const WppchatMessage: React.FC<IWppchatMessagesProps> = ({ observable, us
     });
   }, [messages, user]);
 
-  const handleClickOpenActiveChat = (chat: ChatInput) => {
-    console.log(chat);
-    setIsServiceClosed(chat.isServiceClosed ? chat.isServiceClosed : false)
-    observable.notifyObservers({ ...chat });
-    setOpen(true);
+  useEffect(() => {
+    const handleResize = () => {
+      const availableHeight = window.innerHeight;
+      const fixedHeight = 300;
+      const calculatedMaxHeight = availableHeight - fixedHeight;
+      setMaxHeight(calculatedMaxHeight);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+
+  const handlePopUpStateChat = (isOpenPopuUp: boolean) => {
+    setOpen(isOpenPopuUp);
   };
 
-  const handleCloseActiveChat = () => {
+  const handleFinishOrOpenChat = async (isServiceClosed: boolean, chat: ChatInput, index: number) => {
+
+    const userToUpdate = await UserServices.getById(chat.id);
+    if (userToUpdate instanceof Error) alert(userToUpdate.message)
+    else {
+      if (userToUpdate.contact) {
+        userToUpdate.contact.isServiceClosed = isServiceClosed;
+        UserServices.updateById(chat.id, userToUpdate);
+
+        setChats((prevChats) =>
+          prevChats.map((prevChat, i) => {
+            if (i === index) {
+              prevChat.isServiceClosed = isServiceClosed;
+              return { ...prevChat };
+            }
+            return prevChat;
+          })
+        );
+
+        observable.notifyObservers(userToUpdate);
+      }
+    }
     setOpen(false);
   };
 
@@ -151,7 +167,7 @@ export const WppchatMessage: React.FC<IWppchatMessagesProps> = ({ observable, us
         tenantId: '1' //TODO: verificar a melhor maneira de controlar tenanty nessa aplicação
       };
 
-      saveMessage(novaMensagem);
+      saveMessage(novaMensagem, observable);
       novaMensagem.timeStamp = format(new Date(novaMensagem.timeStamp), 'dd/MM/yyyy hh:mm:ss');
       setMessages((prevMessages) => [...prevMessages, novaMensagem]);
       const novosInputs = [...inputs];
@@ -176,19 +192,6 @@ export const WppchatMessage: React.FC<IWppchatMessagesProps> = ({ observable, us
     }
   };
 
-  useEffect(() => {
-    const handleResize = () => {
-      const availableHeight = window.innerHeight;
-      const fixedHeight = 300;
-      const calculatedMaxHeight = availableHeight - fixedHeight;
-      setMaxHeight(calculatedMaxHeight);
-    };
-
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
   return (
     <Box display='flex' flexDirection='row' flex={1}>
 
@@ -208,18 +211,18 @@ export const WppchatMessage: React.FC<IWppchatMessagesProps> = ({ observable, us
                 <Grid item >
                   <Button variant="contained"
                     style={{ backgroundColor: chat.isServiceClosed ? 'slategrey' : 'maroon' }}
-                    onClick={() => handleClickOpenActiveChat(chat)}
+                    onClick={() => handlePopUpStateChat(true)}
                   >
                     {chat.isServiceClosed ? 'Fechado' : 'Aberto'}
                   </Button>
                   <Dialog
                     open={open}
-                    onClose={handleCloseActiveChat}
+                    onClose={handlePopUpStateChat}
                     aria-labelledby="alert-dialog-title"
                     aria-describedby="alert-dialog-description"
                   >
                     <DialogTitle key={`dialog_title_${chat.id}`}>
-                      {isServiceClosed ? 'Deseja abrir o atendimento' : "Deseja finalizar o atendimento?"}
+                      {chat.isServiceClosed ? 'Deseja abrir o atendimento' : "Deseja finalizar o atendimento?"}
                     </DialogTitle>
                     <DialogContent>
                       <DialogContentText key={`dialog_content_${chat.id}`}>
@@ -227,8 +230,8 @@ export const WppchatMessage: React.FC<IWppchatMessagesProps> = ({ observable, us
                       </DialogContentText>
                     </DialogContent>
                     <DialogActions>
-                      <Button onClick={handleCloseActiveChat}>{'Cancelar'}</Button>
-                      <Button onClick={handleCloseActiveChat}>{isServiceClosed ? 'Abrir' : 'Finalizar'}</Button>
+                      <Button onClick={() => handlePopUpStateChat(false)}>{'Cancelar'}</Button>
+                      <Button onClick={() => handleFinishOrOpenChat(!chat.isServiceClosed, chat, index)}>{chat.isServiceClosed ? 'Abrir' : 'Finalizar'}</Button>
                     </DialogActions>
                   </Dialog>
                 </Grid>

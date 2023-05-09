@@ -3,7 +3,7 @@ import { Avatar, Grid, List, ListItemAvatar, ListItemButton, ListItemIcon, ListI
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useDebounce } from "../../../shared/hooks";
-import { Observable } from "../../../shared/observer/Observable";
+import { IObserver, Observable } from "../../../shared/observer/Observable";
 import { MessageServices } from "../../../shared/services/api/message/MessageServices";
 import { IUserList, UserServices } from "../../../shared/services/api/user/UserServices";
 
@@ -12,36 +12,52 @@ interface IWppchatContatosProps {
   observable: Observable<IUserList>;
 }
 
+
 export const WppchatContatos: React.FC<IWppchatContatosProps> = ({ observable, setUserActive }) => {
 
   const [rows, setRows] = useState<IUserList[]>([]);
   const { debounce } = useDebounce();
   const [searchParams, setSearchParams] = useSearchParams();
 
+  const UserObserver: IObserver<IUserList> = {
+    update: (data: IUserList) => {
+      setRows((prevRows) => {
+        const newRows = [...prevRows];
+        const index = newRows.findIndex((row) => row.id === data.id);
+        if (index >= 0) {
+          newRows[index] = data;
+        } else {
+          newRows.push(data);
+        }
+        return newRows;
+      });
+    }
+  };
+
+  observable.addObserver(UserObserver);
+
   const busca = useMemo(() => {
     return searchParams.get('busca') || '';
   }, [searchParams]);
 
   useEffect(() => {
-    debounce(() => {
-      UserServices.getUsersWithChat(busca)
-        .then((resultUser) => {
-          if (resultUser instanceof Error) {
-            console.log(resultUser.message);
-          } else {
-            resultUser.data.map((user, index) => {
-              const promiseMesage = MessageServices.getAllByUerId(user.id)
-              Promise.resolve(promiseMesage).then((resultMesage) => {
-                if (resultMesage instanceof Error) {
-                  console.error(resultMesage.message)
-                } else {
-                  resultUser.data[index].messages = resultMesage.data;
-                }
-              })
-            })
-            setRows(resultUser.data)
-          }
-        });
+    debounce(async () => {
+      const userWithChat = await UserServices.getUsersWithChat(busca);
+      if (userWithChat instanceof Error) {
+        console.log(userWithChat.message);
+      } else {
+        userWithChat.data.map((user, index) => {
+          const promiseMesage = MessageServices.getAllByUerId(user.id)
+          Promise.resolve(promiseMesage).then((resultMesage) => {
+            if (resultMesage instanceof Error) {
+              console.error(resultMesage.message)
+            } else {
+              userWithChat.data[index].messages = resultMesage.data;
+            }
+          })
+        })
+        setRows(userWithChat.data)
+      }
     });
   }, [busca]);
 
