@@ -32,7 +32,7 @@
         "phone": "19992129962",
         "lastMessage": "Bom dia Gostaria de saber o horario de funcionamento",
         "lastMessageTimeStamp": "2023-02-01 10:10:20",
-        "isServiceClosed": true
+        "isServiceClosed": false
       },
       "security": {
         "user": "fb049",
@@ -159,7 +159,7 @@
         "lastMessageTimeStamp": "09/05/2023 08:03:03",
         "phone": "19992129967",
         "email": "ppd12@gmail.com",
-        "isServiceClosed": true
+        "isServiceClosed": false
       },
       "addressId": 1,
       "tenantId": 1
