@@ -2,7 +2,7 @@ import { Icon, IconButton, LinearProgress, Pagination, Paper, Table, TableBody, 
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { ListTools } from "../../shared/components";
-import { Environtment } from "../../shared/environment";
+import { Environment } from "../../shared/environment";
 import { useDebounce } from "../../shared/hooks";
 import { BasePageLayout } from "../../shared/layouts";
 import { AddressService, IAddressList } from "../../shared/services/api/address/AddressService";
@@ -63,8 +63,7 @@ export const ListagemDeEnderecos: React.FC = () => {
         { description: "Endereços", path: "/endereco" }]}
       toolBar={
         <ListTools
-          showSearchInput
-          newButtonText="Novo"
+          showSearchInput          
           searchText={busca}
           whenClickOnNew={() => navigate('/endereco/detalhes/novo')}
           whenChangeSearchText={texto => setSearchParams({ busca: texto }, { replace: true })}
@@ -104,7 +103,7 @@ export const ListagemDeEnderecos: React.FC = () => {
             ))}
           </TableBody>
           {totalCount === 0 && !isLoading && (
-            <caption>{Environtment.LIST_EMPTY}</caption>
+            <caption>{Environment.LIST_EMPTY}</caption>
           )}
 
           <TableFooter>
@@ -116,13 +115,13 @@ export const ListagemDeEnderecos: React.FC = () => {
               </TableRow>
             )}
             {(totalCount > 0
-              && totalCount > Environtment.LIMIT_ROWS
+              && totalCount > Environment.LIMIT_ROWS
             ) && (
                 <TableRow>
                   <TableCell colSpan={4}>
                     <Pagination
                       page={pagina}
-                      count={Math.ceil(totalCount / Environtment.LIMIT_ROWS)}
+                      count={Math.ceil(totalCount / Environment.LIMIT_ROWS)}
                       onChange={(_, newPage) => setSearchParams({ busca, pagina: newPage.toString() }, { replace: true })}
                     />
                   </TableCell>

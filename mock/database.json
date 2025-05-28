@@ -970,5 +970,286 @@
       "userId": 12,
       "tenantId": "1"
     }
+  ],
+  "properties": [
+    {
+      "id": 1,
+      "color":"#2E7D32",
+      "title": "Casa Amarela",
+      "description": "Casa espaçosa com 3 quartos em Paulínia, perfeita para famílias",
+      "type": "HOUSE",
+      "status": "RENTED",
+      "pricing": {
+        "basePrice": 3000,
+        "pricingType": "MONTHLY",
+        "monthlyRate": 3000,
+        "minimumRentalDays": 1095,
+        "isNegotiable": false,
+        "fees": {
+          "securityDeposit": 3000
+        }
+      },
+      "area": 180,
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "garageSpaces": 2,
+      "images": [
+        "https://picsum.photos/200/300?random=1",
+        "https://picsum.photos/200/300?random=2"
+      ],
+      "address": {
+        "cep": "13145-888",
+        "logradouro": "Rua Campos do Conde",
+        "numero": "123",
+        "complemento": "",
+        "bairro": "Campos Conde",
+        "localidade": "Paulínia",
+        "uf": "SP"
+      },
+      "features": ["Quintal grande", "Área de serviço", "Mobiliada"],
+      "partnerInfo": {
+        "partnerType": "REAL_STATE",
+        "partnerName": "Imobiliária Dlange",
+        "commissionRate": 10,
+        "isDirectRental": false
+      },
+      "availability": {
+        "isAvailable": false
+      },
+      "createdAt": "2022-01-15T10:00:00Z",
+      "updatedAt": "2023-01-10T15:30:00Z",
+      "isActive": true
+    },
+    {
+      "id": 2,
+      "color":"#1976D2",
+      "title": "Apto Lago",
+      "description": "Apartamento moderno com vista para o lago em Campinas",
+      "type": "APARTMENT",
+      "status": "FOR_RENT",
+      "pricing": {
+        "basePrice": 1300,
+        "pricingType": "MONTHLY",
+        "monthlyRate": 1300,
+        "isNegotiable": false,
+        "fees": {
+          "securityDeposit": 1300
+        }
+      },
+      "area": 65,
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "garageSpaces": 1,
+      "images": [
+        "https://picsum.photos/200/300?random=3"
+      ],
+      "address": {
+        "cep": "13050-000",
+        "logradouro": "Rua Torres do Lago",
+        "numero": "456",
+        "complemento": "Bloco B, Apt 302",
+        "bairro": "Jardim do Lago",
+        "localidade": "Campinas",
+        "uf": "SP"
+      },
+      "features": ["Vista para o lago", "Piscina", "Academia"],
+      "partnerInfo": {
+        "partnerType": "REAL_STATE",
+        "partnerName": "Quinto Andar",
+        "commissionRate": 8,
+        "isDirectRental": false
+      },
+      "availability": {
+        "isAvailable": true
+      },
+      "createdAt": "2023-03-01T09:15:00Z",
+      "updatedAt": "2023-05-01T14:20:00Z",
+      "isActive": true
+    },
+    {
+      "id": 3,
+      "color":"#FF6D00",
+      "title": "Apto Grigio",
+      "description": "Apartamento premium à beira mar em Florianópolis",
+      "type": "APARTMENT",
+      "status": "FOR_RENT",
+      "pricing": {
+        "basePrice": 200,
+        "pricingType": "DAILY",
+        "dailyRate": 200,
+        "isNegotiable": true,
+        "fees": {
+          "cleaningFee": 100,
+          "serviceFee": 50
+        }
+      },
+      "area": 90,
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "garageSpaces": 1,
+      "images": [
+        "https://picsum.photos/200/300?random=1",
+        "https://picsum.photos/200/300?random=2"
+      ],
+      "address": {
+        "cep": "88015-700",
+        "logradouro": "Avenida Beira Mar Norte",
+        "numero": "789",
+        "complemento": "Apt 1201",
+        "bairro": "Centro",
+        "localidade": "Florianópolis",
+        "uf": "SC"
+      },
+      "features": ["Vista para o mar", "Varanda", "Mobiliado"],
+      "partnerInfo": {
+        "partnerType": "AIRBNB",
+        "partnerName": "Airbnb",
+        "commissionRate": 15,
+        "isDirectRental": false
+      },
+      "availability": {
+        "isAvailable": true,
+        "bookingCalendarId": "airbnb-calendar-123"
+      },
+      "createdAt": "2023-02-10T11:30:00Z",
+      "updatedAt": "2023-05-05T10:45:00Z",
+      "isActive": true
+    },
+    {
+      "id": 4,
+      "color":"#7B1FA2",
+      "title": "Studio Nero",
+      "description": "Studio compacto e aconchegante perto da praia em Florianópolis",
+      "type": "APARTMENT",
+      "status": "FOR_RENT",
+      "pricing": {
+        "basePrice": 180,
+        "pricingType": "DAILY",
+        "dailyRate": 180,
+        "isNegotiable": true,
+        "fees": {
+          "cleaningFee": 80,
+          "serviceFee": 40
+        }
+      },
+      "area": 35,
+      "bedrooms": 0,
+      "bathrooms": 1,
+      "garageSpaces": 0,
+      "images": [
+        "https://picsum.photos/200/300?random=3"
+      ],
+      "address": {
+        "cep": "88015-700",
+        "logradouro": "Avenida Beira Mar Norte",
+        "numero": "1011",
+        "complemento": "Studio 5",
+        "bairro": "Centro",
+        "localidade": "Florianópolis",
+        "uf": "SC"
+      },
+      "features": ["Cozinha compacta", "WiFi rápido", "Ar condicionado"],
+      "partnerInfo": {
+        "partnerType": "OTHER",
+        "partnerName": "Airbnb e Booking",
+        "commissionRate": 20,
+        "isDirectRental": false
+      },
+      "availability": {
+        "isAvailable": true,
+        "bookingCalendarId": "booking-calendar-456"
+      },
+      "createdAt": "2023-01-20T08:45:00Z",
+      "updatedAt": "2023-04-28T16:10:00Z",
+      "isActive": true
+    },
+    {
+      "id": 5,
+      "color":"#FF5252",
+      "title": "Salão Miralis",
+      "description": "Salão comercial amplo no Jardim do Lago, Campinas",
+      "type": "COMMERCIAL",
+      "status": "FOR_RENT",
+      "pricing": {
+        "basePrice": 750,
+        "pricingType": "NEGOTIABLE",
+        "dailyRate": 750,
+        "isNegotiable": true
+      },
+      "area": 120,
+      "bedrooms": 0,
+      "bathrooms": 2,
+      "garageSpaces": 5,
+      "images": [
+        "https://picsum.photos/200/300?random=2",
+        "https://picsum.photos/200/300?random=4"
+      ],
+      "address": {
+        "cep": "13050-000",
+        "logradouro": "Rua Jardim do Lago",
+        "numero": "1314",
+        "complemento": "",
+        "bairro": "Jardim do Lago",
+        "localidade": "Campinas",
+        "uf": "SP"
+      },
+      "features": ["Banheiros", "Estacionamento", "Recepção"],
+      "partnerInfo": {
+        "partnerType": "DIRECT",
+        "partnerName": "Testto",
+        "isDirectRental": true
+      },
+      "availability": {
+        "isAvailable": true
+      },
+      "createdAt": "2023-04-01T14:00:00Z",
+      "updatedAt": "2023-05-10T09:30:00Z",
+      "isActive": true
+    },
+    {
+      "id": 6,
+      "color":"maroon",
+      "title": "Galeria Reis",
+      "description": "Conjunto de 6 salas comerciais no Jardim do Lago",
+      "type": "COMMERCIAL",
+      "status": "RENTED",
+      "pricing": {
+        "basePrice": 4200,
+        "pricingType": "MONTHLY",
+        "monthlyRate": 700, 
+        "isNegotiable": false
+      },
+      "area": 300, 
+      "bedrooms": 0,
+      "bathrooms": 3,
+      "garageSpaces": 10,
+      "images": [
+        "https://picsum.photos/200/300?random=1",
+        "https://picsum.photos/200/300?random=4"
+      ],
+      "address": {
+        "cep": "13050-000",
+        "logradouro": "Rua Jardim do Lago",
+        "numero": "1516",
+        "complemento": "Galeria Reis",
+        "bairro": "Jardim do Lago",
+        "localidade": "Campinas",
+        "uf": "SP"
+      },
+      "features": ["Salas individuais", "Recepção compartilhada", "WiFi"],
+      "partnerInfo": {
+        "partnerType": "REAL_STATE",
+        "partnerName": "Reinaldo Imobiliária",
+        "commissionRate": 12,
+        "isDirectRental": false
+      },
+      "availability": {
+        "isAvailable": false
+      },
+      "createdAt": "2022-11-10T10:30:00Z",
+      "updatedAt": "2023-03-15T11:45:00Z",
+      "isActive": true
+    }
   ]
+
 }

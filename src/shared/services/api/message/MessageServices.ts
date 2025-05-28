@@ -1,5 +1,5 @@
 import { format } from "date-fns";
-import { Environtment } from "../../../environment";
+import { Environment } from "../../../environment";
 import { Api } from "../axios-config";
 
 export interface IMessage {
@@ -42,7 +42,7 @@ const create = async (dados: Omit<IMessage, 'id'>): Promise<number | Error> => {
 
 const getAllByUerId = async (user: number, page = 1): Promise<IMessageWithTotalCount | Error> => {
   try {
-    const urlRelativa = `/messages?_page=${page}&_limit=${Environtment.LIMIT_ROWS_CHAT}&userId=${user}&_sort=timeStamp&_order=asc`;
+    const urlRelativa = `/messages?_page=${page}&_limit=${Environment.LIMIT_ROWS_CHAT}&userId=${user}&_sort=timeStamp&_order=asc`;
 
     const { data, headers } = await Api.get(urlRelativa);
 
@@ -54,7 +54,7 @@ const getAllByUerId = async (user: number, page = 1): Promise<IMessageWithTotalC
 
       return {
         data: formattedData,
-        totalCount: Number(headers['x-total-count'] || Environtment.LIMIT_ROWS_CHAT),
+        totalCount: Number(headers['x-total-count'] || Environment.LIMIT_ROWS_CHAT),
       };
     }
 

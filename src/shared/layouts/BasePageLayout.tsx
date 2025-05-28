@@ -27,6 +27,11 @@ export const BasePageLayout: React.FC<IBasePageLayoutProps> = ({
 
   return (
     <Box height='100%' display="flex" flexDirection="column" gap={2}>
+      {
+        toolBar && (<Box>
+          {toolBar}
+        </Box>)
+      }
       <Box padding={1} display="flex" alignItems="center" flexWrap="wrap" height={theme.spacing(smDown ? 2 : mdDown ? 3 : 4)} gap={1}>
         {smDown && (
           <IconButton onClick={toggleDrawerOpen}>
@@ -46,11 +51,7 @@ export const BasePageLayout: React.FC<IBasePageLayoutProps> = ({
           </Breadcrumbs>
         </Box>
       </Box>
-      {
-        toolBar && (<Box>
-          {toolBar}
-        </Box>)
-      }
+      
       <Box flex={1} overflow='auto' >
         {children}
       </Box>

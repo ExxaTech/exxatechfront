@@ -3,7 +3,7 @@ import { Icon, IconButton, LinearProgress, Menu, MenuItem, Pagination, Paper, Ta
 import React, { useEffect, useMemo, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { ListTools } from "../../shared/components";
-import { Environtment } from "../../shared/environment";
+import { Environment } from "../../shared/environment";
 import { useDebounce } from "../../shared/hooks";
 import { BasePageLayout } from "../../shared/layouts";
 import { IUserList, UserServices } from "../../shared/services/api/user/UserServices";
@@ -87,8 +87,7 @@ export const UserList: React.FC = () => {
         { description: "Usuários", path: "/user" }]}
       toolBar={
         <ListTools
-          showSearchInput
-          newButtonText="Novo"
+          showSearchInput          
           searchText={busca}
           whenClickOnNew={() => navigate('/user/detalhes/nova')}
           whenChangeSearchText={texto => setSearchParams({ busca: texto, pagina: '1' }, { replace: true })}
@@ -161,7 +160,7 @@ export const UserList: React.FC = () => {
           </TableBody>
 
           {totalCount === 0 && !isLoading && (
-            <caption>{Environtment.LIST_EMPTY}</caption>
+            <caption>{Environment.LIST_EMPTY}</caption>
           )}
 
           <TableFooter>
@@ -173,13 +172,13 @@ export const UserList: React.FC = () => {
               </TableRow>
             )}
             {(totalCount > 0
-              && totalCount > Environtment.LIMIT_ROWS
+              && totalCount > Environment.LIMIT_ROWS
             ) && (
                 <TableRow>
                   <TableCell colSpan={4}>
                     <Pagination
                       page={pagina}
-                      count={Math.ceil(totalCount / Environtment.LIMIT_ROWS)}
+                      count={Math.ceil(totalCount / Environment.LIMIT_ROWS)}
                       onChange={(_, newPage) => setSearchParams({ busca, pagina: newPage.toString() }, { replace: true })}
                     />
                   </TableCell>

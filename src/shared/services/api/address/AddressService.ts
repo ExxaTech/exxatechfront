@@ -1,4 +1,4 @@
-import { Environtment } from '../../../environment';
+import { Environment } from '../../../environment';
 import { Api, ApiViaCep } from '../axios-config';
 
 export interface IAddressDetail {
@@ -30,7 +30,7 @@ type IAddressWithTotalCount = {
 
 const getAll = async (page = 1, filter = ''): Promise<IAddressWithTotalCount | Error> => {
   try {
-    const urlRelativa = `/address?_page=${page}&_limit=${Environtment.LIMIT_ROWS}&cep_like=${filter}`;
+    const urlRelativa = `/address?_page=${page}&_limit=${Environment.LIMIT_ROWS}&cep_like=${filter}`;
 
     const { data, headers } = await Api.get(urlRelativa);
 
@@ -38,7 +38,7 @@ const getAll = async (page = 1, filter = ''): Promise<IAddressWithTotalCount | E
 
       return {
         data,
-        totalCount: Number(headers['x-total-count'] || Environtment.LIMIT_ROWS),
+        totalCount: Number(headers['x-total-count'] || Environment.LIMIT_ROWS),
       };
     } else {
       const cepViaCep = await getEnderecoByViaCep(filter);
@@ -83,7 +83,7 @@ const getByCep = async (cep: string): Promise<IAddressWithTotalCount | Error> =>
     if (data[0]) {
       return {
         data,
-        totalCount: Number(headers['x-total-count'] || Environtment.LIMIT_ROWS),
+        totalCount: Number(headers['x-total-count'] || Environment.LIMIT_ROWS),
       };
     }
 

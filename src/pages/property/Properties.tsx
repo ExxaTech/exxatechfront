@@ -4,16 +4,16 @@ import { useSearchParams } from "react-router-dom";
 import { ListTools } from "../../shared/components";
 import { BasePageLayout } from "../../shared/layouts";
 import { Observable } from "../../shared/observer/Observable";
-import { IUserList } from "../../shared/services/api/user/UserServices";
-import { WppchatContatos } from "./component/WppChatContact";
-import { WppchatMessage } from "./component/WppChatMessage";
+import { IProperty } from "../../shared/services/api/property/PropertyServices";
+import { PropertiesList } from "./component/PropertiesList";
+import { PropertiesDetail } from "./component/PropertiesDetail";
 
 
-export const Wppchat: React.FC = () => {
-  const [user, setUser] = useState<IUserList>({ id: 0, name: '' });
+export const Properties: React.FC = () => {
+  const [property, setProperty] = useState<IProperty>({ id: 0, title: '' });
   const [searchParams, setSearchParams] = useSearchParams();
-  const observable = new Observable<IUserList>();
-  observable.addObserver({ update: setUser });
+  const observable = new Observable<IProperty>();
+  observable.addObserver({ update: setProperty });
 
   const busca = useMemo(() => {
     return searchParams.get('busca') || '';
@@ -23,7 +23,7 @@ export const Wppchat: React.FC = () => {
     <BasePageLayout
       navigation={[
         { description: "Inicio", path: "/" },
-        { description: "Atendimento", path: "/wppchat" }]}
+        { description: "Imóveis", path: "/property" }]}
       toolBar={
         <ListTools
           showSearchInput
@@ -38,12 +38,12 @@ export const Wppchat: React.FC = () => {
         justifyContent='flex-start'
         alignItems='stretch'
         height='-webkit-fill-available'>
-        <WppchatContatos
+        <PropertiesList
           observable={observable}
-          setUserActive={setUser} />
-        <WppchatMessage
+          setPropertyActive={setProperty} />
+        <PropertiesDetail
           observable={observable}
-          user={user} />
+          property={property} />
       </Grid>
 
     </BasePageLayout>

@@ -2,7 +2,7 @@ import { Close, Send } from "@mui/icons-material";
 import { AppBar, Avatar, Box, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, FormControl, Grid, IconButton, Input, InputAdornment, InputLabel, List, ListItem, ListItemText, Paper, Toolbar, Tooltip, Typography, useTheme } from "@mui/material";
 import { format } from "date-fns";
 import { ChangeEvent, KeyboardEvent, useEffect, useState } from "react";
-import { Environtment } from "../../../shared/environment";
+import { Environment } from "../../../shared/environment";
 import { useDebounce } from "../../../shared/hooks";
 import { IObserver, Observable } from "../../../shared/observer/Observable";
 import { IMessage, MessageServices } from "../../../shared/services/api/message/MessageServices";
@@ -28,7 +28,7 @@ interface InputValues {
 }
 
 function generateInitialChats(): ChatInput[] {
-  return Array.from({ length: Environtment.SIZE_CHAT }).map(() => ({
+  return Array.from({ length: Environment.SIZE_CHAT }).map(() => ({
     id: 0,
     name: "",
     avatar: "",
@@ -39,7 +39,7 @@ function generateInitialChats(): ChatInput[] {
 }
 
 function generateInitialInputValues(): InputValues[] {
-  return Array.from({ length: Environtment.SIZE_CHAT }).map(() => ({
+  return Array.from({ length: Environment.SIZE_CHAT }).map(() => ({
     inputValue: "",
     inputType: "text"
   }));

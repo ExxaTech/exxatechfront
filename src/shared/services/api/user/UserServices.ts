@@ -1,4 +1,4 @@
-import { Environtment } from '../../../environment';
+import { Environment } from '../../../environment';
 import { Api } from '../axios-config';
 import { IMessage } from '../message/MessageServices';
 
@@ -40,14 +40,14 @@ type IUserWithTotalCount = {
 
 const getAll = async (page = 1, filter = ''): Promise<IUserWithTotalCount | Error> => {
   try {
-    const urlRelativa = `/users?_page=${page}&_limit=${Environtment.LIMIT_ROWS}&name_like=${filter}`;
+    const urlRelativa = `/users?_page=${page}&_limit=${Environment.LIMIT_ROWS}&name_like=${filter}`;
 
     const { data, headers } = await Api.get(urlRelativa);
 
     if (data) {
       return {
         data,
-        totalCount: Number(headers['x-total-count'] || Environtment.LIMIT_ROWS_CHAT),
+        totalCount: Number(headers['x-total-count'] || Environment.LIMIT_ROWS_CHAT),
       };
     }
     return new Error('Nenhum registro encontrado para essa pesquisa');
@@ -63,9 +63,9 @@ const getUsersContact = async (busca: string, page = 1): Promise<IUserWithTotalC
     let urlRelativa = ''
 
     if (busca === '') {
-      urlRelativa = `/users?contact.phone_ne=""&_page=${page}&_limit=${Environtment.LIMIT_ROWS_CHAT}&_sort=contact.phone&_order=desc`;
+      urlRelativa = `/users?contact.phone_ne=""&_page=${page}&_limit=${Environment.LIMIT_ROWS_CHAT}&_sort=contact.phone&_order=desc`;
     } else {
-      urlRelativa = `/users?name_like=${busca}&_page=${page}&_limit=${Environtment.LIMIT_ROWS_CHAT}&_sort=contact.lastMessageTimeStamp&_order=desc`;
+      urlRelativa = `/users?name_like=${busca}&_page=${page}&_limit=${Environment.LIMIT_ROWS_CHAT}&_sort=contact.lastMessageTimeStamp&_order=desc`;
     }
 
 
@@ -74,7 +74,7 @@ const getUsersContact = async (busca: string, page = 1): Promise<IUserWithTotalC
     if (data) {
       return {
         data,
-        totalCount: Number(headers['x-total-count'] || Environtment.LIMIT_ROWS_CHAT),
+        totalCount: Number(headers['x-total-count'] || Environment.LIMIT_ROWS_CHAT),
       };
     }
     return new Error('Nenhum registro encontrado para essa pesquisa');
@@ -92,9 +92,9 @@ const getUsersWithChat = async (busca = '', page = 1): Promise<IUserWithTotalCou
     let urlRelativa = ''
 
     if (busca === '') {
-      urlRelativa = `/users?contact.lastMessageTimeStamp_ne=""&_page=${page}&_limit=${Environtment.LIMIT_ROWS_CHAT}&_sort=contact.lastMessageTimeStamp&_order=desc`;
+      urlRelativa = `/users?contact.lastMessageTimeStamp_ne=""&_page=${page}&_limit=${Environment.LIMIT_ROWS_CHAT}&_sort=contact.lastMessageTimeStamp&_order=desc`;
     } else {
-      urlRelativa = `/users?name_like=${busca}&_page=${page}&_limit=${Environtment.LIMIT_ROWS_CHAT}&_sort=contact.lastMessageTimeStamp&_order=desc`;
+      urlRelativa = `/users?name_like=${busca}&_page=${page}&_limit=${Environment.LIMIT_ROWS_CHAT}&_sort=contact.lastMessageTimeStamp&_order=desc`;
     }
 
     const { data, headers } = await Api.get(urlRelativa);
@@ -102,7 +102,7 @@ const getUsersWithChat = async (busca = '', page = 1): Promise<IUserWithTotalCou
     if (data) {
       return {
         data,
-        totalCount: Number(headers['x-total-count'] || Environtment.LIMIT_ROWS_CHAT),
+        totalCount: Number(headers['x-total-count'] || Environment.LIMIT_ROWS_CHAT),
       };
     }
     return new Error('Nenhum registro encontrado para essa pesquisa');

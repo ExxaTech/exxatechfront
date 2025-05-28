@@ -95,7 +95,7 @@ export const Dashboard = () => {
       navigation={[
         { description: "Inicio", path: "/" }]}
       toolBar={(
-        <ListTools showNewButtonText={false} />
+        <ListTools />
       )}
     >
       <Box width='100%' display='flex'>

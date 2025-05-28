@@ -6,7 +6,23 @@
       "request": "launch",
       "name": "Launch Chrome against localhost",
       "url": "http://localhost:3000",
-      "webRoot": "${workspaceFolder}"
+      "webRoot": "${workspaceFolder}",
+      "preLaunchTask": "npm: start & api"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug API Server",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "api"],
+      "port": 3333,
+      "skipFiles": ["<node_internals>/**"]
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Debug Full Application",
+      "configurations": ["Launch Chrome against localhost", "Debug API Server"]
     }
   ]
 }

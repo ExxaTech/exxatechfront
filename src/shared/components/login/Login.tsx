@@ -59,7 +59,7 @@ export const Login: React.FC<ILoginProps> = ({ children }) => {
             <Box width="100%" height={theme.spacing(10)} display="flex" alignItems="center" justifyContent="center">
               <Avatar alt="Remy Sharp"
                 sx={{ height: theme.spacing(10), width: theme.spacing(10) }}
-                src={window.location.origin + '/exxa.png'} />
+                src={window.location.origin + '/testto.png'} />
             </Box>
             <TextField
               fullWidth
