@@ -76,8 +76,8 @@ export const ListagemDeEnderecos: React.FC = () => {
           <TableHead>
             <TableRow>
               <TableCell align="left">Ações</TableCell>
-              <TableCell align="left">Logradouro</TableCell>
-              <TableCell align="left">Bairro</TableCell>
+              <TableCell align="left">street</TableCell>
+              <TableCell align="left">neighborhood</TableCell>
               <TableCell align="left">Cidade</TableCell>
               <TableCell align="left">Estado</TableCell>
               <TableCell align="left">CEP</TableCell>
@@ -94,9 +94,9 @@ export const ListagemDeEnderecos: React.FC = () => {
                     <Icon>delete</Icon>
                   </IconButton>
                 </TableCell>
-                <TableCell align="left">{row.logradouro}</TableCell>
-                <TableCell align="left">{row.bairro}</TableCell>
-                <TableCell align="left">{row.localidade}</TableCell>
+                <TableCell align="left">{row.street}</TableCell>
+                <TableCell align="left">{row.neighborhood}</TableCell>
+                <TableCell align="left">{row.city}</TableCell>
                 <TableCell align="left">{row.uf}</TableCell>
                 <TableCell align="left">{row.cep}</TableCell>
               </TableRow>

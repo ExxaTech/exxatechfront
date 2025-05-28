@@ -4,7 +4,8 @@ import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useDebounce } from "../../../shared/hooks";
 import { IObserver, Observable } from "../../../shared/observer/Observable";
-import { IProperty, PropertyServices } from "../../../shared/services/api/property/PropertyServices";
+import { PropertyServices } from "../../../shared/services/api/property/PropertyServices";
+import { IProperty } from "../../../shared/types/PropertyTypes";
 
 interface IPropertiesListProps {
   setPropertyActive: (user: IProperty) => void;
@@ -113,7 +114,7 @@ return (
                 secondaryTypographyProps={{ style: { fontSize: 12 } }}     
                 secondary={
                   <>
-                  | {row.address?.bairro}/{row.address?.localidade}   
+                  | {row.address?.neighborhood}/{row.address?.city}   
                   </>
                 }        
               />

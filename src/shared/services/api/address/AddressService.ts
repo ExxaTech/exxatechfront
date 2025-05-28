@@ -4,23 +4,23 @@ import { Api, ApiViaCep } from '../axios-config';
 export interface IAddressDetail {
   id: number;
   cep: string;
-  logradouro: string;
-  complemento: string;
-  bairro: string;
-  localidade: string;
+  street: string;
+  complement: string;
+  neighborhood: string;
+  city: string;
   uf: string;
-  numero: string;
+  number: string;
 }
 
 export interface IAddressList {
   id: number;
   cep: string;
-  logradouro: string;
-  complemento: string;
-  bairro: string;
-  localidade: string;
+  street: string;
+  complement: string;
+  neighborhood: string;
+  city: string;
   uf: string;
-  numero: string;
+  number: string;
 }
 
 type IAddressWithTotalCount = {

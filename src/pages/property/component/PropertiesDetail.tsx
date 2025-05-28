@@ -1,12 +1,7 @@
-import { Close, Send } from "@mui/icons-material";
-import { AppBar, Avatar, Box, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, FormControl, Grid, IconButton, Input, InputAdornment, InputLabel, List, ListItem, ListItemText, Paper, Toolbar, Tooltip, Typography, useTheme } from "@mui/material";
-import { format } from "date-fns";
-import { ChangeEvent, KeyboardEvent, useEffect, useState } from "react";
-import { Environment } from "../../../shared/environment";
+import { Grid, useTheme } from "@mui/material";
 import { useDebounce } from "../../../shared/hooks";
 import { IObserver, Observable } from "../../../shared/observer/Observable";
-import { IMessage, MessageServices } from "../../../shared/services/api/message/MessageServices";
-import { IProperty, PropertyServices } from "../../../shared/services/api/property/PropertyServices";
+import { IProperty } from "../../../shared/types/PropertyTypes";
 
 
 interface IPropertiesDetailProps {

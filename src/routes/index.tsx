@@ -1,6 +1,14 @@
 import { useEffect } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { Dashboard, DetalheDeEnderecos, ListagemDeEnderecos, UserDetail, UserList, Wppchat, Properties } from '../pages';
+import { Dashboard, 
+  DetalheDeEnderecos, 
+  ListagemDeEnderecos, 
+  UserDetail, 
+  UserList, 
+  Wppchat, 
+  Properties,
+  Contracts 
+} from '../pages';
 import { useDrawerContext } from '../shared/contexts';
 
 export const AppRoutes = () => {
@@ -20,7 +28,7 @@ export const AppRoutes = () => {
       },
       {
         label: 'Contratos',
-        path: '/pagina-inicial',
+        path: '/contract',
         icon: '',
       },
       {
@@ -62,6 +70,9 @@ export const AppRoutes = () => {
 
       {/* Properties */}
       <Route path="/property" element={<Properties />} />
+
+      {/* Properties */}
+      <Route path="/contract" element={<Contracts />} />
 
       {/* Usuários */}
       <Route path="/user" element={<UserList />} />

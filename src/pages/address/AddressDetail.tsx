@@ -9,21 +9,21 @@ import { AddressService } from "../../shared/services/api/address/AddressService
 
 interface IFormData {
   cep: string;
-  logradouro: string;
-  complemento: string;
-  bairro: string;
-  localidade: string;
+  street: string;
+  complement: string;
+  neighborhood: string;
+  city: string;
   uf: string;
-  numero: string;
+  number: string;
 }
 
 const formValidationSchema: yup.ObjectSchema<IFormData> = yup.object().shape({
-  complemento: yup.string().required(),
-  numero: yup.string().required(),
+  complement: yup.string().required(),
+  number: yup.string().required(),
   cep: yup.string().required(),
-  logradouro: yup.string().required(),
-  bairro: yup.string().required(),
-  localidade: yup.string().required(),
+  street: yup.string().required(),
+  neighborhood: yup.string().required(),
+  city: yup.string().required(),
   uf: yup.string().required(),
 })
 
@@ -133,7 +133,7 @@ export const DetalheDeEnderecos: React.FC = () => {
               <Grid item xs={10} sm={10} md={10} lg={10} xl={5}>
                 <VTextField
                   fullWidth
-                  name='logradouro'
+                  name='street'
                   disabled={true}
                   label='Endereço'
                 />
@@ -141,9 +141,9 @@ export const DetalheDeEnderecos: React.FC = () => {
               <Grid item xs={2} sm={2} md={2} lg={2} xl={1}>
                 <VTextField
                   fullWidth
-                  name='numero'
+                  name='number'
                   disabled={false}
-                  label='Numero'
+                  label='number'
                 />
               </Grid>
             </Grid>
@@ -153,23 +153,23 @@ export const DetalheDeEnderecos: React.FC = () => {
               <Grid item xs={3} sm={3} md={3} lg={3} xl={3}>
                 <VTextField
                   fullWidth
-                  name='complemento'
+                  name='complement'
                   disabled={false}
-                  label='Complemento'
+                  label='complement'
                 />
               </Grid>
               <Grid item xs={3} sm={3} md={3} lg={3} xl={3}>
                 <VTextField
                   fullWidth
-                  name='bairro'
+                  name='neighborhood'
                   disabled={true}
-                  label='Bairro'
+                  label='neighborhood'
                 />
               </Grid>
               <Grid item xs={3} sm={3} md={3} lg={3} xl={3}>
                 <VTextField
                   fullWidth
-                  name='localidade'
+                  name='city'
                   disabled={true}
                   label='Cidade'
                 />

@@ -4,7 +4,7 @@ import { useSearchParams } from "react-router-dom";
 import { ListTools } from "../../shared/components";
 import { BasePageLayout } from "../../shared/layouts";
 import { Observable } from "../../shared/observer/Observable";
-import { IProperty } from "../../shared/services/api/property/PropertyServices";
+import { IProperty } from "../../shared/types/PropertyTypes";
 import { PropertiesList } from "./component/PropertiesList";
 import { PropertiesDetail } from "./component/PropertiesDetail";
 
