@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material";
+import { Card, CardContent, Grid } from "@mui/material";
 import { useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { BasePageLayout } from "../../shared/layouts";
@@ -47,9 +47,18 @@ export const RentalCalendar: React.FC = () => {
           partnerTypeFilter={['DIRECT', 'AIRBNB', 'OTHERS']}
         />
         
-        <RentalCalendarDetail
-          property={property}
-        />
+        <Grid container  paddingX={2} mt={1}>
+          <Grid item xs={12} md={9}>
+            <Card sx={{ height: "100%" }}>
+              <CardContent>
+                <RentalCalendarDetail
+                    property={property}
+                />
+              </CardContent>
+            </Card>
+          </Grid>
+        </Grid>
+        
       </Grid>
     </BasePageLayout>
   );

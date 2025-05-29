@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material";
+import { Card, CardContent, Grid } from "@mui/material";
 import { useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { ListTools } from "../../shared/components";
@@ -41,9 +41,22 @@ export const Properties: React.FC = () => {
         <PropertiesList
           observable={observable}
           setPropertyActive={setProperty} />
-        <PropertiesDetail
-          observable={observable}
-          property={property} />
+
+        
+
+          <Grid container  paddingX={2} mt={1}>
+            <Grid item xs={12} md={9}>
+              <Card sx={{ height: "100%" }}>
+                <CardContent>
+                  <PropertiesDetail
+                    observable={observable}
+                    property={property} />
+                </CardContent>
+              </Card>
+            </Grid>
+          </Grid>
+
+
       </Grid>
 
     </BasePageLayout>

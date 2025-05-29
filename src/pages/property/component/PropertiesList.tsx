@@ -61,9 +61,14 @@ export const PropertiesList: React.FC<IPropertiesListProps> = ({ observable, set
     });
   }, [busca]);
 
-  const handleClick = (property: IProperty) => {
-    setPropertyActive(property);
+  const handleClick = async (property: IProperty) => {
+    const fullProperty = await PropertyServices.getById(property.id);
+    if (!(fullProperty instanceof Error)) {
+      setPropertyActive(fullProperty);
+      observable.notifyObservers(fullProperty);
+    }
   };
+
 
   function handleDate(date?: string) {
     let formatDate = '';

@@ -5,6 +5,7 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 import { IProperty } from "../../../shared/types/PropertyTypes";
 import { CalendarEvent } from "../../../shared/types/RentalEvent";
 import { RentalEventService } from "../../../shared/services/api/rental-event/RentalEventService";
+import { Grid, Typography } from "@mui/material";
 
 interface IRentalCalendarDetailProps {
   property: IProperty | null;
@@ -45,8 +46,14 @@ export const RentalCalendarDetail: React.FC<IRentalCalendarDetailProps> = ({ pro
       .finally(() => setLoading(false));
   }, [property]);
 
-  if (!property) {
-    return <div style={{ padding: 20 }}>Selecione uma propriedade para ver o calendário.</div>;
+  if (!property || property.id === 0) {
+    return (
+      <Grid item xs>
+        <Typography variant="h6" sx={{ m: 2 }}>
+          Selecione um imóvel para visualizar o Calendario
+        </Typography>
+      </Grid>
+    );
   }
 
   return (
