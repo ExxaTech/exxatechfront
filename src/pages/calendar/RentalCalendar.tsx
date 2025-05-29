@@ -6,6 +6,7 @@ import { Observable } from "../../shared/observer/Observable";
 import { IProperty } from "../../shared/types/PropertyTypes";
 import { PropertiesList } from "./component/PropertiesList";
 import { RentalCalendarDetail } from "./component/RentalCalendarDetail";
+import { ListTools } from "../../shared/components";
 
 export const RentalCalendar: React.FC = () => {
   const [property, setProperty] = useState<IProperty | null>(null);
@@ -23,8 +24,13 @@ export const RentalCalendar: React.FC = () => {
         { description: "Inicio", path: "/" },
         { description: "Calendário", path: "/rental-calendar" }]}
       toolBar={
-        // Pode reaproveitar ListTools ou criar barra de busca simples
-        null
+              <ListTools
+                showSearchInput
+                searchText={busca}
+                whenChangeSearchText={(texto) =>
+                  setSearchParams({ busca: texto, pagina: "1" }, { replace: true })
+                }
+              />            
       }
     >
       <Grid container
