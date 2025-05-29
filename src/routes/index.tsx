@@ -7,7 +7,8 @@ import { Dashboard,
   UserList, 
   Wppchat, 
   Properties,
-  Contracts 
+  Contracts ,
+  RentalCalendar
 } from '../pages';
 import { useDrawerContext } from '../shared/contexts';
 
@@ -23,7 +24,7 @@ export const AppRoutes = () => {
       },
       {
         label: 'Calendário',
-        path: '/pagina-inicial',
+        path: '/calendar',
         icon: '',
       },
       {
@@ -59,6 +60,9 @@ export const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/pagina-inicial" element={<Dashboard />} />
+
+      {/* Calendário */}
+      <Route path="/calendar" element={<RentalCalendar />} />
 
       {/* Endereços */}
 

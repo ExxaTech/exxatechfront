@@ -1284,7 +1284,74 @@
         }
       ]
     }
+  ],
+  "rental-events": [
+    {
+      "id": 101,
+      "title": "Reserva do Apê Grigio",
+      "property": {
+        "id": "apt-grigio",
+        "name": "Apto Grigio",
+        "type": "apartment",
+        "color": "#FF6D00"
+      },
+      "platform": "Airbnb",
+      "guestName": "Mariana Souza",
+      "guestPhone": "+55 11 91234-5678",
+      "guestEmail": "mariana@email.com",
+      "start": "2025-06-10T14:00:00",
+      "end": "2025-06-15T11:00:00",
+      "totalNights": 5,
+      "amountPaid": 1200,
+      "amountDue": 0,
+      "paymentStatus": "paid",
+      "paymentMethod": "pix",
+      "notes": "Chegada após as 14h, late check-out possível",
+      "createdAt": "2025-05-01T10:00:00"
+    },
+    {
+      "id": 102,
+      "title": "Evento Casamento Silva",
+      "property": {
+        "id": "salão-miralis",
+        "name": "Salão Miralis",
+        "type": "eventHall",
+        "color": "#FF5252"
+      },
+      "platform": "Salão de Festas",
+      "guestName": "Lucas Silva",
+      "guestPhone": "+55 19 98765-4321",
+      "guestEmail": "lucas.silva@email.com",
+      "start": "2025-07-20T18:00:00",
+      "end": "2025-07-21T02:00:00",
+      "eventType": "WEDDING",
+      "totalGuests": 150,
+      "amountPaid": 5000,
+      "amountDue": 1000,
+      "paymentStatus": "partial",
+      "paymentMethod": "bank_transfer",
+      "notes": "Evento com buffet incluso, verificar decoração",
+      "createdAt": "2025-05-15T09:30:00"
+    },
+    {
+      "id": 103,
+      "title": "Reserva Casa Amarela",
+      "property": {
+        "id": "casa-amarela",
+        "name": "Casa Amarela",
+        "type": "house",
+        "color": "#2E7D32"
+      },
+      "platform": "Manual",
+      "guestName": "Renata Oliveira",
+      "start": "2025-08-01T15:00:00",
+      "end": "2025-08-15T11:00:00",
+      "totalNights": 14,
+      "amountPaid": 2000,
+      "amountDue": 1000,
+      "paymentStatus": "pending",
+      "notes": "Sem pets, verificar limpeza antes da chegada",
+      "createdAt": "2025-06-20T11:00:00"
+    }
   ]
-
-
 }
